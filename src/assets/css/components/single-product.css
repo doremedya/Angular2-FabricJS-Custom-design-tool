@@ -1,0 +1,661 @@
+.ui-single-product .ui-main-body {
+    padding: 2.778em 1.5em;
+    position: relative;
+}
+
+.ui-dash-header {
+    text-transform: uppercase;
+    font-size: 1.667em;
+    color: #193e55;
+}
+
+.ui-single-product .ui-main-body .ui-strike-off {
+    font-size: 1.111em;
+    color: #b9b9b9;
+    text-decoration: line-through;
+}
+
+.ui-single-product .ui-main-body .ui-price {
+    color: #32c3ff;
+    font-size: 1.667em;
+}
+
+.ui-single-product .ui-main-body .ui-title p {
+    font-size: 1.111em;
+    color: #444444;
+}
+
+.ui-single-product .ui-main-body .ui-title {
+    margin-bottom: 2.778em;
+}
+
+.ui-single-product .ui-right-title .nav-link {
+    font-size: 1em !important;
+    color: #2d9735 !important;
+}
+
+.ui-single-product .ui-right-title .nav-link.active {
+    color: #444444 !important;
+}
+
+.ui-single-product .nav-link p {
+    margin-bottom: 0;
+    line-height: 1.1;
+    text-transform: none;
+    padding: 0 20%;
+}
+
+.ui-single-product .ui-sp-title {
+    min-height: 4.444em;
+}
+
+.ui-single-product .ui-options {
+    padding: 2.778em 1.667em;
+    text-align: left;
+}
+
+.ui-single-product .ui-left-title {
+    font-size: 1.667em;
+    text-align: left;
+    border-bottom: 0;
+    padding: 1em;
+    border-right: 1px solid #d4d4d4;
+    border-top: 1px solid #d4d4d4;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ui-single-product .ui-options .ui-sub-title {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #444444;
+}
+
+.ui-single-product .ui-layout-choice .form-check {
+    background-color: #ffffff;
+}
+
+.ui-single-product .ui-layout-choice .form-check {
+    height: auto;
+    padding: 15px 5px;
+}
+
+.ui-single-product .form-check:hover, .ui-single-product .form-check.active {
+    background: #dfdfdf;
+}
+
+.ui-single-product #ui-quantity {
+    border-radius: 0;
+    height: 48px;
+}
+
+.ui-single-product .ui-main-footer {
+    border-top: 1px solid #d4d4d4;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.ui-single-product .ui-main-footer i {
+    padding: 0;
+    margin: 0 0 0 5px;
+    font-size: 0.80em;
+}
+
+.ui-single-product .fa-chevron-right {
+    font-size: 0.8em;
+}
+
+.ui-single-product small {
+    font-size: 70% !important;
+    text-align: center;
+}
+
+.ui-rotator {
+    margin: 4.444em 0;
+    padding-bottom: 1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.ui-flip-card {
+    margin: 0 auto;
+    position: relative;
+    font-size: .8em;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+}
+
+.ui-flip-card .ui-front {
+    top: 0;
+    z-index: 900;
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+    -o-transition: all ease;
+    -ms-transition: all ease;
+    -moz-transition: all ease;
+    -webkit-transition: all ease;
+    transition: all ease;
+}
+
+.ui-flip-card .ui-back {
+    position: absolute;
+    top: 0;
+    z-index: 800;
+    max-width: 100%;
+    max-height: 100%;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-transform: rotateX(0deg) rotateY(-180deg);
+    -moz-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+    -o-transition: all ease;
+    -ms-transition: all ease;
+    -moz-transition: all ease;
+    -webkit-transition: all ease;
+    transition: all ease;
+}
+
+.ui-flip-card .ui-ranger {
+    position: relative;
+}
+
+.rangeslider--horizontal {
+    height: 10px;
+}
+
+.rangeslider__handle,
+.rangeslider--active .rangeslider__handle {
+    background: url(../../images/slider-handle.png) no-repeat center center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+.rangeslider__fill {
+    background: #6c757d;
+}
+
+.ui-checkbox-label {
+    margin-left: 10px;
+    margin-bottom: 0;
+    clear: both;
+    cursor: pointer;
+}
+
+.ui-product-popup .modal-body {
+    padding: 20px 50px;
+}
+
+.ui-product-popup .ui-layout-choice .form-check {
+    padding: 0px 0;
+    border: 1px solid #949494;
+    margin-bottom: 0;
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+}
+
+.ui-product-popup .ui-layout-choice .form-check .ui-border-bottom {
+    display: none;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    background: #4e961a;
+}
+
+.ui-product-popup .form-check:hover, .ui-product-popup .form-check.active {
+    background: #dfdfdf;
+}
+
+.ui-product-popup .ui-layout-choice .form-check.active .ui-border-bottom,
+.ui-product-popup .form-check:hover .ui-border-bottom {
+    display: block;
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    
+    .ui-single-product .ui-main-footer {
+        position: relative;
+    }
+
+    .ui-btn-black-lg,  .ui-rm-btm {
+        width: 100%;
+    }
+
+    .ui-product-hero {
+        padding: 20px;
+    }
+
+    .ui-product-hero .ui-text {
+        width: 100%;
+    }
+
+    .ui-product-lists .ui-text {
+        width: 100%;
+    }
+
+    #notifications {
+        width: 100% !important;
+    }
+
+    #notifications ul li.ui-icon {
+        width: auto;
+        padding: 0 1em;
+        border-right: none;
+    }
+
+    .ui-get-started {
+        padding: 0 30px 40px !important;
+    }
+
+    .ui-offerings {
+        padding: 15px;
+    }
+
+    .ui-single-product .ui-main-footer {
+        display: block !important;
+    }
+
+    .ui-single-product .ui-main-footer .form-check {
+        margin: 10px 0 20px;
+    }
+
+    .ui-product-lists .modal .btn-green {
+        padding: 10px 0;
+    }
+
+    .ui-single-product .ui-options, .ui-single-product .ui-main-body {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .ui-single-product .ui-main-body .ui-title p {
+        text-align: center !important;
+    }
+
+    .ui-single-product .ui-main-body .ui-title {
+        margin-bottom: 30px;
+    }
+
+    .ui-single-product .ui-rotator {
+        margin: 40px 0;
+    }
+
+}
+
+
+@media screen and (min-width: 1200px) {
+    .ui-single-product .ui-left-title {
+        padding: 0 0 0 1em;
+        border-bottom: 5px solid #f38112;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .ui-single-product .ui-container {
+        width: 57em;
+    }
+}
+
+/* ----------------------------------------------
+    Print Builder Style (Marek 2017-09-14)
+ ---------------------------------------------- */
+#print-builder .nav-link {
+    color: #444!important;
+    padding: 20px 0;
+    font-size: 1.2em!important;
+    text-transform: uppercase;
+    background: #d3d3d3;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+#print-builder .nav-link.active {
+    background: #efefef;
+}
+
+#print-builder .nav-link i {
+    margin-right: 3px;
+}
+
+#print-builder .panel-left {
+    float: left;
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0;
+}
+
+#print-builder .section {
+    width: 100%;
+    padding: 20px 30px 30px;
+    position: relative;
+    display: inline-block;
+}
+
+#print-builder .section label {
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: #444;
+}
+
+#print-builder .section:after {
+    content: '';
+    width: 150px;
+    height: 1px;
+    background: #ababab;
+    margin: auto;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#print-builder .section.actions button{
+    float: left;
+    width: calc(50% - 10px);
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid #ababab;
+    color: #444;
+    height: 45px;
+    font-size: 1.2em;
+}
+
+#print-builder .section.actions button:last-child{
+    float: right;
+}
+
+#print-builder .section.actions button i{
+    margin-right: 5px;
+}
+
+#print-builder .section.label .label-text{
+    border-radius: 0;
+    font-size: 1.2em;
+    color: #444;
+    height: 45px;
+}
+
+#print-builder .section.label button {
+    padding: 0 20px;
+    height: 45px;
+    border-radius: 0;
+    line-height: unset;
+    color: white;
+    text-transform: uppercase;
+    background: #9c9c9c;
+}
+
+#print-builder .section label span {
+    text-transform: capitalize;
+}
+
+#print-builder .section.edit-text select.form-control {
+    height: 45px;    
+    border-radius: 0;
+    font-size: 1.2em;
+}
+
+select:not([multiple]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAP1BMVEUAAABERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERESe+5DGAAAAFHRSTlMAAQMFHR40ODk6O0FfqKrKzM75+5C9CoQAAAA/SURBVAhbY2AgCXCzwVgsPECCV4QdwmMV4mdkYGDkE+GA8ASYQTSQz4nggflcCB6YLywI54H4yDwgn4mBdAAA0/AB43Qzbm0AAAAASUVORK5CYII=);
+    padding: .5em;
+    padding-right: 1.5em
+}
+
+#print-builder .section.edit-text #ui-font-size {
+    width: calc(50% - 10px);
+    float: left;
+    margin-top: 20px;
+}
+
+#print-builder .section.edit-text #ui-font-color {
+    position: relative;
+    width: calc(50% - 10px);
+    float: right;
+    margin-top: 20px;
+}
+
+#print-builder .section.edit-text #ui-font-color .color-selector {
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAP1BMVEUAAABERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERESe+5DGAAAAFHRSTlMAAQMFHR40ODk6O0FfqKrKzM75+5C9CoQAAAA/SURBVAhbY2AgCXCzwVgsPECCV4QdwmMV4mdkYGDkE+GA8ASYQTSQz4nggflcCB6YLywI54H4yDwgn4mBdAAA0/AB43Qzbm0AAAAASUVORK5CYII=);
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    display: inline-block;
+    float: left;
+}
+
+#print-builder .section.edit-text #ui-font-color span {
+    width: calc(100% - 30px);
+    height: 30px;
+    display: inline-block;
+    float: left;
+    border: 1px solid #ababab;
+}
+
+#print-builder .section.edit-text #ui-font-color ul {
+    list-style: none;
+    padding: 15px;
+    float: left;
+    width: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    background: white;
+    position: absolute;
+    top: 46px;
+    left: 0;
+    z-index: 10;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ababab;
+    cursor: pointer;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li#white,
+#print-builder .section.edit-text #ui-font-color .color-selector #white {
+    background: white;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li#yellow,
+#print-builder .section.edit-text #ui-font-color .color-selector #yellow {
+    background: yellow;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li#orange,
+#print-builder .section.edit-text #ui-font-color .color-selector #orange {
+    background: orange;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li#green, 
+#print-builder .section.edit-text #ui-font-color .color-selector #green {
+    background: green;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li#blue, 
+#print-builder .section.edit-text #ui-font-color .color-selector #blue {
+    background: blue;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li#red,
+#print-builder .section.edit-text #ui-font-color .color-selector #red {
+    background: red;
+}
+
+#print-builder .section.edit-text #ui-font-color ul li#black,
+#print-builder .section.edit-text #ui-font-color .color-selector #black {
+    background: black;
+}
+
+#print-builder .section.edit-text #ui-font-style {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#print-builder .section.edit-text #ui-font-style ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    padding: 0;
+    justify-content: space-between;
+    margin: 0;
+}
+
+#print-builder .section.edit-text #ui-font-style ul li {
+    float: left;
+    height: 45px;
+    border: 1px solid rgba(0,0,0,.15);
+    padding: 0 30px;
+    line-height: 45px;
+    background: white;
+    cursor: pointer;
+}
+
+#print-builder .section.edit-text #ui-font-style ul li.active,
+#print-builder .section.edit-text #ui-font-style ul li:hover,
+#print-builder .section.edit-text #ui-font-style ul li:focus {
+    border-bottom: 3px solid #f38112;
+    background: #dfdfdf;
+}
+
+#print-builder .section.add-element:after {
+    display: none;
+}
+
+#print-builder .section.add-element ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+}
+
+#print-builder .section.add-element ul li {
+    width: 130px;
+    display: inline-block;
+}
+
+#print-builder .section.add-element ul li a{
+    width: 100%;
+    height: 45px;
+    border: 1px solid rgba(0,0,0,.15);
+    background: white;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 45px;
+    font-size: 1.2em;
+}
+
+#print-builder .section.add-element ul li span {
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+#print-builder .section.add-element ul li.active a,
+#print-builder .section.add-element ul li a:hover,
+#print-builder .section.add-element ul li a:focus {
+    border-bottom: 3px solid #f38112;   
+}
+
+#print-builder #canvas {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #444;
+}
+
+#print-builder .design-panel {
+    padding: 15px 30px;
+    display: inline-block;
+}
+
+#print-builder .design-panel ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#print-builder .design-panel ul li {
+    width: 33.33%;
+    float: left;
+}
+
+#print-builder .design-panel ul li:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#print-builder .design-panel ul li img {
+    width: 100%;
+}
+
+#print-builder .design-panel ul li:nth-child(3n+1){
+    clear: both;
+}
+
+#print-builder .layout-panel {
+    padding: 0 30px; 
+}
+
+#print-builder .layout-panel h3 {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+#print-builder .layout-panel .ui-layout-choice .form-check {
+    padding: 0px 0;
+    border: 1px solid #949494;
+    margin-bottom: 0;
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+}
+
+#print-builder .layout-panel .ui-layout-choice .form-check .ui-border-bottom {
+    display: none;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    background: #4e961a;
+}
+
+#print-builder .layout-panel .form-check:hover, .ui-product-popup .form-check.active {
+    background: #f2f2f2;
+}
+
+#print-builder .layout-panel  .ui-layout-choice .form-check.active .ui-border-bottom,
+#print-builder .layout-panel  .form-check:hover .ui-border-bottom {
+    display: block;
+
+}

@@ -1,0 +1,154 @@
+<div id="print-builder" class="row no-gutters">
+    <div class="col-md-4 ui-bg-light-grey">
+    	<nav class="nav nav-pills nav-justified ui-right-title flex-lg-nowrap">
+    		<a class="nav-item nav-link" (click)="leftPanel='designs'" [ngClass]="{'active': leftPanel==='designs'}"><i class="fa fa-paint-brush"></i>Designs</a>
+    		<a class="nav-item nav-link" (click)="leftPanel='edit'" [ngClass]="{'active': leftPanel==='edit'}"><i class="fa fa-edit"></i>Edit</a>
+    		<a class="nav-item nav-link" (click)="leftPanel='layouts'" [ngClass]="{'active': leftPanel==='layouts'}"><i class="fa fa-object-group"></i>Layouts</a>
+    	</nav>
+    	<div class="panel-left">
+	    	<div class="design-panel" [hidden]="leftPanel!='designs'">
+	    		<ul>
+	    			<li class="designs"><img src="/assets/images/temp/El Capitan 2.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/El Capitan.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Sierra 2.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Sierra.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Wave.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Yosemite 2.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Yosemite 3.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Yosemite 4.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Yosemite 5.jpg"></li>
+	    			<li class="designs"><img src="/assets/images/temp/Yosemite.jpg"></li>
+	    		</ul>
+	    	</div>
+	    	<div class="edit-panel" [hidden]="leftPanel!='edit'">
+	    		<div class="actions section col-md-12">
+	    			<label>Actions</label>
+	    			<button id="undo" class="btn btn-default"><i class="fa fa-undo"></i>Undo</button>
+	    			<button id="redo" class="btn btn-default"><i class="fa fa-rotate-right"></i>Redo</button>
+	    		</div>
+	    		<div class="label section col-md-12">
+	    			<label>Label</label>
+	    			<div class="input-group">
+						<input type="text" class="form-control label-text" placeholder="label...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Save</button>
+						</span>
+				    </div><!-- /input-group -->
+	    		</div>
+	    		<div class="edit-text section col-md-12">
+	    			<label>Edit Text: <span>John Doe</span></label>
+	    			<select class="form-control" id="ui-fonts">
+						<option value="Arial">Font: Arial</option>
+						<option value="Helvetica">Font: Helvetica</option>
+						<option value="Myriad Pro">Font: Myriad Pro</option>
+						<option value="Delicious">Font: Delicious</option>
+						<option value="Verdana">Font: Verdana</option>
+	                </select>
+	                <select class="form-control" id="ui-font-size">
+						<option value="12">Size: 12pt</option>
+						<option value="14">Size: 14pt</option>
+						<option value="16">Size: 16pt</option>
+						<option value="18">Size: 18pt</option>
+						<option value="20">Size: 20pt</option>						
+	                </select>
+	                <div id="ui-font-color">
+	                	<div class="color-selector form-control" (click)="isColorOpt==true? isColorOpt=false : isColorOpt=true">
+	                		<span [attr.id]="colorId" class="selected-color"></span>
+	                	</div>
+	                	<ul class="colors" [hidden]="!isColorOpt">
+	                		<li id="white" class="color-option" (click)="colorId='white'; isColorOpt=!isColorOpt"></li>
+	                		<li id="yellow" class="color-option" (click)="colorId='yellow'; isColorOpt=!isColorOpt"></li>
+	                		<li id="orange" class="color-option" (click)="colorId='orange'; isColorOpt=!isColorOpt"></li>
+	                		<li id="green" class="color-option" (click)="colorId='green'; isColorOpt=!isColorOpt"></li>
+	                		<li id="blue" class="color-option" (click)="colorId='blue'; isColorOpt=!isColorOpt"></li>
+	                		<li id="red" class="color-option" (click)="colorId='red'; isColorOpt=!isColorOpt"></li>
+	                		<li id="black" class="color-option" (click)="colorId='black'; isColorOpt=!isColorOpt"></li>
+	                	</ul>
+	                </div>	                	
+	                <div id="ui-font-style">
+	                	<ul>
+	                		<li><i class="fa fa-align-left"></i></li>
+	                		<li><i class="fa fa-align-center"></i></li>
+	                		<li><i class="fa fa-align-right"></i></li>
+	                		<li id="bold"><i class="fa fa-bold"></i></li>
+	                		<li id="italic"><i class="fa fa-italic"></i></li>
+	                	</ul>
+	                </div>
+                </div>
+	    		<div class="add-element section col-md-12">
+	    			<label>Add Elements</label>
+	    			<ul>
+	    				<li><a><i class="fa fa-image"></i></a><span>Add Images</span></li>
+	    				<li><a id="addText"><i class="fa fa-font"></i></a><span>Add Text</span></li>
+	    				<li><a><i class="fa fa-home"></i></a><span>Add From Listing</span></li>
+	    			</ul>
+	    		</div>
+	    	</div>
+	    	<div class="layout-panel" [hidden]="leftPanel!='layouts'">
+	    		<div class="ui-layout-choice mt-40">
+                    <h3>Layout</h3>
+                    <div class="row no-gutters justify-content-center align-items-center">
+                        <div class="col-md-6">
+                            <div class="form-check active d-flex align-items-center justify-content-center">
+                                <input type="hidden" value="horizontal" id="layout-checkbox1" name="">
+                                <div class="ui-h-box"></div>
+                                <p class="ui-checkbox-label">Horizontal</p>
+                                <div class="ui-border-bottom"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check d-flex align-items-center justify-content-center">
+                                <input type="hidden" value="vertical" id="layout-checkbox2" name="">
+                                <div class="ui-v-box"></div>
+                                <p class="ui-checkbox-label">Vertical</p>
+                                <div class="ui-border-bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="ui-layout-choice mt-40">
+                    <h3>Size</h3>
+
+                    <div class="row no-gutters justify-content-center align-items-center">
+                        <div class="col-md-4">
+                            <div class="form-check active d-flex align-items-center justify-content-center">
+                                <input type="hidden" value="small" id="layout-checkbox1" name="">
+                                <div class="ui-s-box"></div>
+                                <p class="ui-checkbox-label">Small <br/> 6" x 4"</p>
+                                <div class="ui-border-bottom"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check d-flex align-items-center justify-content-center">
+                                <input type="hidden" value="medium" id="layout-checkbox2" name="">
+                                <div class="ui-m-box"></div>
+                                <p class="ui-checkbox-label">Medium <br/> 6" x 4
+                                <div class="ui-border-bottom"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check d-flex align-items-center justify-content-center">
+                                <input type="hidden" value="large" id="layout-checkbox2" name="">
+                                <div class="ui-l-box"></div>
+                                <p class="ui-checkbox-label">Large <br/> 6" x 4"</p>
+                                <div class="ui-border-bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	    	</div>	
+    	</div>    	
+    </div>
+    <div class="col">
+    	<div class="ui-main-body">    	
+	    	<dir class="canvas">
+	    		<canvas id="canvas"></canvas>
+	    	</dir>    		
+    	</div>
+    	<div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end">
+    		
+    	</div>
+    </div>
+</div>
