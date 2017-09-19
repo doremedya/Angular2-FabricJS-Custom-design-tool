@@ -604,7 +604,7 @@ select:not([multiple]) {
 }
 
 #print-builder .design-panel ul li {
-    width: 33.33%;
+    width: 50%;
     float: left;
 }
 
@@ -617,7 +617,7 @@ select:not([multiple]) {
     width: 100%;
 }
 
-#print-builder .design-panel ul li:nth-child(3n+1){
+#print-builder .design-panel ul li:nth-child(2n+1){
     clear: both;
 }
 

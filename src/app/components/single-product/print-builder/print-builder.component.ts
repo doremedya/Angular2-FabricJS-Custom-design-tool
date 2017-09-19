@@ -57,6 +57,8 @@ console.log($('#print-builder .col').height());
 	});
 
 	$("#undo").click(function() {
+		console.log(mods);
+		console.log(state);
 		if (mods < state.length) {
 	        canvas.clear().renderAll();
 	        canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
@@ -123,6 +125,33 @@ console.log($('#print-builder .col').height());
 		var activeObject = canvas.getActiveObject();
 		if (activeObject && activeObject.type === 'i-text') {
 			activeObject.fontStyle = (activeObject.fontStyle == 'italic' ? '' : 'italic');		    
+			canvas.renderAll();
+			updateModifications(true);
+		}
+	})
+
+	$("#align-left").click(function() {
+		var activeObject = canvas.getActiveObject();
+		if (activeObject && activeObject.type === 'i-text') {
+			activeObject.textAlign = (activeObject.textAlign == 'left' ? '' : 'left');		    
+			canvas.renderAll();
+			updateModifications(true);
+		}
+	})
+
+	$("#align-center").click(function() {
+		var activeObject = canvas.getActiveObject();
+		if (activeObject && activeObject.type === 'i-text') {
+			activeObject.textAlign = (activeObject.textAlign == 'center' ? '' : 'center');		    
+			canvas.renderAll();
+			updateModifications(true);
+		}
+	})
+
+	$("#align-right").click(function() {
+		var activeObject = canvas.getActiveObject();
+		if (activeObject && activeObject.type === 'i-text') {
+			activeObject.textAlign = (activeObject.textAlign == 'right' ? '' : 'right');		    
 			canvas.renderAll();
 			updateModifications(true);
 		}
