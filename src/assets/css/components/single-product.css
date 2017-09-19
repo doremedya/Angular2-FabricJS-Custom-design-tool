@@ -640,6 +640,10 @@ select:not([multiple]) {
     position: relative;
 }
 
+#print-builder .layout-panel .ui-layout-choice .form-check .vertical-window {
+    transform: rotate(90deg);
+}
+
 #print-builder .layout-panel .ui-layout-choice .form-check .ui-border-bottom {
     display: none;
     width: 100%;

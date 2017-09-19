@@ -36,12 +36,21 @@ function updateModifications(savehistory) {
 
 $(document).ready(function() {
 console.log($('#print-builder .col').height());	
+	var originalCanvasWidth = canvas.width
+	var originalCanvasHeight = canvas.height
 	$(".design-panel ul li.designs").click(function() {
 		var bgImage = $(this).find('img').attr('src');
 		canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
 		    backgroundImageOpacity: 0.5,
-		    backgroundImageStrech: true
+		   	backgroundImageStrech: true,
+		   	top: 0,
+            left: 0,
+            originX: 'left',
+            originY: 'top',
+            width: canvas.width,
+   			height: canvas.height,
 		});
+		canvas.renderAll();
 	})
 
 	$("#addText").click(function() {
@@ -57,8 +66,6 @@ console.log($('#print-builder .col').height());
 	});
 
 	$("#undo").click(function() {
-		console.log(mods);
-		console.log(state);
 		if (mods < state.length) {
 	        canvas.clear().renderAll();
 	        canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
@@ -154,6 +161,35 @@ console.log($('#print-builder .col').height());
 			activeObject.textAlign = (activeObject.textAlign == 'right' ? '' : 'right');		    
 			canvas.renderAll();
 			updateModifications(true);
+		}
+	})
+
+	$("#layout-checkbox1").click(function() {
+		var activeObject = canvas.getActiveObject();
+		var canvasWidth = canvas.width
+		var canvasHeight = canvas.height
+		if(originalCanvasWidth == canvasWidth) {
+			if(canvasWidth < canvasHeight) {			
+				canvas.setHeight(canvasWidth / 2);
+		     	canvas.setWidth(canvasHeight / 2);
+			} else {
+				canvas.setHeight(canvasWidth);
+		     	canvas.setWidth(canvasHeight);
+			}
+		}
+		
+	})
+
+	$("#layout-checkbox2").click(function() {
+		var activeObject = canvas.getActiveObject();
+		var canvasWidth = canvas.width
+		var canvasHeight = canvas.height
+		if(originalCanvasWidth == canvasWidth) {
+			canvas.setHeight(canvasHeight);
+     		canvas.setWidth(canvasWidth);
+		} else {
+			canvas.setHeight(canvasWidth * 2);
+     		canvas.setWidth(canvasHeight * 2);
 		}
 	})
 })
