@@ -181,7 +181,7 @@ console.log($('#print-builder .col').height());
 	})
 
 	$("#layout-checkbox2").click(function() {
-		var activeObject = canvas.getActiveObject();
+		/*var activeObject = canvas.getActiveObject();
 		var canvasWidth = canvas.width
 		var canvasHeight = canvas.height
 		if(originalCanvasWidth == canvasWidth) {
@@ -190,7 +190,25 @@ console.log($('#print-builder .col').height());
 		} else {
 			canvas.setHeight(canvasWidth * 2);
      		canvas.setWidth(canvasHeight * 2);
-		}
+		}*/
+		canvas.setHeight(originalCanvasHeight);
+     	canvas.setWidth(originalCanvasWidth);
+	})
+
+	$("#size-checkbox1").click(function() {
+		canvas.setHeight(originalCanvasHeight * 0.3);
+		canvas.setWidth(originalCanvasWidth * 0.3);
+		
+	})
+
+	$("#size-checkbox2").click(function() {
+		canvas.setHeight(originalCanvasHeight * 0.6);
+		canvas.setWidth(originalCanvasWidth * 0.6);
+	})
+
+	$("#size-checkbox3").click(function() {
+		canvas.setHeight(originalCanvasHeight);
+		canvas.setWidth(originalCanvasWidth);
 	})
 })
 
