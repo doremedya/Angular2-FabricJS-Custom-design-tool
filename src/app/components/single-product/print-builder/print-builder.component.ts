@@ -35,9 +35,10 @@ function updateModifications(savehistory) {
 }
 
 $(document).ready(function() {
-console.log($('#print-builder .col').height());	
+	console.log($('#print-builder .col').height());	
 	var originalCanvasWidth = canvas.width
 	var originalCanvasHeight = canvas.height
+	var layoutHorizontal = false
 	$(".design-panel ul li.designs").click(function() {
 		var bgImage = $(this).find('img').attr('src');
 		canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
@@ -168,7 +169,8 @@ console.log($('#print-builder .col').height());
 		var activeObject = canvas.getActiveObject();
 		var canvasWidth = canvas.width
 		var canvasHeight = canvas.height
-		if(originalCanvasWidth == canvasWidth) {
+		if(!layoutHorizontal) {
+			layoutHorizontal = true
 			if(canvasWidth < canvasHeight) {			
 				canvas.setHeight(canvasWidth / 2);
 		     	canvas.setWidth(canvasHeight / 2);
@@ -181,7 +183,7 @@ console.log($('#print-builder .col').height());
 	})
 
 	$("#layout-checkbox2").click(function() {
-		/*var activeObject = canvas.getActiveObject();
+		var activeObject = canvas.getActiveObject();
 		var canvasWidth = canvas.width
 		var canvasHeight = canvas.height
 		if(originalCanvasWidth == canvasWidth) {
@@ -190,25 +192,41 @@ console.log($('#print-builder .col').height());
 		} else {
 			canvas.setHeight(canvasWidth * 2);
      		canvas.setWidth(canvasHeight * 2);
-		}*/
-		canvas.setHeight(originalCanvasHeight);
-     	canvas.setWidth(originalCanvasWidth);
+		}
+		layoutHorizontal = false
+		// canvas.setHeight(originalCanvasHeight);
+  //    	canvas.setWidth(originalCanvasWidth);
 	})
 
 	$("#size-checkbox1").click(function() {
-		canvas.setHeight(originalCanvasHeight * 0.3);
-		canvas.setWidth(originalCanvasWidth * 0.3);
+		if(layoutHorizontal) {
+			canvas.setHeight(originalCanvasWidth * 0.3 * 0.5);
+			canvas.setWidth(originalCanvasHeight * 0.3 * 0.5);
+		} else {
+			canvas.setHeight(originalCanvasHeight * 0.3);
+			canvas.setWidth(originalCanvasWidth * 0.3);
+		}
 		
 	})
 
 	$("#size-checkbox2").click(function() {
-		canvas.setHeight(originalCanvasHeight * 0.6);
-		canvas.setWidth(originalCanvasWidth * 0.6);
+		if(layoutHorizontal) {
+			canvas.setHeight(originalCanvasWidth * 0.6 * 0.5);
+			canvas.setWidth(originalCanvasHeight * 0.6 * 0.5);
+		} else {
+			canvas.setHeight(originalCanvasHeight * 0.6);
+			canvas.setWidth(originalCanvasWidth * 0.6);
+		}
 	})
 
 	$("#size-checkbox3").click(function() {
-		canvas.setHeight(originalCanvasHeight);
-		canvas.setWidth(originalCanvasWidth);
+		if(layoutHorizontal) {
+			canvas.setHeight(originalCanvasWidth / 2);
+			canvas.setWidth(originalCanvasHeight / 2 );
+		} else {
+			canvas.setHeight(originalCanvasHeight);
+			canvas.setWidth(originalCanvasWidth);
+		}
 	})
 })
 
@@ -221,6 +239,8 @@ export class PrintBuilderComponent implements OnInit {
 	
 	public colorId: string = '';
 	public leftPanel: string = 'designs';
+	public layoutPanel: string = 'vertical';
+	public sizePanel: string = 'large';
 
 	constructor() {
 		this.colorId = 'white';

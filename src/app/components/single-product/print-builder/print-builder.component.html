@@ -89,8 +89,8 @@
                     <h3>Layout</h3>
                     <div class="row no-gutters justify-content-center align-items-center">
                         <div class="col-md-6">
-                            <div class="form-check active d-flex align-items-center justify-content-center" id="layout-checkbox1">
-                                <input type="hidden" value="horizontal" name="">
+                            <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox1" 
+                            	(click)="layoutPanel='horizontal'" [ngClass]="{'active': layoutPanel==='horizontal'}">
                                 <div class="ui-h-box">
                                 	<i class="fa fa-window-maximize"></i>
                                 </div>
@@ -99,8 +99,8 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox2">
-                                <input type="hidden" value="vertical" name="">
+                            <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox2"
+                            	(click)="layoutPanel='vertical'" [ngClass]="{'active': layoutPanel==='vertical'}">
                                 <div class="ui-v-box">
                                 	<i class="fa fa-window-maximize vertical-window"></i>
                                 </div>
@@ -117,8 +117,8 @@
 
                     <div class="row no-gutters justify-content-center align-items-center">
                         <div class="col-md-4">
-                            <div class="form-check active d-flex align-items-center justify-content-center" id="size-checkbox1">
-                                <input type="hidden" value="small" name="">
+                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox1"
+                            	(click)="sizePanel='small'" [ngClass]="{'active': sizePanel==='small'}">
                                 <div class="ui-s-box">
                                 	<i class="fa fa-square-o fa-lg"></i>
                                 </div>
@@ -127,8 +127,8 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox2">
-                                <input type="hidden" value="medium" name="">
+                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox2"
+                            	(click)="sizePanel='medium'" [ngClass]="{'active': sizePanel==='medium'}">
                                 <div class="ui-m-box">
                                 	<i class="fa fa-square-o fa-2x"></i>
                                 </div>
@@ -137,8 +137,8 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox3">
-                                <input type="hidden" value="large" name="">
+                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox3"
+                            	(click)="sizePanel='large'" [ngClass]="{'active': sizePanel==='large'}">
                                 <div class="ui-l-box">
                                 	<i class="fa fa-square-o fa-3x"></i>
                                 </div>
@@ -153,9 +153,9 @@
     </div>
     <div class="col">
     	<div class="ui-main-body">    	
-	    	<dir class="canvas">
+	    	<div class="canvas">
 	    		<canvas id="canvas"></canvas>
-	    	</dir>    		
+	    	</div>    		
     	</div>
     	<div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end">
     		
