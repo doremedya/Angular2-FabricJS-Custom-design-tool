@@ -24,6 +24,6 @@
     </div>
 
     <type-family *ngIf="ipage=='type-family'"></type-family>
-    <print-builder *ngIf="ipage=='front-builder' || ipage=='back-builder'"></print-builder>
+    <print-builder [ipage]="ipage" *ngIf="ipage=='front-builder' || ipage=='back-builder'"></print-builder>
     <review-order *ngIf="ipage=='review-order'"></review-order>
 </div>

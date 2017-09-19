@@ -67,18 +67,28 @@
 	                </div>	                	
 	                <div id="ui-font-style">
 	                	<ul>
-	                		<li id="align-left"><i class="fa fa-align-left"></i></li>
-	                		<li id="align-center"><i class="fa fa-align-center"></i></li>
-	                		<li id="align-right"><i class="fa fa-align-right"></i></li>
-	                		<li id="bold"><i class="fa fa-bold"></i></li>
-	                		<li id="italic"><i class="fa fa-italic"></i></li>
+	                		<li id="align-left" (click)="textAlign='left'" [ngClass]="{'active': textAlign==='left'}">
+	                			<i class="fa fa-align-left"></i>
+	                		</li>
+	                		<li id="align-center" (click)="textAlign='center'" [ngClass]="{'active': textAlign==='center'}">
+	                			<i class="fa fa-align-center"></i>
+	                		</li>
+	                		<li id="align-right" (click)="textAlign='right'" [ngClass]="{'active': textAlign==='right'}">
+	                			<i class="fa fa-align-right"></i>
+	                		</li>
+	                		<li id="bold" (click)="fontWeight == 'bold' ? fontWeight = '' : fontWeight = 'bold'" [ngClass]="{'active': fontWeight==='bold'}">
+	                			<i class="fa fa-bold"></i>
+	                		</li>
+	                		<li id="italic" (click)="fontWeight == 'italic' ? fontWeight = '' : fontWeight = 'italic'" [ngClass]="{'active': fontWeight==='italic'}">
+	                			<i class="fa fa-italic"></i>
+	                		</li>
 	                	</ul>
 	                </div>
                 </div>
 	    		<div class="add-element section col-md-12">
 	    			<label>Add Elements</label>
 	    			<ul>
-	    				<li><a><i class="fa fa-image"></i></a><span>Add Images</span></li>
+	    				<li><a><input type="file" id="myFile" class="file-upload"><i class="fa fa-image"></i></a><span>Add Images</span></li>
 	    				<li><a id="addText"><i class="fa fa-font"></i></a><span>Add Text</span></li>
 	    				<li><a><i class="fa fa-home"></i></a><span>Add From Listing</span></li>
 	    			</ul>
@@ -152,13 +162,16 @@
     	</div>    	
     </div>
     <div class="col">
-    	<div class="ui-main-body">    	
+    	<div class="ui-main-body"> 	
 	    	<div class="canvas">
 	    		<canvas id="canvas"></canvas>
-	    	</div>    		
+	    	</div> 
+	    	<!-- <div class="canvas" [hidden]="ipage!='back-builder'">
+	    		<canvas id="back-canvas"></canvas>
+	    	</div> -->   		
     	</div>
     	<div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end">
-    		
+
     	</div>
     </div>
 </div>

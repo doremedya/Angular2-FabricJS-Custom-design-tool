@@ -29,6 +29,11 @@
     margin-bottom: 2.778em;
 }
 
+.ui-single-product .ui-main-body .canvas{
+    display: flex;
+    justify-content: center;
+}
+
 .ui-single-product .ui-right-title .nav-link {
     font-size: 1em !important;
     color: #2d9735 !important;
@@ -532,7 +537,7 @@ select:not([multiple]) {
     float: left;
     height: 45px;
     border: 1px solid rgba(0,0,0,.15);
-    padding: 0 30px;
+    padding: 0 25px;
     line-height: 45px;
     background: white;
     cursor: pointer;
@@ -569,9 +574,24 @@ select:not([multiple]) {
     border: 1px solid rgba(0,0,0,.15);
     background: white;
     cursor: pointer;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     line-height: 45px;
     font-size: 1.2em;
+}
+
+#print-builder .section.add-element ul li a .file-upload{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: relative;
+}
+
+#print-builder .section.add-element ul li a .fa-image {
+    position: absolute;
+    z-index: 1;
 }
 
 #print-builder .section.add-element ul li span {
@@ -585,7 +605,7 @@ select:not([multiple]) {
     border-bottom: 3px solid #f38112;   
 }
 
-#print-builder #canvas {
+#print-builder canvas {
     width: 100%;
     height: 100%;
     border: 1px solid #444;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 declare var $;
 declare var fabric;
@@ -6,6 +6,7 @@ declare var fabric;
 var canvas;
 var state = [];
 var mods = 0;
+var originalImage = "";
 
 function initCanvas() {
 	canvas = new fabric.Canvas('canvas', {
@@ -13,6 +14,7 @@ function initCanvas() {
 		selection: true,
 		selectionBorderColor:'blue'
 	});
+
     canvas.setHeight($('#print-builder .col').height());
     canvas.setWidth($('#print-builder .col').width() - 100);
 
@@ -24,23 +26,40 @@ function initCanvas() {
 	    updateModifications(true);
 	});
 
-    canvas.renderAll();
+    canvas.renderAll();    
+    
 }
 
 function updateModifications(savehistory) {
+	
     if (savehistory === true) {
         var myjson = JSON.stringify(canvas);
         state.push(myjson);
     }
 }
 
+function drawImage(image) {
+	canvas.setBackgroundImage(image, canvas.renderAll.bind(canvas), {
+	    backgroundImageOpacity: 0.5,
+	   	backgroundImageStrech: true,
+	   	top: 0,
+        left: 0,
+        originX: 'left',
+        originY: 'top',
+        width: canvas.width,
+		height: canvas.height,
+	});
+
+	canvas.renderAll();
+}
+
 $(document).ready(function() {
-	console.log($('#print-builder .col').height());	
 	var originalCanvasWidth = canvas.width
 	var originalCanvasHeight = canvas.height
 	var layoutHorizontal = false
 	$(".design-panel ul li.designs").click(function() {
 		var bgImage = $(this).find('img').attr('src');
+		originalImage = bgImage;
 		canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
 		    backgroundImageOpacity: 0.5,
 		   	backgroundImageStrech: true,
@@ -49,9 +68,9 @@ $(document).ready(function() {
             originX: 'left',
             originY: 'top',
             width: canvas.width,
-   			height: canvas.height,
+   			height: canvas.height
 		});
-		canvas.renderAll();
+		canvas.renderAll();		
 	})
 
 	$("#addText").click(function() {
@@ -64,6 +83,7 @@ $(document).ready(function() {
 			hasRotatingPoint:true
 	    });		    
 	    canvas.add(textSample);
+	    updateModifications(true);
 	});
 
 	$("#undo").click(function() {
@@ -179,6 +199,7 @@ $(document).ready(function() {
 		     	canvas.setWidth(canvasHeight);
 			}
 		}
+		drawImage(originalImage)
 		
 	})
 
@@ -194,6 +215,7 @@ $(document).ready(function() {
      		canvas.setWidth(canvasHeight * 2);
 		}
 		layoutHorizontal = false
+		drawImage(originalImage)
 		// canvas.setHeight(originalCanvasHeight);
   //    	canvas.setWidth(originalCanvasWidth);
 	})
@@ -206,6 +228,7 @@ $(document).ready(function() {
 			canvas.setHeight(originalCanvasHeight * 0.3);
 			canvas.setWidth(originalCanvasWidth * 0.3);
 		}
+		drawImage(originalImage)
 		
 	})
 
@@ -217,6 +240,7 @@ $(document).ready(function() {
 			canvas.setHeight(originalCanvasHeight * 0.6);
 			canvas.setWidth(originalCanvasWidth * 0.6);
 		}
+		drawImage(originalImage)
 	})
 
 	$("#size-checkbox3").click(function() {
@@ -227,7 +251,30 @@ $(document).ready(function() {
 			canvas.setHeight(originalCanvasHeight);
 			canvas.setWidth(originalCanvasWidth);
 		}
+		drawImage(originalImage)
 	})
+
+	$("#myFile").on("change", function(e) {		
+		var file = e.target.files[0];
+		var reader = new FileReader();
+		reader.onload = function (f) {
+			let target: any = f.target;
+			let data: string = target.result;
+
+			canvas.setBackgroundImage(data, canvas.renderAll.bind(canvas), {
+			    backgroundImageOpacity: 0.5,
+			   	backgroundImageStrech: true,
+			   	top: 0,
+	            left: 0,
+	            originX: 'left',
+	            originY: 'top',
+	            width: canvas.width,
+	   			height: canvas.height,
+			});
+		};
+		reader.readAsDataURL(file);
+	})
+	
 })
 
 @Component({
@@ -241,13 +288,50 @@ export class PrintBuilderComponent implements OnInit {
 	public leftPanel: string = 'designs';
 	public layoutPanel: string = 'vertical';
 	public sizePanel: string = 'large';
+	public textAlign: string = 'center'
+	public fontWeight: string = '';
+	public currentBuilder: string = 'front-builder';
+	public currentFrontState: any[] = [];
+	public currentBackState: any[] = [];
+	public frontImage: any;
+	public backImage: any;
+	@Input() ipage: string;
 
 	constructor() {
 		this.colorId = 'white';
 	}
 
 	ngOnInit() {
-		initCanvas();
+		initCanvas()
 	}
 
+	ngOnChanges(changes) {
+		if(changes.ipage.currentValue != this.currentBuilder) {
+			canvas.clear();
+			this.currentBuilder = changes.ipage.currentValue;
+			if(this.currentBuilder == 'front-builder') {			
+				if(this.frontImage)	{
+					drawImage(this.frontImage)
+				}		
+				this.backImage = originalImage;	
+				this.currentBackState = state;
+				state = []
+				if(this.currentFrontState.length != 0) {
+					canvas.loadFromJSON(this.currentFrontState[this.currentFrontState.length - 1]);
+				}				
+				
+			} else {				
+				if(this.backImage) {
+					drawImage(this.backImage)
+				}
+				this.frontImage = originalImage;
+				this.currentFrontState = state;
+				state = []
+				if(this.currentBackState.length != 0) {
+					canvas.loadFromJSON(this.currentBackState[this.currentBackState.length - 1]);
+				}
+			}
+			canvas.renderAll();
+		}      	
+  	}
 }
