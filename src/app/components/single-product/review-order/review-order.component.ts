@@ -9,8 +9,6 @@ var backCanvas;
 var canvasInfo;
 
 function setFrontCanvas() {
-  console.log(11111);
-  console.log(canvasInfo)
   frontCanvas = new fabric.Canvas('front-canvas', {
     hoverCursor: 'pointer',
     selection: true,
@@ -30,13 +28,10 @@ function setFrontCanvas() {
     width: frontCanvas.width,
     height: frontCanvas.height,
   });
- // frontCanvas.renderAll();    
-    
+  frontCanvas.renderAll();
 }
 
 function setBackCanvas() {
-  console.log(11111);
-  console.log(canvasInfo)
   backCanvas = new fabric.Canvas('back-canvas', {
     hoverCursor: 'pointer',
     selection: true,
@@ -93,20 +88,77 @@ function swipeImgLeft(value) {
 }
 
 function swipeImgRight(value) {
-  $(".ui-back").css({
-    'z-index': '1000',
-    '-webkit-transform': "rotateY(" + (-180 - value) + "deg)",
-    '-moz-transform': "rotateY(" + (-180 - value) + "deg)"
-  })
+  console.log(value)
+  if(value > 90) {
+    $(".ui-back").css({
+      'z-index': '1000',
+      'opacity': '0',
+      '-webkit-transform': "rotateY(" + (-180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (-180 - value) + "deg)"
+    })
+  } else {
+    $(".ui-back").css({
+      'z-index': '1000',
+      'opacity': '1',
+      '-webkit-transform': "rotateY(" + (-180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (-180 - value) + "deg)"
+    })
+  }  
 }
 
+$(document).ready(function() {
+  $("#border-round").click(function() {
+    console.log(123)
+    // $(".canvas").css({
+    //   'border-radius': '10'
+    // })
+  })
+
+  $("#border-square").on('click', function() {
+    console.log(123)
+    // $(".canvas").css({
+    //   'border-radius': '10'
+    // })
+  })
+
+  $("#paper-original").click(function() {
+    console.log(123)
+  })
+
+  $("#paper-super").click(function() {
+    console.log(123)
+  })
+
+  $("#paper-luxe").click(function() {
+    console.log(123)
+  })
+
+  $("#paper-cotton").click(function() {
+    console.log(123)
+  })
+
+  $("#finish-matte").click(function() {
+    console.log(123)
+  })
+
+  $("#finish-gloss").click(function() {
+    console.log(123)
+  })
+
+})
 
 @Component({
   selector: 'review-order',
   templateUrl: './review-order.component.html'
 })
+
 export class ReviewOrderComponent implements OnInit {
+
   public canvasInfo: any; 
+  public borderStyle: string = 'square';
+  public finishType: string = 'matte';
+  public paperType: string = 'original';
+
   constructor(public spService: SingleProductService) {
     this.canvasInfo = this.spService.getValue();
     canvasInfo = this.spService.getValue();

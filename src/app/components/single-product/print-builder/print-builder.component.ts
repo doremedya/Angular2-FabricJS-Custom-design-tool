@@ -101,6 +101,7 @@ $(document).ready(function() {
       });       
       canvas.add(textSample);
       updateModifications(true);
+      console.log(123)
   });
 
   $("#undo").click(function() {
@@ -335,7 +336,7 @@ export class PrintBuilderComponent implements OnInit {
         this.currentBackState = backState;
         this.spService.setValue('backImage', this.backImage)
         this.spService.setValue('backState', this.currentBackState)
-        state = []
+        state = []        
         if(this.currentFrontState.length != 0) {          
           canvas.loadFromJSON(this.currentFrontState[this.currentFrontState.length - 1]);
         }       
