@@ -1,6 +1,64 @@
 import { Component, OnInit } from '@angular/core';
+import { SingleProductService } from '../../../services/single-product.service';
 
 declare var $;
+declare var fabric;
+
+var frontCanvas;
+var backCanvas;
+var canvasInfo;
+
+function setFrontCanvas() {
+  console.log(11111);
+  console.log(canvasInfo)
+  frontCanvas = new fabric.Canvas('front-canvas', {
+    hoverCursor: 'pointer',
+    selection: true,
+    selectionBorderColor:'blue'
+  });
+
+  frontCanvas.setHeight(400);
+  frontCanvas.setWidth(600);
+  frontCanvas.loadFromJSON(canvasInfo.frontState[canvasInfo.frontState.length - 1]);
+  frontCanvas.setBackgroundImage(canvasInfo.frontImage, frontCanvas.renderAll.bind(frontCanvas), {
+    backgroundImageOpacity: 0.5,
+    backgroundImageStrech: true,
+    top: 0,
+    left: 0,
+    originX: 'left',
+    originY: 'top',
+    width: frontCanvas.width,
+    height: frontCanvas.height,
+  });
+ // frontCanvas.renderAll();    
+    
+}
+
+function setBackCanvas() {
+  console.log(11111);
+  console.log(canvasInfo)
+  backCanvas = new fabric.Canvas('back-canvas', {
+    hoverCursor: 'pointer',
+    selection: true,
+    selectionBorderColor:'blue'
+  });
+
+  backCanvas.setHeight(400);
+  backCanvas.setWidth(600);
+  backCanvas.loadFromJSON(canvasInfo.backState[canvasInfo.backState.length - 1]);
+  backCanvas.setBackgroundImage(canvasInfo.backImage, backCanvas.renderAll.bind(backCanvas), {
+    backgroundImageOpacity: 0.5,
+    backgroundImageStrech: true,
+    top: 0,
+    left: 0,
+    originX: 'left',
+    originY: 'top',
+    width: backCanvas.width,
+    height: backCanvas.height,
+  });
+  backCanvas.renderAll();    
+    
+}
 
 function flipImages() {
   $('.ui-ranger').rangeslider({
@@ -48,10 +106,15 @@ function swipeImgRight(value) {
   templateUrl: './review-order.component.html'
 })
 export class ReviewOrderComponent implements OnInit {
-
-  constructor() { }
+  public canvasInfo: any; 
+  constructor(public spService: SingleProductService) {
+    this.canvasInfo = this.spService.getValue();
+    canvasInfo = this.spService.getValue();
+  }
 
   ngOnInit() {
+    setFrontCanvas();
+    setBackCanvas();
     flipImages();
   }
 

@@ -15,7 +15,7 @@ import { SingleProductComponent } from './components/single-product/single-produ
 import { PrintBuilderComponent } from './components/single-product/print-builder/print-builder.component';
 import { ReviewOrderComponent } from './components/single-product/review-order/review-order.component';
 import { TypeFamilyComponent } from './components/single-product/type-family/type-family.component';
-
+import { SingleProductService } from './services/single-product.service';
 
 const ROUTES = [{
   path: '',
@@ -50,7 +50,7 @@ const ROUTES = [{
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [SingleProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
