@@ -13,7 +13,8 @@ var frontState = [];
 var backState = [];
 var frontImage = "";
 var backImage = "";
-
+var height = 400
+var width = 600
 function initCanvas() {
   canvas = new fabric.Canvas('canvas', {
     hoverCursor: 'pointer',
@@ -21,33 +22,32 @@ function initCanvas() {
     selectionBorderColor:'blue'
   });
 
-    canvas.setHeight($('#print-builder .col').height());
-    canvas.setWidth($('#print-builder .col').width() - 100);
+  canvas.setHeight(height);
+  canvas.setWidth(width);
 
   canvas.on(
-      'object:modified', function () {
-      updateModifications(true);
+    'object:modified', function () {
+    updateModifications(true);
   },
-      'object:added', function () {
-      updateModifications(true);
+    'object:added', function () {
+    updateModifications(true);
   });
 
-    canvas.renderAll();    
+  canvas.renderAll();    
     
 }
 
-function updateModifications(savehistory) {
-  
-    if (savehistory === true) {
-        var myjson = JSON.stringify(canvas);
-        state.push(myjson);
-    }
-    console.log(currentBuilder)
-    if(currentBuilder == 'front-builder') {
-      frontState = state;
-    } else {
-      backState = state;
-    }
+function updateModifications(savehistory) {  
+  if (savehistory === true) {
+    var myjson = JSON.stringify(canvas);
+    state.push(myjson);
+  }
+
+  if(currentBuilder == 'front-builder') {
+    frontState = state;
+  } else {
+    backState = state;
+  }
 }
 
 function drawImage(image) {
@@ -101,31 +101,30 @@ $(document).ready(function() {
       });       
       canvas.add(textSample);
       updateModifications(true);
-      console.log(123)
   });
 
   $("#undo").click(function() {
     if (mods < state.length) {
-          canvas.clear().renderAll();
-          canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
-          canvas.renderAll();
-          //console.log("geladen " + (state.length-1-mods-1));
-          //console.log("state " + state.length);
-          mods += 1;
-          //console.log("mods " + mods);
-      }
+      canvas.clear().renderAll();
+      canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
+      canvas.renderAll();
+      //console.log("geladen " + (state.length-1-mods-1));
+      //console.log("state " + state.length);
+      mods += 1;
+        //console.log("mods " + mods);
+    }
   })
 
   $("#redo").click(function() {
     if (mods > 0) {
-          canvas.clear().renderAll();
-          canvas.loadFromJSON(state[state.length - 1 - mods + 1]);
-          canvas.renderAll();
-          //console.log("geladen " + (state.length-1-mods+1));
-          mods -= 1;
-          //console.log("state " + state.length);
-          //console.log("mods " + mods);
-      }
+      canvas.clear().renderAll();
+      canvas.loadFromJSON(state[state.length - 1 - mods + 1]);
+      canvas.renderAll();
+      //console.log("geladen " + (state.length-1-mods+1));
+      mods -= 1;
+      //console.log("state " + state.length);
+      //console.log("mods " + mods);
+    }
   });
 
   $("#ui-fonts").change(function() {
@@ -153,8 +152,8 @@ $(document).ready(function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject && activeObject.type === 'i-text') {
       activeObject.set({fill: color});
-        canvas.renderAll();
-        updateModifications(true);
+      canvas.renderAll();
+      updateModifications(true);
     }
   });
 
@@ -207,68 +206,46 @@ $(document).ready(function() {
     var activeObject = canvas.getActiveObject();
     var canvasWidth = canvas.width
     var canvasHeight = canvas.height
-    if(!layoutHorizontal) {
-      layoutHorizontal = true
-      if(canvasWidth < canvasHeight) {      
-        canvas.setHeight(canvasWidth / 2);
-          canvas.setWidth(canvasHeight / 2);
-      } else {
-        canvas.setHeight(canvasWidth);
-          canvas.setWidth(canvasHeight);
-      }
+    if(layoutHorizontal) {
+      canvas.setHeight(canvasWidth);
+      canvas.setWidth(canvasHeight);
+      layoutHorizontal = false
+      drawImage(originalImage)
     }
-    drawImage(originalImage)
-    
   })
 
   $("#layout-checkbox2").click(function() {
     var activeObject = canvas.getActiveObject();
     var canvasWidth = canvas.width
     var canvasHeight = canvas.height
-    if(originalCanvasWidth == canvasWidth) {
-      canvas.setHeight(canvasHeight);
-        canvas.setWidth(canvasWidth);
-    } else {
-      canvas.setHeight(canvasWidth * 2);
-        canvas.setWidth(canvasHeight * 2);
+    if(!layoutHorizontal) {
+      canvas.setHeight(canvasWidth);
+      canvas.setWidth(canvasHeight);
+      layoutHorizontal = true
+      drawImage(originalImage)
     }
-    layoutHorizontal = false
-    drawImage(originalImage)
-    // canvas.setHeight(originalCanvasHeight);
-  //      canvas.setWidth(originalCanvasWidth);
   })
 
   $("#size-checkbox1").click(function() {
-    if(layoutHorizontal) {
-      canvas.setHeight(originalCanvasWidth * 0.3 * 0.5);
-      canvas.setWidth(originalCanvasHeight * 0.3 * 0.5);
-    } else {
-      canvas.setHeight(originalCanvasHeight * 0.3);
-      canvas.setWidth(originalCanvasWidth * 0.3);
-    }
+    var height = 240
+    var width = 320
+    canvas.setHeight(height);
+    canvas.setWidth(width);
     drawImage(originalImage)
     
   })
 
   $("#size-checkbox2").click(function() {
-    if(layoutHorizontal) {
-      canvas.setHeight(originalCanvasWidth * 0.6 * 0.5);
-      canvas.setWidth(originalCanvasHeight * 0.6 * 0.5);
-    } else {
-      canvas.setHeight(originalCanvasHeight * 0.6);
-      canvas.setWidth(originalCanvasWidth * 0.6);
-    }
+    var height = 320
+    var width = 568
+    canvas.setHeight(height);
+    canvas.setWidth(width);
     drawImage(originalImage)
   })
 
   $("#size-checkbox3").click(function() {
-    if(layoutHorizontal) {
-      canvas.setHeight(originalCanvasWidth / 2);
-      canvas.setWidth(originalCanvasHeight / 2 );
-    } else {
-      canvas.setHeight(originalCanvasHeight);
-      canvas.setWidth(originalCanvasWidth);
-    }
+    canvas.setHeight(originalCanvasHeight);
+    canvas.setWidth(originalCanvasWidth);
     drawImage(originalImage)
   })
 
@@ -280,14 +257,14 @@ $(document).ready(function() {
       let data: string = target.result;
 
       canvas.setBackgroundImage(data, canvas.renderAll.bind(canvas), {
-          backgroundImageOpacity: 0.5,
-          backgroundImageStrech: true,
-          top: 0,
-              left: 0,
-              originX: 'left',
-              originY: 'top',
-              width: canvas.width,
-          height: canvas.height,
+        backgroundImageOpacity: 0.5,
+        backgroundImageStrech: true,
+        top: 0,
+        left: 0,
+        originX: 'left',
+        originY: 'top',
+        width: canvas.width,
+        height: canvas.height,
       });
     };
     reader.readAsDataURL(file);
@@ -304,7 +281,7 @@ export class PrintBuilderComponent implements OnInit {
   
   public colorId: string = '';
   public leftPanel: string = 'designs';
-  public layoutPanel: string = 'vertical';
+  public layoutPanel: string = 'horizontal';
   public sizePanel: string = 'large';
   public textAlign: string = 'center'
   public fontWeight: string = '';
@@ -328,7 +305,8 @@ export class PrintBuilderComponent implements OnInit {
       canvas.clear();
       this.currentBuilder = changes.ipage.currentValue;
       currentBuilder = this.currentBuilder;
-      if(this.currentBuilder == 'front-builder') {      
+      console.log(changes.ipage)
+      if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
         if(this.frontImage) {         
           drawImage(this.frontImage)
         }   
@@ -336,7 +314,8 @@ export class PrintBuilderComponent implements OnInit {
         this.currentBackState = backState;
         this.spService.setValue('backImage', this.backImage)
         this.spService.setValue('backState', this.currentBackState)
-        state = []        
+        state = []
+        
         if(this.currentFrontState.length != 0) {          
           canvas.loadFromJSON(this.currentFrontState[this.currentFrontState.length - 1]);
         }       
@@ -356,5 +335,5 @@ export class PrintBuilderComponent implements OnInit {
       }
       canvas.renderAll();
     }       
-    }
+  }
 }

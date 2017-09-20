@@ -131,6 +131,7 @@
     font-size: .8em;
     -webkit-perspective: 600px;
     -moz-perspective: 600px;
+    overflow: hidden;
 }
 
 .ui-flip-card .ui-front {
@@ -140,10 +141,10 @@
     max-width: 100%;
     max-height: 100%;
     text-align: center;
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    /*-webkit-transform: rotateX(0deg) rotateY(0deg);*/
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
-    -moz-transform: rotateX(0deg) rotateY(0deg);
+   /* -moz-transform: rotateX(0deg) rotateY(0deg);*/
     -moz-transform-style: preserve-3d;
     -moz-backface-visibility: hidden;
     -o-transition: all ease;
@@ -162,10 +163,10 @@
     z-index: 800;
     max-width: 100%;
     max-height: 100%;
-    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+   /* -webkit-transform: rotateX(0deg) rotateY(-180deg);*/
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
-    -moz-transform: rotateX(0deg) rotateY(-180deg);
+   /* -moz-transform: rotateX(0deg) rotateY(-180deg);*/
     -moz-transform-style: preserve-3d;
     -moz-backface-visibility: hidden;
     -o-transition: all ease;
@@ -174,6 +175,99 @@
     -webkit-transition: all ease;
     transition: all ease;
 }
+
+/*
+    coin effect
+*/
+
+.ui-flip-card .side:before, .ui-flip-card .side:after{
+    content: "";
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    @include background(#DAB007);
+    border-radius: 50%;
+    right: (-1em / 2 + .9em);
+    text-align: center;
+    line-height: 1;
+    color: darken(#DAB007, 2%);
+    text-shadow:
+      1px 2px 0 lighten(#DAB007, 30%),
+      -1px -2px 0 darken(#DAB007, 30%)
+    ;
+    @include transform(rotateY(-90deg));
+    @include backface-visibility(hidden);
+}
+
+.ui-flip-card .tails:after {
+    left: (-1em / 2 + .9em);
+    @include transform(rotateY(90deg));
+}
+/*    &:before, &:after {
+        @include background(red);
+        @include backface-visibility(hidden);
+        @include transform(rotateY(90deg));
+    }
+        &:after {
+        @include transform(rotateY(-90deg));
+    }
+}*/
+
+/*
+    shine effect 
+*/
+
+@mixin fade-transition($element) {
+    transition: $element 0.15s ease-in-out;
+}
+
+.shine {
+    display: none;
+    z-index: 999999;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;  
+    background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.03) 1%,rgba(255,255,255,0.6) 30%,rgba(255,255,255,0.85) 50%,rgba(255,255,255,0.85) 70%,rgba(255,255,255,0.85) 71%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    width: 15%;
+    height: 100%;
+    transform: skew(-10deg, 0deg);  
+    animation: move 4s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    transform: skew(-10deg, 0deg);
+}
+
+/*  */
+@keyframes move {
+    0% { left: 0; opacity: 0; }
+    5% { opacity: 0.0 }
+    48% { opacity: 0.2 }
+    80% { opacity: 0.0 }
+    100% { left: 100% }
+}
+
+/*
+    matte effect
+*/
+
+.dotted {
+    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    -webkit-background-size: 5px 5px;
+    -moz-background-size: 5px 5px;
+    background-size: 5px 5px;
+}
+
+.stripped {
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,.3), rgba(0,0,0,.3) 2px, transparent 4px,rgba(0,0,0,.3) 6px);
+  background-size: 8px 8px;
+}
+
 
 .ui-flip-card .ui-ranger {
     position: relative;

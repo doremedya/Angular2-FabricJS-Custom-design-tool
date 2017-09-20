@@ -62,14 +62,14 @@ function flipImages() {
     onInit: function () {
       $(".ui-front").css({
         'z-index': '900',
-        '-webkit-transform': "rotateY(0deg)",
-        '-moz-transform': "rotateY(0deg)"
+        '-webkit-transform': "rotateY(-180deg)",
+        '-moz-transform': "rotateY(-180deg)"
       });
 
       $(".ui-back").css({
         'z-index': '800',
-        '-webkit-transform': "rotateY(-180deg)",
-        '-moz-transform': "rotateY(-180deg)"
+        '-webkit-transform': "rotateY(0deg)",
+        '-moz-transform': "rotateY(0deg)"
       })
     },
     onSlide: function (position, value) {
@@ -82,8 +82,8 @@ function flipImages() {
 function swipeImgLeft(value) {
   $(".ui-front").css({
     'z-index': '900',
-    '-webkit-transform': "rotateY(" + -value + "deg)",
-    '-moz-transform': "rotateY(" + value + "deg)"
+    '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+    '-moz-transform': "rotateY(" + (180 - value) + "deg)"
   });
 }
 
@@ -93,59 +93,20 @@ function swipeImgRight(value) {
     $(".ui-back").css({
       'z-index': '1000',
       'opacity': '0',
-      '-webkit-transform': "rotateY(" + (-180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (-180 - value) + "deg)"
+      '-webkit-transform': "rotateY(" + (-value) + "deg)",
+      '-moz-transform': "rotateY(" + (-value) + "deg)"
     })
   } else {
     $(".ui-back").css({
       'z-index': '1000',
       'opacity': '1',
-      '-webkit-transform': "rotateY(" + (-180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (-180 - value) + "deg)"
+      '-webkit-transform': "rotateY(" + (-value) + "deg)",
+      '-moz-transform': "rotateY(" + (-value) + "deg)"
     })
   }  
 }
 
-$(document).ready(function() {
-  $("#border-round").click(function() {
-    console.log(123)
-    // $(".canvas").css({
-    //   'border-radius': '10'
-    // })
-  })
 
-  $("#border-square").on('click', function() {
-    console.log(123)
-    // $(".canvas").css({
-    //   'border-radius': '10'
-    // })
-  })
-
-  $("#paper-original").click(function() {
-    console.log(123)
-  })
-
-  $("#paper-super").click(function() {
-    console.log(123)
-  })
-
-  $("#paper-luxe").click(function() {
-    console.log(123)
-  })
-
-  $("#paper-cotton").click(function() {
-    console.log(123)
-  })
-
-  $("#finish-matte").click(function() {
-    console.log(123)
-  })
-
-  $("#finish-gloss").click(function() {
-    console.log(123)
-  })
-
-})
 
 @Component({
   selector: 'review-order',
@@ -156,12 +117,71 @@ export class ReviewOrderComponent implements OnInit {
 
   public canvasInfo: any; 
   public borderStyle: string = 'square';
-  public finishType: string = 'matte';
+  public finishType: string = '';
   public paperType: string = 'original';
 
   constructor(public spService: SingleProductService) {
     this.canvasInfo = this.spService.getValue();
     canvasInfo = this.spService.getValue();
+
+    $(document).ready(function() {
+      var checkedFinishType = true;
+      var shineFlag = true;
+
+      $("#border-round").click(function() {
+        $(".canvas").css({
+          borderRadius: 20
+        })
+      })
+
+      $("#border-square").on('click', function() {
+        $(".canvas").css({
+          borderRadius: 0
+        })
+      })
+
+      $("#paper-original").click(function() {
+        console.log(123)
+      })
+
+      $("#paper-super").click(function() {
+        console.log(123)
+      })
+
+      $("#paper-luxe").click(function() {
+        console.log(123)
+      })
+
+      $("#paper-cotton").click(function() {
+        console.log(123)
+      })
+
+      $("#finish-matte").click(function() {
+        console.log(checkedFinishType)
+        if(checkedFinishType) {
+          $("canvas").removeClass("stripped");
+          $("canvas").addClass("dotted");
+          checkedFinishType = false;
+          shineFlag = true; 
+        } else {
+          $("canvas").removeClass("dotted");
+          checkedFinishType = true;
+        }
+      })
+
+      $("#finish-gloss").click(function() {
+        if(shineFlag){
+          $("canvas").addClass("stripped");
+          $("canvas").removeClass("dotted");
+          shineFlag = false;  
+          checkedFinishType = true;
+        } else {
+          $("canvas").removeClass("stripped");
+          shineFlag = true;  
+        }        
+      })
+
+    })
   }
 
   ngOnInit() {
