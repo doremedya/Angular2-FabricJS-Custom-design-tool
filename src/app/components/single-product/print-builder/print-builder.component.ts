@@ -7,7 +7,11 @@ var canvas;
 var state = [];
 var mods = 0;
 var originalImage = "";
-
+var currentBuilder = 'front-builder';
+var frontState = [];
+var backState = [];
+var frontImage = "";
+var backImage = "";
 function initCanvas() {
 	canvas = new fabric.Canvas('canvas', {
 		hoverCursor: 'pointer',
@@ -36,6 +40,12 @@ function updateModifications(savehistory) {
         var myjson = JSON.stringify(canvas);
         state.push(myjson);
     }
+    console.log(currentBuilder)
+    if(currentBuilder == 'front-builder') {
+    	frontState = state;
+    } else {
+    	backState = state;
+    }
 }
 
 function drawImage(image) {
@@ -60,6 +70,11 @@ $(document).ready(function() {
 	$(".design-panel ul li.designs").click(function() {
 		var bgImage = $(this).find('img').attr('src');
 		originalImage = bgImage;
+		if(currentBuilder == 'front-builder') {
+	    	frontImage = originalImage;
+	    } else {
+	    	backImage = originalImage;
+	    }
 		canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
 		    backgroundImageOpacity: 0.5,
 		   	backgroundImageStrech: true,
@@ -309,12 +324,13 @@ export class PrintBuilderComponent implements OnInit {
 		if(changes.ipage.currentValue != this.currentBuilder) {
 			canvas.clear();
 			this.currentBuilder = changes.ipage.currentValue;
+			currentBuilder = this.currentBuilder;
 			if(this.currentBuilder == 'front-builder') {			
 				if(this.frontImage)	{
 					drawImage(this.frontImage)
 				}		
-				this.backImage = originalImage;	
-				this.currentBackState = state;
+				this.backImage = backImage;	
+				this.currentBackState = backState;
 				state = []
 				if(this.currentFrontState.length != 0) {
 					canvas.loadFromJSON(this.currentFrontState[this.currentFrontState.length - 1]);
@@ -324,8 +340,8 @@ export class PrintBuilderComponent implements OnInit {
 				if(this.backImage) {
 					drawImage(this.backImage)
 				}
-				this.frontImage = originalImage;
-				this.currentFrontState = state;
+				this.frontImage = frontImage;
+				this.currentFrontState = frontState;
 				state = []
 				if(this.currentBackState.length != 0) {
 					canvas.loadFromJSON(this.currentBackState[this.currentBackState.length - 1]);
