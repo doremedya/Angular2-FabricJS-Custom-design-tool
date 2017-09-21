@@ -132,6 +132,7 @@
     -webkit-perspective: 600px;
     -moz-perspective: 600px;
     overflow: hidden;
+    width: 600px;
 }
 
 .ui-flip-card .ui-front {
@@ -159,7 +160,7 @@
     justify-content: center;
     position: absolute;
     top: 0;
-    left: 29px;
+    left: 0;
     z-index: 800;
     max-width: 100%;
     max-height: 100%;

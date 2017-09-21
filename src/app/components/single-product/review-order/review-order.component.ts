@@ -62,6 +62,7 @@ function flipImages() {
     onInit: function () {
       $(".ui-front").css({
         'z-index': '900',
+        'opacity': '0',
         '-webkit-transform': "rotateY(-180deg)",
         '-moz-transform': "rotateY(-180deg)"
       });
@@ -80,11 +81,21 @@ function flipImages() {
 }
 
 function swipeImgLeft(value) {
-  $(".ui-front").css({
-    'z-index': '900',
-    '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
-    '-moz-transform': "rotateY(" + (180 - value) + "deg)"
-  });
+  if(value < 90) {
+    $(".ui-front").css({
+      'z-index': '900',
+      'opacity': '1',
+      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
+    });
+  } else {
+    $(".ui-front").css({
+      'z-index': '900',
+      'opacity': '1',
+      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
+    });
+  }  
 }
 
 function swipeImgRight(value) {
