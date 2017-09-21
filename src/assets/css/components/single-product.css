@@ -182,10 +182,10 @@
     height: 100%;
     content: "";
     backface-visibility: hidden;
-    background: red;
+    background: #6c757d;
     position: absolute;
-    left: -6px;
-    transform: rotateY(-90deg);
+    right: -3px;
+    transform: rotateY(90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -196,10 +196,10 @@
     height: 100%;
     content: "";
     backface-visibility: hidden;
-    background: red;
+    background: #6c757d;
     position: absolute;
-    left: -13px;
-    transform: rotateY(-90deg);
+    right: -7px;
+    transform: rotateY(90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -210,10 +210,10 @@
     height: 100%;
     content: "";
     backface-visibility: hidden;
-    background: red;
+    background: #6c757d;
     position: absolute;
-    left: -20px;
-    transform: rotateY(-90deg);
+    right: -11px;
+    transform: rotateY(90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -224,10 +224,10 @@
     height: 100%;
     content: "";
     backface-visibility: hidden;
-    background: red;
+    background: #6c757d;
     position: absolute;
-    left: -28px;
-    transform: rotateY(-90deg);
+    right: -15px;
+    transform: rotateY(90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -240,8 +240,8 @@
     backface-visibility: hidden;
     background: #6c757d;
     position: absolute;
-    right: -3px;
-    transform: rotateY(90deg);
+    left: -3px;
+    transform: rotateY(-90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -254,8 +254,8 @@
     backface-visibility: hidden;
     background: #6c757d;
     position: absolute;
-    right: -6px;
-    transform: rotateY(90deg);
+    left: -6px;
+    transform: rotateY(-90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -268,8 +268,8 @@
     backface-visibility: hidden;
     background: #6c757d;
     position: absolute;
-    right: -10px;
-    transform: rotateY(90deg);
+    left: -10px;
+    transform: rotateY(-90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -282,8 +282,8 @@
     backface-visibility: hidden;
     background: #6c757d;
     position: absolute;
-    right: -14px;
-    transform: rotateY(90deg);
+    left: -14px;
+    transform: rotateY(-90deg);
     z-index: 9999;
     transform-style: preserve-3d;
     transition: all ease;
@@ -807,20 +807,27 @@ select:not([multiple]) {
 }
 
 #print-builder .design-panel ul li {
-    width: 50%;
-    float: left;
+    width: 48%;
+    float: left;    
+    margin-bottom: 10px;
 }
 
 #print-builder .design-panel ul li:hover {
     opacity: 0.7;
     cursor: pointer;
+    border: 3px solid #2d9761;
+    border-radius: 3px;
 }
-
+#print-builder .design-panel ul li.active {
+    border: 3px solid #2d9761;
+    border-radius: 3px;
+}
 #print-builder .design-panel ul li img {
     width: 100%;
 }
 
 #print-builder .design-panel ul li:nth-child(2n+1){
+    margin-right: 10px;
     clear: both;
 }
 

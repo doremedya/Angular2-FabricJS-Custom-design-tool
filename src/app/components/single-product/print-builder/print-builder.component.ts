@@ -70,6 +70,8 @@ $(document).ready(function() {
   var originalCanvasHeight = canvas.height
   var layoutHorizontal = false
   $(".design-panel ul li.designs").click(function() {
+    $(".design-panel ul li").removeClass('active')
+    $(this).addClass('active')
     var bgImage = $(this).find('img').attr('src');
     originalImage = bgImage;
     if(currentBuilder == 'front-builder') {
@@ -81,10 +83,10 @@ $(document).ready(function() {
         backgroundImageOpacity: 0.5,
         backgroundImageStrech: true,
         top: 0,
-            left: 0,
-            originX: 'left',
-            originY: 'top',
-            width: canvas.width,
+        left: 0,
+        originX: 'left',
+        originY: 'top',
+        width: canvas.width,
         height: canvas.height
     });
     canvas.renderAll();   
@@ -92,15 +94,15 @@ $(document).ready(function() {
 
   $("#addText").click(function() {
     var textSample = new fabric.IText('Sample Text', {
-      left: fabric.util.getRandomInt(0, $('#print-builder .col').width() / 2),
-      top: fabric.util.getRandomInt(0, $('#print-builder .col').height() / 2),
+      left: fabric.util.getRandomInt(0, originalCanvasWidth / 2),
+      top: fabric.util.getRandomInt(0, originalCanvasHeight / 2),
       fontFamily: 'helvetica',
       angle: 0,
       fill: '#000000',
       hasRotatingPoint:true
-      });       
-      canvas.add(textSample);
-      updateModifications(true);
+    });       
+    canvas.add(textSample);
+    updateModifications(true);
   });
 
   $("#undo").click(function() {
@@ -271,18 +273,22 @@ $(document).ready(function() {
       let target: any = f.target;
       let data: string = target.result;
 
-      canvas.setBackgroundImage(data, canvas.renderAll.bind(canvas), {
-        backgroundImageOpacity: 0.5,
-        backgroundImageStrech: true,
-        top: 0,
-        left: 0,
-        originX: 'left',
-        originY: 'top',
-        width: canvas.width,
-        height: canvas.height,
+      fabric.Image.fromURL(data, function (img) {
+        var oImg = img.set({
+          left: 0,
+          top: 0,
+          angle: 0,
+          width: 200,
+          height: 200
+        }).scale(0.9);
+        canvas.add(oImg).renderAll();
+        var a = canvas.setActiveObject(oImg);
+        var dataURL = canvas.toDataURL({format: 'png', quality: 0.8});
+        updateModifications(true);
       });
     };
     reader.readAsDataURL(file);
+
   })
   
 })
@@ -317,6 +323,7 @@ export class PrintBuilderComponent implements OnInit {
 
   ngOnChanges(changes) {
     if(changes.ipage.currentValue != this.currentBuilder) {
+      this.leftPanel = 'designs';
       canvas.clear();
       this.currentBuilder = changes.ipage.currentValue;
       currentBuilder = this.currentBuilder;
