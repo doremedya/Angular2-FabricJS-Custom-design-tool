@@ -62,7 +62,6 @@ function flipImages() {
     onInit: function () {
       $(".ui-front").css({
         'z-index': '900',
-        'opacity': '0',
         '-webkit-transform': "rotateY(-180deg)",
         '-moz-transform': "rotateY(-180deg)"
       });
@@ -81,41 +80,21 @@ function flipImages() {
 }
 
 function swipeImgLeft(value) {
-  if(value < 90) {
-    $(".ui-front").css({
-      'z-index': '900',
-      'opacity': '1',
-      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
-    });
-  } else {
-    $(".ui-front").css({
-      'z-index': '900',
-      'opacity': '1',
-      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
-    });
-  }  
+  $(".ui-front").css({
+    'z-index': '900',
+    '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+    '-moz-transform': "rotateY(" + (180 - value) + "deg)"
+  });
 }
 
 function swipeImgRight(value) {
   console.log(value)
   $(".ui-back").addClass("original");
-  if(value > 90) {
-    $(".ui-back").css({
-      'z-index': '1000',
-      'opacity': '0',
-      '-webkit-transform': "rotateY(" + (-value) + "deg)",
-      '-moz-transform': "rotateY(" + (-value) + "deg)"
-    })
-  } else {
-    $(".ui-back").css({
-      'z-index': '1000',
-      'opacity': '1',
-      '-webkit-transform': "rotateY(" + (-value) + "deg)",
-      '-moz-transform': "rotateY(" + (-value) + "deg)"
-    })
-  }  
+  $(".ui-back").css({
+    'z-index': '1000',
+    '-webkit-transform': "rotateY(" + (-value) + "deg)",
+    '-moz-transform': "rotateY(" + (-value) + "deg)"
+  })
 }
 
 
@@ -156,7 +135,7 @@ export class ReviewOrderComponent implements OnInit {
         $(".ui-back").removeClass("cotton");
         $(".ui-back").removeClass("super");
         $(".ui-back").removeClass("luxe");
-        $(".ui-back").addClass("original");
+        $(".ui-back").addClass("original");       
       })
 
       $("#paper-super").click(function() {

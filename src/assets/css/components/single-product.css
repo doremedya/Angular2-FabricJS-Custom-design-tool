@@ -177,6 +177,62 @@
     transition: all ease;
 }
 
+.ui-flip-card .ui-front.original:after {
+    width: 5px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: red;
+    position: absolute;
+    left: -6px;
+    transform: rotateY(-90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
+
+.ui-flip-card .ui-front.super:after {
+    width: 10px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: red;
+    position: absolute;
+    left: -13px;
+    transform: rotateY(-90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
+
+.ui-flip-card .ui-front.luxe:after {
+    width: 15px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: red;
+    position: absolute;
+    left: -20px;
+    transform: rotateY(-90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
+
+.ui-flip-card .ui-front.cotton:after {
+    width: 20px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: red;
+    position: absolute;
+    left: -28px;
+    transform: rotateY(-90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
+
 .ui-flip-card .ui-back.original:after {
     width: 5px;
     height: 100%;
