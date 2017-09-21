@@ -16,6 +16,12 @@ import { PrintBuilderComponent } from './components/single-product/print-builder
 import { ReviewOrderComponent } from './components/single-product/review-order/review-order.component';
 import { TypeFamilyComponent } from './components/single-product/type-family/type-family.component';
 import { SingleProductService } from './services/single-product.service';
+import { SettingComponent } from './components/setting/setting.component';
+import { AccountComponent } from './components/setting/account/account.component';
+import { BillingComponent } from './components/setting/billing/billing.component';
+import { ShippingComponent } from './components/setting/shipping/shipping.component';
+import { CreditComponent } from './components/setting/credit/credit.component';
+import { OtherComponent } from './components/setting/other/other.component';
 
 const ROUTES = [{
   path: '',
@@ -29,6 +35,9 @@ const ROUTES = [{
 }, {
   path: 'single-product',
   component: SingleProductComponent
+}, {
+  path: 'setting',
+  component: SettingComponent
 }];
 
 @NgModule({
@@ -42,7 +51,13 @@ const ROUTES = [{
     SingleProductComponent,
     PrintBuilderComponent,
     ReviewOrderComponent,
-    TypeFamilyComponent
+    TypeFamilyComponent,
+    SettingComponent,
+    AccountComponent,
+    BillingComponent,
+    ShippingComponent,
+    CreditComponent,
+    OtherComponent
   ],
   imports: [
     BrowserModule,
