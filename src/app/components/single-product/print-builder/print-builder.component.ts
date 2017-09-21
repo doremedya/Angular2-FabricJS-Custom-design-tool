@@ -229,23 +229,38 @@ $(document).ready(function() {
   $("#size-checkbox1").click(function() {
     var height = 240
     var width = 320
-    canvas.setHeight(height);
-    canvas.setWidth(width);
+    if(layoutHorizontal) {
+      canvas.setHeight(width);
+      canvas.setWidth(height);
+    } else {
+      canvas.setHeight(height);
+      canvas.setWidth(width);
+    }
+    
     drawImage(originalImage)
     
   })
 
   $("#size-checkbox2").click(function() {
     var height = 320
-    var width = 568
-    canvas.setHeight(height);
-    canvas.setWidth(width);
+    if(layoutHorizontal) {
+      canvas.setHeight(width);
+      canvas.setWidth(height);
+    } else {
+      canvas.setHeight(height);
+      canvas.setWidth(width);
+    }
     drawImage(originalImage)
   })
 
   $("#size-checkbox3").click(function() {
-    canvas.setHeight(originalCanvasHeight);
-    canvas.setWidth(originalCanvasWidth);
+    if(layoutHorizontal) {
+      canvas.setHeight(originalCanvasWidth);
+      canvas.setWidth(originalCanvasHeight);
+    } else {
+      canvas.setHeight(originalCanvasHeight);
+      canvas.setWidth(originalCanvasWidth);
+    }
     drawImage(originalImage)
   })
 
