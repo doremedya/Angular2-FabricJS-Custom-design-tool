@@ -89,6 +89,7 @@ function swipeImgLeft(value) {
 
 function swipeImgRight(value) {
   console.log(value)
+  $(".ui-back").addClass("original");
   if(value > 90) {
     $(".ui-back").css({
       'z-index': '1000',
@@ -141,19 +142,31 @@ export class ReviewOrderComponent implements OnInit {
       })
 
       $("#paper-original").click(function() {
-        console.log(123)
+        $(".ui-back").removeClass("cotton");
+        $(".ui-back").removeClass("super");
+        $(".ui-back").removeClass("luxe");
+        $(".ui-back").addClass("original");
       })
 
       $("#paper-super").click(function() {
-        console.log(123)
+        $(".ui-back").removeClass("cotton");
+        $(".ui-back").removeClass("luxe");
+        $(".ui-back").removeClass("original");
+        $(".ui-back").addClass("super");
       })
 
       $("#paper-luxe").click(function() {
-        console.log(123)
+        $(".ui-back").removeClass("cotton");
+        $(".ui-back").removeClass("super");
+        $(".ui-back").removeClass("original");
+        $(".ui-back").addClass("luxe");
       })
 
       $("#paper-cotton").click(function() {
-        console.log(123)
+        $(".ui-back").removeClass("luxe");
+        $(".ui-back").removeClass("super");
+        $(".ui-back").removeClass("original");
+        $(".ui-back").addClass("cotton");
       })
 
       $("#finish-matte").click(function() {

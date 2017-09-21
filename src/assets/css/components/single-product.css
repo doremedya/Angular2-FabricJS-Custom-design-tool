@@ -176,78 +176,105 @@
     transition: all ease;
 }
 
-/*
-    coin effect
-*/
+.ui-flip-card .ui-back.original:after {
+    width: 5px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: #6c757d;
+    position: absolute;
+    right: -3px;
+    transform: rotateY(90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
 
-.ui-flip-card .side:before, .ui-flip-card .side:after{
+.ui-flip-card .ui-back.super:after {
+    width: 10px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: #6c757d;
+    position: absolute;
+    right: -6px;
+    transform: rotateY(90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
+
+.ui-flip-card .ui-back.luxe:after {
+    width: 15px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: #6c757d;
+    position: absolute;
+    right: -10px;
+    transform: rotateY(90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
+
+.ui-flip-card .ui-back.cotton:after {
+    width: 20px;
+    height: 100%;
+    content: "";
+    backface-visibility: hidden;
+    background: #6c757d;
+    position: absolute;
+    right: -14px;
+    transform: rotateY(90deg);
+    z-index: 9999;
+    transform-style: preserve-3d;
+    transition: all ease;
+}
+
+.coin {
+    font-size: 200px;
+    width: 0.1em;
+    height: 1em;
+    background: red;
+    margin: auto;
+    -webkit-animation: rotate 4s infinite linear;
+    -moz-animation: rotate 4s infinite linear;
+    animation: rotate 4s infinite linear;
+    transform-style: preserve-3d;
+}
+.coin .side, .coin:before, .coin:after {
     content: "";
     position: absolute;
     width: 1em;
     height: 1em;
     overflow: hidden;
-    @include background(#DAB007);
+    background: #dab007;
     border-radius: 50%;
-    right: (-1em / 2 + .9em);
+    right: -0.4em;
     text-align: center;
     line-height: 1;
-    color: darken(#DAB007, 2%);
-    text-shadow:
-      1px 2px 0 lighten(#DAB007, 30%),
-      -1px -2px 0 darken(#DAB007, 30%)
-    ;
-    @include transform(rotateY(-90deg));
-    @include backface-visibility(hidden);
+    color: blue;
+    transform: rotateY(-90deg);
+    backface-visibility: hidden;
+}
+.coin .tails, .coin:after {
+    left: -0.4em;
+    transform: rotateY(90deg);
+}
+.coin:before, .coin:after {
+    background: red;
+    backface-visibility: hidden;
+    transform: rotateY(90deg);
+}
+.coin:after {
+    transform: rotateY(-90deg);
 }
 
-.ui-flip-card .tails:after {
-    left: (-1em / 2 + .9em);
-    @include transform(rotateY(90deg));
-}
-/*    &:before, &:after {
-        @include background(red);
-        @include backface-visibility(hidden);
-        @include transform(rotateY(90deg));
-    }
-        &:after {
-        @include transform(rotateY(-90deg));
-    }
-}*/
 
-/*
-    shine effect 
-*/
-
-@mixin fade-transition($element) {
-    transition: $element 0.15s ease-in-out;
-}
-
-.shine {
-    display: none;
-    z-index: 999999;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;  
-    background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.03) 1%,rgba(255,255,255,0.6) 30%,rgba(255,255,255,0.85) 50%,rgba(255,255,255,0.85) 70%,rgba(255,255,255,0.85) 71%,rgba(255,255,255,0) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-    width: 15%;
-    height: 100%;
-    transform: skew(-10deg, 0deg);  
-    animation: move 4s;
-    animation-iteration-count: infinite;
-    animation-delay: 1s;
-    transform: skew(-10deg, 0deg);
-}
-
-/*  */
-@keyframes move {
-    0% { left: 0; opacity: 0; }
-    5% { opacity: 0.0 }
-    48% { opacity: 0.2 }
-    80% { opacity: 0.0 }
-    100% { left: 100% }
-}
+@keyframes rotate { 100% {
+    transform: rotateY(360deg);
+}}
 
 /*
     matte effect
