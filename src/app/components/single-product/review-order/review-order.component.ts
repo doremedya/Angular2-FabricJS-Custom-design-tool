@@ -61,15 +61,15 @@ function flipImages() {
     // Callback function
     onInit: function () {
       $(".ui-front").css({
-        'z-index': '900',
-        '-webkit-transform': "rotateY(-180deg)",
-        '-moz-transform': "rotateY(-180deg)"
+        'z-index': '1000',
+        '-webkit-transform': "rotateY(0deg)",
+        '-moz-transform': "rotateY(0deg)"
       });
 
       $(".ui-back").css({
-        'z-index': '800',
-        '-webkit-transform': "rotateY(0deg)",
-        '-moz-transform': "rotateY(0deg)"
+        'z-index': '-1',
+        '-webkit-transform': "rotateY(-180deg)",
+        '-moz-transform': "rotateY(-180deg)"
       })
     },
     onSlide: function (position, value) {
@@ -82,32 +82,32 @@ function flipImages() {
 function swipeImgLeft(value) {
   if(value < 90) {
     $(".ui-front").css({
-      'z-index': '900',
-      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
+      'z-index': '1000',
+      '-webkit-transform': "rotateY(" + (-value) + "deg)",
+      '-moz-transform': "rotateY(" + (-value) + "deg)"
     });
   } else {
     $(".ui-front").css({
-      'z-index': '1000',
-      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
+      'z-index': '-1',
+      '-webkit-transform': "rotateY(" + (-value) + "deg)",
+      '-moz-transform': "rotateY(" + (-value) + "deg)"
     });
   }  
 }
 
 function swipeImgRight(value) {
-  $(".ui-back").addClass("original");
+  $(".ui-front").addClass("original");
   if(value > 90) {
     $(".ui-back").css({
-      'z-index': '-1',
-      '-webkit-transform': "rotateY(" + (-value) + "deg)",
-      '-moz-transform': "rotateY(" + (-value) + "deg)"
+      'z-index': '1000',
+      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
     })
   } else {
     $(".ui-back").css({
-      'z-index': '1000',
-      '-webkit-transform': "rotateY(" + (-value) + "deg)",
-      '-moz-transform': "rotateY(" + (-value) + "deg)"
+      'z-index': '-1',
+      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
     })
   }  
 }
@@ -147,31 +147,31 @@ export class ReviewOrderComponent implements OnInit {
       })
 
       $("#paper-original").click(function() {
-        $(".ui-back").removeClass("cotton");
-        $(".ui-back").removeClass("super");
-        $(".ui-back").removeClass("luxe");
-        $(".ui-back").addClass("original");        
+        $(".ui-front").removeClass("cotton");
+        $(".ui-front").removeClass("super");
+        $(".ui-front").removeClass("luxe");
+        $(".ui-front").addClass("original");        
       })
 
       $("#paper-super").click(function() {
-        $(".ui-back").removeClass("cotton");
-        $(".ui-back").removeClass("luxe");
-        $(".ui-back").removeClass("original");
-        $(".ui-back").addClass("super");
+        $(".ui-front").removeClass("cotton");
+        $(".ui-front").removeClass("luxe");
+        $(".ui-front").removeClass("original");
+        $(".ui-front").addClass("super");
       })
 
       $("#paper-luxe").click(function() {
-        $(".ui-back").removeClass("cotton");
-        $(".ui-back").removeClass("super");
-        $(".ui-back").removeClass("original");
-        $(".ui-back").addClass("luxe");
+        $(".ui-front").removeClass("cotton");
+        $(".ui-front").removeClass("super");
+        $(".ui-front").removeClass("original");
+        $(".ui-front").addClass("luxe");
       })
 
       $("#paper-cotton").click(function() {
-        $(".ui-back").removeClass("luxe");
-        $(".ui-back").removeClass("super");
-        $(".ui-back").removeClass("original");
-        $(".ui-back").addClass("cotton");
+        $(".ui-front").removeClass("luxe");
+        $(".ui-front").removeClass("super");
+        $(".ui-front").removeClass("original");
+        $(".ui-front").addClass("cotton");
       })
 
       $("#finish-matte").click(function() {
