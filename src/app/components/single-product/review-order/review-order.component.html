@@ -8,7 +8,8 @@
                 <h3 class="ui-sub-title">Paper Type</h3>
                 <div class="row no-gutters justify-content-center align-items-center mb-3">
                     <div class="col-xl-6">
-                        <div class="form-check active d-flex flex-column align-items-center justify-content-center">
+                        <div class="form-check d-flex flex-column align-items-center justify-content-center" id="paper-original"
+                            (click)="paperType='original'" [ngClass]="{'active': paperType==='original'}">
                             <input type="hidden" value="horizontal" id="layout-checkbox1" name="">
                             <div class="d-flex">
                                 <img src="assets/images/sp-icon1.png" class="align-self-center">
@@ -19,7 +20,8 @@
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <div class="form-check d-flex flex-column align-items-center justify-content-center">
+                        <div class="form-check d-flex flex-column align-items-center justify-content-center" id="paper-super"
+                            (click)="paperType='super'" [ngClass]="{'active': paperType==='super'}">
                             <input type="hidden" value="vertical" id="layout-checkbox2" name="">
                             <div class="d-flex">
                                 <img src="assets/images/sp-icon2.png" class="align-self-center">
@@ -32,7 +34,8 @@
                 </div>
                 <div class="row no-gutters justify-content-center align-items-center">
                     <div class="col-xl-6">
-                        <div class="form-check active d-flex flex-column align-items-center justify-content-center">
+                        <div class="form-check active d-flex flex-column align-items-center justify-content-center" id="paper-luxe"
+                            (click)="paperType='luxe'" [ngClass]="{'active': paperType==='luxe'}">
                             <input type="hidden" value="horizontal" id="layout-checkbox1" name="">
                             <div class="d-flex">
                                 <img src="assets/images/sp-icon3.png" class="align-self-center">
@@ -43,7 +46,8 @@
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <div class="form-check d-flex flex-column align-items-center justify-content-center">
+                        <div class="form-check d-flex flex-column align-items-center justify-content-center" id="paper-cotton"
+                            (click)="paperType='cotton'" [ngClass]="{'active': paperType==='cotton'}">
                             <input type="hidden" value="vertical" id="layout-checkbox2" name="">
                             <div class="d-flex">
                                 <img src="assets/images/sp-icon4.png" class="align-self-center">
@@ -59,17 +63,17 @@
             <div class="ui-layout-choice mt-40">
                 <h3 class="ui-sub-title">Corners</h3>
                 <div class="row no-gutters justify-content-center align-items-center">
-                    <div class="col-xl-6">
-                        <div class="form-check active d-flex align-items-center justify-content-center">
-                            <input type="hidden" value="horizontal" id="layout-checkbox1" name="">
+                    <div class="col-xl-6" id="border-square">
+                        <div class="form-check d-flex align-items-center justify-content-center" id="border-square"
+                            (click)="borderStyle='square'" [ngClass]="{'active': borderStyle==='square'}">
                             <img src="assets/images/sp-icon5.png">
-                            <p class="ui-checkbox-label">Square</p>
-                            <div class="ui-border-bottom"></div>
+                            <p class="ui-checkbox-label" id="border-square">Square</p>
+                            <div class="ui-border-bottom" id="border-square"></div>
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <div class="form-check d-flex align-items-center justify-content-center">
-                            <input type="hidden" value="vertical" id="layout-checkbox2" name="">
+                        <div class="form-check d-flex align-items-center justify-content-center" id="border-round"
+                            (click)="borderStyle='round'" [ngClass]="{'active': borderStyle==='round'}">
                             <img src="assets/images/sp-icon6.png">
                             <p class="ui-checkbox-label">Rounded</p>
                             <div class="ui-border-bottom"></div>
@@ -82,7 +86,8 @@
                 <h3 class="ui-sub-title">Finish</h3>
                 <div class="row no-gutters justify-content-center align-items-center">
                     <div class="col-xl-6">
-                        <div class="form-check active d-flex align-items-center justify-content-center">
+                        <div class="form-check d-flex align-items-center justify-content-center" id="finish-matte"
+                            (click)="finishType='matte'" [ngClass]="{'active': finishType==='matte'}">
                             <input type="hidden" value="horizontal" id="layout-checkbox1" name="">
                             <img src="assets/images/sp-icon7.png">
                             <p class="ui-checkbox-label">Matte</p>
@@ -90,7 +95,8 @@
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <div class="form-check d-flex align-items-center justify-content-center">
+                        <div class="form-check d-flex align-items-center justify-content-center" id="finish-gloss"
+                            (click)="finishType='gloss'" [ngClass]="{'active': finishType==='gloss'}">
                             <input type="hidden" value="vertical" id="layout-checkbox2" name="">
                             <img src="assets/images/sp-icon8.png">
                             <p class="ui-checkbox-label">Gloss</p>
@@ -102,12 +108,12 @@
 
             <label for="ui-quantity" class="mt-40 ui-sub-title">Quantity</label>
             <select class="form-control" id="ui-quantity">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
         </div>
 
     </div>
@@ -145,10 +151,10 @@
                 <div class="ui-rotator text-left">
                     <div class="ui-flip-card mb-5 pb-3">
                         <div class="ui-front">
-                            <img src="assets/images/dash-single-card.png" class="img-fluid ui-img">
+                            <canvas id="front-canvas" class="canvas"></canvas>                            
                         </div>
                         <div class="ui-back">
-                            <img src="assets/images/dash-single-card.png" class="img-fluid ui-img">
+                            <canvas id="back-canvas" class="canvas"></canvas>
                         </div>
                     </div>
                     <input type="range" class="ui-ranger" min="0" max="180" step="1" value="0">
@@ -159,13 +165,17 @@
         <div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end">
             <div class="form-check mr-4">
                 <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                I have reviewed and approve my design...
-                                            </label>
+                    <input class="form-check-input" type="checkbox" value="">
+                    I have reviewed and approve my design...
+                </label>
             </div>
             <a href="" class="btn btn-dark-green">
-                                            Proceed to checkout <i class="fa fa-chevron-right"></i>
-                                        </a>
+                Proceed to checkout <i class="fa fa-chevron-right"></i>
+            </a>
         </div>
+        <!-- <div class="coin">
+          <div class="side heads">F</div>
+          <div class="side tails">B</div>
+        </div> -->
     </div>
 </div>

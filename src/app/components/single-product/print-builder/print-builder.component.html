@@ -67,18 +67,28 @@
 	                </div>	                	
 	                <div id="ui-font-style">
 	                	<ul>
-	                		<li><i class="fa fa-align-left"></i></li>
-	                		<li><i class="fa fa-align-center"></i></li>
-	                		<li><i class="fa fa-align-right"></i></li>
-	                		<li id="bold"><i class="fa fa-bold"></i></li>
-	                		<li id="italic"><i class="fa fa-italic"></i></li>
+	                		<li id="align-left" (click)="textAlign='left'" [ngClass]="{'active': textAlign==='left'}">
+	                			<i class="fa fa-align-left"></i>
+	                		</li>
+	                		<li id="align-center" (click)="textAlign='center'" [ngClass]="{'active': textAlign==='center'}">
+	                			<i class="fa fa-align-center"></i>
+	                		</li>
+	                		<li id="align-right" (click)="textAlign='right'" [ngClass]="{'active': textAlign==='right'}">
+	                			<i class="fa fa-align-right"></i>
+	                		</li>
+	                		<li id="bold" (click)="fontWeight == 'bold' ? fontWeight = '' : fontWeight = 'bold'" [ngClass]="{'active': fontWeight==='bold'}">
+	                			<i class="fa fa-bold"></i>
+	                		</li>
+	                		<li id="italic" (click)="fontWeight == 'italic' ? fontWeight = '' : fontWeight = 'italic'" [ngClass]="{'active': fontWeight==='italic'}">
+	                			<i class="fa fa-italic"></i>
+	                		</li>
 	                	</ul>
 	                </div>
                 </div>
 	    		<div class="add-element section col-md-12">
 	    			<label>Add Elements</label>
 	    			<ul>
-	    				<li><a><i class="fa fa-image"></i></a><span>Add Images</span></li>
+	    				<li><a><input type="file" id="myFile" class="file-upload"><i class="fa fa-image"></i></a><span>Add Images</span></li>
 	    				<li><a id="addText"><i class="fa fa-font"></i></a><span>Add Text</span></li>
 	    				<li><a><i class="fa fa-home"></i></a><span>Add From Listing</span></li>
 	    			</ul>
@@ -89,17 +99,21 @@
                     <h3>Layout</h3>
                     <div class="row no-gutters justify-content-center align-items-center">
                         <div class="col-md-6">
-                            <div class="form-check active d-flex align-items-center justify-content-center">
-                                <input type="hidden" value="horizontal" id="layout-checkbox1" name="">
-                                <div class="ui-h-box"></div>
+                            <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox1" 
+                            	(click)="layoutPanel='horizontal'" [ngClass]="{'active': layoutPanel==='horizontal'}">
+                                <div class="ui-h-box">
+                                	<i class="fa fa-window-maximize"></i>
+                                </div>
                                 <p class="ui-checkbox-label">Horizontal</p>
                                 <div class="ui-border-bottom"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-check d-flex align-items-center justify-content-center">
-                                <input type="hidden" value="vertical" id="layout-checkbox2" name="">
-                                <div class="ui-v-box"></div>
+                            <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox2"
+                            	(click)="layoutPanel='vertical'" [ngClass]="{'active': layoutPanel==='vertical'}">
+                                <div class="ui-v-box">
+                                	<i class="fa fa-window-maximize vertical-window"></i>
+                                </div>
                                 <p class="ui-checkbox-label">Vertical</p>
                                 <div class="ui-border-bottom"></div>
                             </div>
@@ -113,25 +127,31 @@
 
                     <div class="row no-gutters justify-content-center align-items-center">
                         <div class="col-md-4">
-                            <div class="form-check active d-flex align-items-center justify-content-center">
-                                <input type="hidden" value="small" id="layout-checkbox1" name="">
-                                <div class="ui-s-box"></div>
+                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox1"
+                            	(click)="sizePanel='small'" [ngClass]="{'active': sizePanel==='small'}">
+                                <div class="ui-s-box">
+                                	<i class="fa fa-square-o fa-lg"></i>
+                                </div>
                                 <p class="ui-checkbox-label">Small <br/> 6" x 4"</p>
                                 <div class="ui-border-bottom"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-check d-flex align-items-center justify-content-center">
-                                <input type="hidden" value="medium" id="layout-checkbox2" name="">
-                                <div class="ui-m-box"></div>
+                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox2"
+                            	(click)="sizePanel='medium'" [ngClass]="{'active': sizePanel==='medium'}">
+                                <div class="ui-m-box">
+                                	<i class="fa fa-square-o fa-2x"></i>
+                                </div>
                                 <p class="ui-checkbox-label">Medium <br/> 6" x 4
                                 <div class="ui-border-bottom"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-check d-flex align-items-center justify-content-center">
-                                <input type="hidden" value="large" id="layout-checkbox2" name="">
-                                <div class="ui-l-box"></div>
+                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox3"
+                            	(click)="sizePanel='large'" [ngClass]="{'active': sizePanel==='large'}">
+                                <div class="ui-l-box">
+                                	<i class="fa fa-square-o fa-3x"></i>
+                                </div>
                                 <p class="ui-checkbox-label">Large <br/> 6" x 4"</p>
                                 <div class="ui-border-bottom"></div>
                             </div>
@@ -142,13 +162,16 @@
     	</div>    	
     </div>
     <div class="col">
-    	<div class="ui-main-body">    	
-	    	<dir class="canvas">
+    	<div class="ui-main-body"> 	
+	    	<div class="canvas">
 	    		<canvas id="canvas"></canvas>
-	    	</dir>    		
+	    	</div> 
+	    	<!-- <div class="canvas" [hidden]="ipage!='back-builder'">
+	    		<canvas id="back-canvas"></canvas>
+	    	</div> -->   		
     	</div>
     	<div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end">
-    		
+
     	</div>
     </div>
 </div>

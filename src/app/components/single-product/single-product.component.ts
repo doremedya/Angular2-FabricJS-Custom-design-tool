@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './single-product.component.html'
 })
 export class SingleProductComponent implements OnInit {
-  private ipage: string = '';
+  public ipage: string = '';
 
   constructor() {
     this.ipage = 'front-builder';
