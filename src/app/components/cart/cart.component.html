@@ -7,12 +7,8 @@
                 <h2 class="ui-title">Your cart</h2> 
                 <div class="ui-item d-flex flex-wrap">
                     <div class="product-image">
-                        <div class="front canvas">
-                            <canvas id="front-canvas" class="canvas mr-2"></canvas>
-                        </div>
-                        <div class="back canvas">
-                            <canvas id="back-canvas" class="canvas"></canvas>
-                        </div>
+                        <img [src]="frontImage" class="img-responsive" />
+                        <img [src]="backIamge" class="img-responsive" />
                     </div>
                     <div class="ui-item-desc ml-3 mt-1">
                         <div class="w-100 d-flex">

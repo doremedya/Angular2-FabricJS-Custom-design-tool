@@ -45,8 +45,13 @@ function updateModifications(savehistory) {
 
   if(currentBuilder == 'front-builder') {
     frontState = state;
+    var frontDataURL = canvas.toDataURL({format: 'png', quality: 1});
+    console.log(frontDataURL)
+    localStorage.setItem('front', frontDataURL)
   } else {
     backState = state;
+    var backDataURL = canvas.toDataURL({format: 'png', quality: 1});
+    localStorage.setItem('back', backDataURL)
   }
 }
 
@@ -63,6 +68,7 @@ function drawImage(image) {
   });
 
   canvas.renderAll();
+
 }
 
 $(document).ready(function() {
@@ -88,8 +94,9 @@ $(document).ready(function() {
         originY: 'top',
         width: canvas.width,
         height: canvas.height
-    });
-    canvas.renderAll();   
+    });   
+    canvas.renderAll();  
+    updateModifications(true); 
   })
 
   $("#addText").click(function() {

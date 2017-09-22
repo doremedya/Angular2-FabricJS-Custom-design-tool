@@ -32,7 +32,12 @@ function setFrontCanvas() {
     width: frontCanvas.width,
     height: frontCanvas.height,
   });
+
   frontCanvas.renderAll();
+  
+  var c =  new fabric.Canvas('front-canvas');
+  var test = c.toDataURL({format: 'png'});
+  console.log(test)
 }
 
 function setBackCanvas() {
