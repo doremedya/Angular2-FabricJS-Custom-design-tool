@@ -160,7 +160,7 @@
 
 @media(min-width: 320px) and (max-width: 575px) {
 	.ui-thank-you-main .ui-content-box .payment {
-		margin-bottom: 15px;
+		margin-bottom: 5px;
 	}
 }
 
@@ -175,6 +175,10 @@
 	.product-image .canvas {
 		max-width: 100%;
 		margin-bottom: 15px;
+	}
+
+	.ui-item-desc .d-flex.flex-wrap {
+		justify-content: center;
 	}
 }
 
@@ -195,14 +199,16 @@
 @media(min-width: 320px) and (max-width: 470px) {
 	.ui-thank-you-main .ui-btn-black, .ui-thank-you-main .ui-btn-white {
 		margin-top: 15px;
+		
 		width: 120px;
 	}
 	.ui-thank-you-main .share-btn {
 		margin-top: 15px;
 	}
+
 }
 
-@media(min-width: 1025px) and (max-width: 1070px) {
+@media(min-width: 1025px) and (max-width: 1083px) {
 	.ui-thank-you-main .ui-btn-black {
 		width: 80px;
 	}
@@ -224,6 +230,7 @@
 	    align-items: center;
 		justify-content: center;
 	}
+	
 	.ui-thank-you-main .ui-item-desc {
 		width: 400px;
     	margin-left: 0!important;
