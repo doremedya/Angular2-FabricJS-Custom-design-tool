@@ -62,6 +62,9 @@ function setBackCanvas() {
 })
 export class CartComponent implements OnInit {
 
+  public editAddress:boolean = false;
+  public editPayment:boolean = false;
+
   constructor() {
     canvasInfo = JSON.parse(localStorage.getItem('image'))
     console.log(canvasInfo)

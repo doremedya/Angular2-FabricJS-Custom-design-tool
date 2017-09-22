@@ -7,8 +7,12 @@
                 <h2 class="ui-title">Your cart</h2> 
                 <div class="ui-item d-flex flex-wrap">
                     <div class="product-image">
-                        <canvas id="front-canvas" class="canvas mr-2"></canvas>
-                        <canvas id="back-canvas" class="canvas"></canvas>
+                        <div class="front canvas">
+                            <canvas id="front-canvas" class="canvas mr-2"></canvas>
+                        </div>
+                        <div class="back canvas">
+                            <canvas id="back-canvas" class="canvas"></canvas>
+                        </div>
                     </div>
                     <div class="ui-item-desc ml-3 mt-1">
                         <div class="w-100 d-flex">
@@ -19,9 +23,11 @@
                         <div class="d-flex flex-wrap">
                             <a href="" class="btn ui-btn-black mr-2">View</a>
                             <a href="" class="btn ui-btn-white mr-2">Edit</a>
-                            <i class="fa fa-share-alt mr-2" aria-hidden="true"></i>
-                            <i class="fa fa-download mr-2" aria-hidden="true"></i>
-                            <i class="fa fa-print mr-2" aria-hidden="true"></i>
+                            <div class="share-btn">
+                                <i class="fa fa-share-alt mr-2" aria-hidden="true"></i>
+                                <i class="fa fa-download mr-2" aria-hidden="true"></i>
+                                <i class="fa fa-print mr-2" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -38,18 +44,40 @@
         <div class="col-lg-6 mh650">
             <div class="ui-content-box h-100">
                 <div class="row">
-                    <div class="col-md-6 mb-5 payment">
+                    <div class="col-md-6 col-sm-6 col-xs-12 payment" *ngIf="!editAddress">
                         <h2 class="ui-title mb-2">Delivery</h2>
                         <h2 class="ui-title text-capitalize mb-1">John Smith</h2>
-                        <p class="ui-tex">123 Street Name </p>
-                        <p class="ui-text">Something Else, CA 90210</p>
-                        <button class="btn ui-btn-white">Edit</button>
+                        <div class="ui-tex">123 Street Name </div>
+                        <div class="ui-text">Something Else, CA 90210</div>
+                        <button class="btn ui-btn-white" type="button" (click)="editAddress = true">Edit</button>
                     </div>
-                    <div class="col-md-6 payment">
+                    <div class="col-md-6 col-sm-6 col-xs-12 payment" *ngIf="editAddress">
+                        <h2 class="ui-title mb-2">Delivery</h2>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" value="John Smith" class="form-control">
+                        <label for="address1">Address1</label>
+                        <input type="text" name="address1" id="address1" value="123 Street Name" class="form-control">
+                        <label for="address1">Address2</label>
+                        <input type="text" name="address2" id="address2" value="Something Else, CA 90210" class="form-control">
+                        <div class="edit-btn">
+                            <button class="btn btn-success" type="button" (click)="editAddress = false">Save</button>
+                            <button class="btn btn-primary" type="button" (click)="editAddress = false">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 payment" *ngIf="!editPayment">
                         <h2 class="ui-title">Payment</h2>
-                        <p class="ui-text">Mastercard Ending </p>
-                        <p class="ui-text"> **** **** **** 5602</p>
-                        <button class="btn ui-btn-white">Edit</button>
+                        <div class="ui-text">Mastercard Ending </div>
+                        <div class="ui-text"> **** **** **** 5602</div>
+                        <button class="btn ui-btn-white" (click)="editPayment = true">Edit</button>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 payment" *ngIf="editPayment">
+                        <h2 class="ui-title">Payment</h2>
+                        <div class="ui-text">Mastercard Ending </div>
+                        <input type="text" value="**** **** **** 5602" class="form-control">
+                        <div class="edit-btn">
+                            <button class="btn btn-success" (click)="editPayment = false">Save</button>
+                            <button class="btn btn-primary" (click)="editPayment = false">Cancel</button>
+                        </div>
                     </div>
                 </div>
 
