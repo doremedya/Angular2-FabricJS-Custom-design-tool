@@ -122,12 +122,14 @@
 
 .ui-thank-you-main  .ui-content-box .payment .edit-btn {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	padding-top: 10px;
 }
 
 .ui-thank-you-main .ui-content-box .payment .edit-btn .btn {
-	width: 100px;
+	width: 150px;
+	height: 40px;
+	text-transform: uppercase;
 }
 
 .ui-thank-you-main .ui-content-box .payment .btn {
@@ -230,7 +232,7 @@
 	    align-items: center;
 		justify-content: center;
 	}
-	
+
 	.ui-thank-you-main .ui-item-desc {
 		width: 400px;
     	margin-left: 0!important;
