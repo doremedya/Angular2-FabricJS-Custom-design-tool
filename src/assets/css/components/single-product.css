@@ -177,6 +177,11 @@
     transition: all ease;
 }
 
+.ui-flip-card img {
+    width: 600px;
+    height: 400px;
+}
+
 .ui-flip-card .ui-front.original:after {
     width: 5px;
     height: 100%;

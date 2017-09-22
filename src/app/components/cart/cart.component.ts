@@ -13,6 +13,14 @@ export class CartComponent implements OnInit {
   constructor() {
     this.frontImage = localStorage.getItem('front');
     this.backIamge = localStorage.getItem('back');
+    console.log(this.frontImage)
+    if(this.frontImage == null) {
+       this.frontImage = localStorage.getItem('frontImage');
+    }
+
+    if(this.backIamge == null) {
+       this.backIamge = localStorage.getItem('backImage');
+    }
 
   }
 

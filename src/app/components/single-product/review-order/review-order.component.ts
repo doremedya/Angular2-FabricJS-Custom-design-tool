@@ -12,57 +12,6 @@ var allImage = {
   back: ""
 };
 
-function setFrontCanvas() {
-  frontCanvas = new fabric.Canvas('front-canvas', {
-    hoverCursor: 'pointer',
-    selection: true,
-    selectionBorderColor:'blue'
-  });
-
-  frontCanvas.setHeight(400);
-  frontCanvas.setWidth(600);
-  frontCanvas.loadFromJSON(canvasInfo.frontState[canvasInfo.frontState.length - 1]);
-  frontCanvas.setBackgroundImage(canvasInfo.frontImage, frontCanvas.renderAll.bind(frontCanvas), {
-    backgroundImageOpacity: 0.5,
-    backgroundImageStrech: true,
-    top: 0,
-    left: 0,
-    originX: 'left',
-    originY: 'top',
-    width: frontCanvas.width,
-    height: frontCanvas.height,
-  });
-
-  frontCanvas.renderAll();
-  
-  var c =  new fabric.Canvas('front-canvas');
-  var test = c.toDataURL({format: 'png'});
-  console.log(test)
-}
-
-function setBackCanvas() {
-  backCanvas = new fabric.Canvas('back-canvas', {
-    hoverCursor: 'pointer',
-    selection: true,
-    selectionBorderColor:'blue'
-  });
-
-  backCanvas.setHeight(400);
-  backCanvas.setWidth(600);
-  backCanvas.loadFromJSON(canvasInfo.backState[canvasInfo.backState.length - 1]);
-  backCanvas.setBackgroundImage(canvasInfo.backImage, backCanvas.renderAll.bind(backCanvas), {
-    backgroundImageOpacity: 0.5,
-    backgroundImageStrech: true,
-    top: 0,
-    left: 0,
-    originX: 'left',
-    originY: 'top',
-    width: backCanvas.width,
-    height: backCanvas.height,
-  });
-  backCanvas.renderAll();
-}
-
 function flipImages() {
   $('.ui-ranger').rangeslider({
     polyfill: false,
@@ -134,7 +83,22 @@ export class ReviewOrderComponent implements OnInit {
   public finishType: string = '';
   public paperType: string = 'original';
 
+  public frontImage: any;
+  public backIamge: any;
+
   constructor(public spService: SingleProductService) {
+
+    this.frontImage = localStorage.getItem('front');
+    this.backIamge = localStorage.getItem('back');
+    console.log(this.frontImage)
+    if(this.frontImage == null) {
+       this.frontImage = localStorage.getItem('frontImage');
+    }
+
+    if(this.backIamge == null) {
+       this.backIamge = localStorage.getItem('backImage');
+    }
+
     this.canvasInfo = this.spService.getValue();
     canvasInfo = this.spService.getValue();
 
@@ -211,8 +175,6 @@ export class ReviewOrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    setFrontCanvas();
-    setBackCanvas();
     flipImages();
   }
 

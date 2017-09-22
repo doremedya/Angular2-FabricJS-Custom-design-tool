@@ -46,7 +46,6 @@ function updateModifications(savehistory) {
   if(currentBuilder == 'front-builder') {
     frontState = state;
     var frontDataURL = canvas.toDataURL({format: 'png', quality: 1});
-    console.log(frontDataURL)
     localStorage.setItem('front', frontDataURL)
   } else {
     backState = state;
@@ -82,8 +81,10 @@ $(document).ready(function() {
     originalImage = bgImage;
     if(currentBuilder == 'front-builder') {
         frontImage = originalImage;
+        localStorage.setItem('frontImage', frontImage)
       } else {
         backImage = originalImage;
+        localStorage.setItem('backImage', backImage)
       }
     canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
         backgroundImageOpacity: 0.5,
@@ -94,9 +95,9 @@ $(document).ready(function() {
         originY: 'top',
         width: canvas.width,
         height: canvas.height
-    });   
+    });
     canvas.renderAll();  
-    updateModifications(true); 
+    
   })
 
   $("#addText").click(function() {
@@ -325,6 +326,7 @@ export class PrintBuilderComponent implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.clear();
     initCanvas()
   }
 
@@ -334,7 +336,6 @@ export class PrintBuilderComponent implements OnInit {
       canvas.clear();
       this.currentBuilder = changes.ipage.currentValue;
       currentBuilder = this.currentBuilder;
-      console.log(changes.ipage)
       if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
         if(this.frontImage) {         
           drawImage(this.frontImage)
