@@ -4,6 +4,7 @@
 @import 'components/products-viewer.css';
 @import 'components/thank-you.css';
 @import 'components/single-product.css';
+@import 'components/cart.css';
 
 body, html {
     font-size: 14px;
