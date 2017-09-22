@@ -48,8 +48,9 @@
 .ui-thank-you-main .btn-continue-shopping {
 	margin-top: 20px;
 	background-color: #444444;
-    color: #ffffff;
-    padding: 15px 75px;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
     border-radius: 0;
     text-transform: uppercase;
 }
@@ -127,14 +128,10 @@
 @media(min-width: 320px) and (max-width: 667px) {
 	.ui-thank-you-main .btn-continue-shopping {
 		width: 100%;
-	    padding: 0;
-	    height: 50px;
 	}
 
 	.ui-thank-you-main .ui-total .buy-now .btn-buy-now{
 		width: 100%;
-	    padding: 0;
-	    height: 50px;
 	}
 
 	.ui-thank-you-main .ui-total .order-total .promo-code {
