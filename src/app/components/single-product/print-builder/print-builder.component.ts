@@ -70,236 +70,6 @@ function drawImage(image) {
 
 }
 
-$(document).ready(function() {
-  var originalCanvasWidth = canvas.width
-  var originalCanvasHeight = canvas.height
-  var layoutHorizontal = false
-  $(".design-panel ul li.designs").click(function() {
-    $(".design-panel ul li").removeClass('active')
-    $(this).addClass('active')
-    var bgImage = $(this).find('img').attr('src');
-    originalImage = bgImage;
-    if(currentBuilder == 'front-builder') {
-        frontImage = originalImage;
-        localStorage.setItem('frontImage', frontImage)
-      } else {
-        backImage = originalImage;
-        localStorage.setItem('backImage', backImage)
-      }
-    canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
-        backgroundImageOpacity: 0.5,
-        backgroundImageStrech: true,
-        top: 0,
-        left: 0,
-        originX: 'left',
-        originY: 'top',
-        width: canvas.width,
-        height: canvas.height
-    });
-    canvas.renderAll();  
-    
-  })
-
-  $("#addText").click(function() {
-    var textSample = new fabric.IText('Sample Text', {
-      left: fabric.util.getRandomInt(0, originalCanvasWidth / 2),
-      top: fabric.util.getRandomInt(0, originalCanvasHeight / 2),
-      fontFamily: 'helvetica',
-      angle: 0,
-      fill: '#000000',
-      hasRotatingPoint:true
-    });       
-    canvas.add(textSample);
-    updateModifications(true);
-  });
-
-  $("#undo").click(function() {
-    if (mods < state.length) {
-      canvas.clear().renderAll();
-      canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
-      canvas.renderAll();
-      //console.log("geladen " + (state.length-1-mods-1));
-      //console.log("state " + state.length);
-      mods += 1;
-        //console.log("mods " + mods);
-    }
-  })
-
-  $("#redo").click(function() {
-    if (mods > 0) {
-      canvas.clear().renderAll();
-      canvas.loadFromJSON(state[state.length - 1 - mods + 1]);
-      canvas.renderAll();
-      //console.log("geladen " + (state.length-1-mods+1));
-      mods -= 1;
-      //console.log("state " + state.length);
-      //console.log("mods " + mods);
-    }
-  });
-
-  $("#ui-fonts").change(function() {
-    var activeObject = canvas.getActiveObject();
-    var font = $(this).val();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.fontFamily = font;       
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  });
-
-  $("#ui-font-size").change(function() {
-    var activeObject = canvas.getActiveObject();
-    var fontSize = $(this).val();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.fontSize = (activeObject.fontSize == fontSize ? fontSize : fontSize);        
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  });
-
-  $("#ui-font-color ul li").click(function() {
-    var color = $(".color-selector span").css('backgroundColor');
-    var activeObject = canvas.getActiveObject();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.set({fill: color});
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  });
-
-  $("#bold").click(function(){
-    var activeObject = canvas.getActiveObject();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.fontWeight = (activeObject.fontWeight == 'bold' ? '' : 'bold');        
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  });
-
-  $("#italic").click(function() {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.fontStyle = (activeObject.fontStyle == 'italic' ? '' : 'italic');        
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  })
-
-  $("#align-left").click(function() {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.textAlign = (activeObject.textAlign == 'left' ? '' : 'left');        
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  })
-
-  $("#align-center").click(function() {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.textAlign = (activeObject.textAlign == 'center' ? '' : 'center');        
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  })
-
-  $("#align-right").click(function() {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject && activeObject.type === 'i-text') {
-      activeObject.textAlign = (activeObject.textAlign == 'right' ? '' : 'right');        
-      canvas.renderAll();
-      updateModifications(true);
-    }
-  })
-
-  $("#layout-checkbox1").click(function() {
-    var activeObject = canvas.getActiveObject();
-    var canvasWidth = canvas.width
-    var canvasHeight = canvas.height
-    if(layoutHorizontal) {
-      canvas.setHeight(canvasWidth);
-      canvas.setWidth(canvasHeight);
-      layoutHorizontal = false
-      drawImage(originalImage)
-    }
-  })
-
-  $("#layout-checkbox2").click(function() {
-    var activeObject = canvas.getActiveObject();
-    var canvasWidth = canvas.width
-    var canvasHeight = canvas.height
-    if(!layoutHorizontal) {
-      canvas.setHeight(canvasWidth);
-      canvas.setWidth(canvasHeight);
-      layoutHorizontal = true
-      drawImage(originalImage)
-    }
-  })
-
-  $("#size-checkbox1").click(function() {
-    var height = 240
-    var width = 320
-    if(layoutHorizontal) {
-      canvas.setHeight(width);
-      canvas.setWidth(height);
-    } else {
-      canvas.setHeight(height);
-      canvas.setWidth(width);
-    }
-    
-    drawImage(originalImage)
-    
-  })
-
-  $("#size-checkbox2").click(function() {
-    var height = 320
-    if(layoutHorizontal) {
-      canvas.setHeight(width);
-      canvas.setWidth(height);
-    } else {
-      canvas.setHeight(height);
-      canvas.setWidth(width);
-    }
-    drawImage(originalImage)
-  })
-
-  $("#size-checkbox3").click(function() {
-    if(layoutHorizontal) {
-      canvas.setHeight(originalCanvasWidth);
-      canvas.setWidth(originalCanvasHeight);
-    } else {
-      canvas.setHeight(originalCanvasHeight);
-      canvas.setWidth(originalCanvasWidth);
-    }
-    drawImage(originalImage)
-  })
-
-  $("#myFile").on("change", function(e) {   
-    var file = e.target.files[0];
-    var reader = new FileReader();
-    reader.onload = function (f) {
-      let target: any = f.target;
-      let data: string = target.result;
-
-      fabric.Image.fromURL(data, function (img) {
-        var oImg = img.set({
-          left: 0,
-          top: 0,
-          angle: 0,
-          width: 200,
-          height: 200
-        }).scale(0.9);
-        canvas.add(oImg).renderAll();
-        var a = canvas.setActiveObject(oImg);
-        var dataURL = canvas.toDataURL({format: 'png', quality: 0.8});
-        updateModifications(true);
-      });
-    };
-    reader.readAsDataURL(file);
-
-  })
-  
-})
 
 @Component({
   selector: 'print-builder',
@@ -323,6 +93,238 @@ export class PrintBuilderComponent implements OnInit {
 
   constructor(public spService: SingleProductService) {
     this.colorId = 'white';
+
+    $(document).ready(function() {
+      var originalCanvasWidth = canvas.width
+      var originalCanvasHeight = canvas.height
+      var layoutHorizontal = false
+      $(".design-panel ul li.designs").click(function() {
+        $(".design-panel ul li").removeClass('active')
+        $(this).addClass('active')
+        var bgImage = $(this).find('img').attr('src');
+        originalImage = bgImage;
+        if(currentBuilder == 'front-builder') {
+          frontImage = originalImage;
+          localStorage.setItem('frontImage', frontImage)
+        } else {
+          backImage = originalImage;
+          localStorage.setItem('backImage', backImage)
+        }
+        
+        canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
+          backgroundImageOpacity: 0.5,
+          backgroundImageStrech: true,
+          top: 0,
+          left: 0,
+          originX: 'left',
+          originY: 'top',
+          width: canvas.width,
+          height: canvas.height
+        });
+        canvas.renderAll();  
+        
+      })
+
+      $("#addText").click(function() {
+        var textSample = new fabric.IText('Sample Text', {
+          left: fabric.util.getRandomInt(0, originalCanvasWidth / 2),
+          top: fabric.util.getRandomInt(0, originalCanvasHeight / 2),
+          fontFamily: 'helvetica',
+          angle: 0,
+          fill: '#000000',
+          hasRotatingPoint:true
+        });       
+        canvas.add(textSample);
+        updateModifications(true);
+      });
+
+      $("#undo").click(function() {
+        if (mods < state.length) {
+          canvas.clear().renderAll();
+          canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
+          canvas.renderAll();
+          //console.log("geladen " + (state.length-1-mods-1));
+          //console.log("state " + state.length);
+          mods += 1;
+            //console.log("mods " + mods);
+        }
+      })
+
+      $("#redo").click(function() {
+        if (mods > 0) {
+          canvas.clear().renderAll();
+          canvas.loadFromJSON(state[state.length - 1 - mods + 1]);
+          canvas.renderAll();
+          //console.log("geladen " + (state.length-1-mods+1));
+          mods -= 1;
+          //console.log("state " + state.length);
+          //console.log("mods " + mods);
+        }
+      });
+
+      $("#ui-fonts").change(function() {
+        var activeObject = canvas.getActiveObject();
+        var font = $(this).val();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.fontFamily = font;       
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      });
+
+      $("#ui-font-size").change(function() {
+        var activeObject = canvas.getActiveObject();
+        var fontSize = $(this).val();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.fontSize = (activeObject.fontSize == fontSize ? fontSize : fontSize);        
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      });
+
+      $("#ui-font-color ul li").click(function() {
+        var color = $(".color-selector span").css('backgroundColor');
+        var activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.set({fill: color});
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      });
+
+      $("#bold").click(function(){
+        var activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.fontWeight = (activeObject.fontWeight == 'bold' ? '' : 'bold');        
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      });
+
+      $("#italic").click(function() {
+        var activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.fontStyle = (activeObject.fontStyle == 'italic' ? '' : 'italic');        
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      })
+
+      $("#align-left").click(function() {
+        var activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.textAlign = (activeObject.textAlign == 'left' ? '' : 'left');        
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      })
+
+      $("#align-center").click(function() {
+        var activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.textAlign = (activeObject.textAlign == 'center' ? '' : 'center');        
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      })
+
+      $("#align-right").click(function() {
+        var activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.type === 'i-text') {
+          activeObject.textAlign = (activeObject.textAlign == 'right' ? '' : 'right');        
+          canvas.renderAll();
+          updateModifications(true);
+        }
+      })
+
+      $("#layout-checkbox1").click(function() {
+        var activeObject = canvas.getActiveObject();
+        var canvasWidth = canvas.width
+        var canvasHeight = canvas.height
+        if(layoutHorizontal) {
+          canvas.setHeight(canvasWidth);
+          canvas.setWidth(canvasHeight);
+          layoutHorizontal = false
+          drawImage(originalImage)
+        }
+      })
+
+      $("#layout-checkbox2").click(function() {
+        var activeObject = canvas.getActiveObject();
+        var canvasWidth = canvas.width
+        var canvasHeight = canvas.height
+        if(!layoutHorizontal) {
+          canvas.setHeight(canvasWidth);
+          canvas.setWidth(canvasHeight);
+          layoutHorizontal = true
+          drawImage(originalImage)
+        }
+      })
+
+      $("#size-checkbox1").click(function() {
+        var height = 240
+        var width = 320
+        if(layoutHorizontal) {
+          canvas.setHeight(width);
+          canvas.setWidth(height);
+        } else {
+          canvas.setHeight(height);
+          canvas.setWidth(width);
+        }
+        
+        drawImage(originalImage)
+        
+      })
+
+      $("#size-checkbox2").click(function() {
+        var height = 320
+        if(layoutHorizontal) {
+          canvas.setHeight(width);
+          canvas.setWidth(height);
+        } else {
+          canvas.setHeight(height);
+          canvas.setWidth(width);
+        }
+        drawImage(originalImage)
+      })
+
+      $("#size-checkbox3").click(function() {
+        if(layoutHorizontal) {
+          canvas.setHeight(originalCanvasWidth);
+          canvas.setWidth(originalCanvasHeight);
+        } else {
+          canvas.setHeight(originalCanvasHeight);
+          canvas.setWidth(originalCanvasWidth);
+        }
+        drawImage(originalImage)
+      })
+
+      $("#myFile").on("change", function(e) {   
+        var file = e.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function (f) {
+          let target: any = f.target;
+          let data: string = target.result;
+
+          fabric.Image.fromURL(data, function (img) {
+            var oImg = img.set({
+              left: 0,
+              top: 0,
+              angle: 0,
+              width: 200,
+              height: 200
+            }).scale(0.9);
+            canvas.add(oImg).renderAll();
+            var a = canvas.setActiveObject(oImg);
+            var dataURL = canvas.toDataURL({format: 'png', quality: 0.8});
+            updateModifications(true);
+          });
+        };
+        reader.readAsDataURL(file);
+
+      })
+      
+    })
   }
 
   ngOnInit() {
