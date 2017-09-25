@@ -26,4 +26,20 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {}
 
+  order() {
+    let handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_jHgqdqrXMWZQDn1MprK5Niq9',
+      locale: 'auto',
+      token: function (token: any) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    });
+
+    handler.open({
+      name: 'Agent Cloud',
+      description: 'postcard',
+      amount: 2000
+    });
+  }
 }
