@@ -22,6 +22,7 @@ import { BillingComponent } from './components/setting/billing/billing.component
 import { ShippingComponent } from './components/setting/shipping/shipping.component';
 import { CreditComponent } from './components/setting/credit/credit.component';
 import { OtherComponent } from './components/setting/other/other.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const ROUTES = [{
   path: '',
@@ -38,6 +39,9 @@ const ROUTES = [{
 }, {
   path: 'setting',
   component: SettingComponent
+}, {
+  path: 'cart',
+  component: CartComponent
 }];
 
 @NgModule({
@@ -57,7 +61,8 @@ const ROUTES = [{
     BillingComponent,
     ShippingComponent,
     CreditComponent,
-    OtherComponent
+    OtherComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

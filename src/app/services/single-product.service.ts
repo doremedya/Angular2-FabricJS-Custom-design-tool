@@ -18,6 +18,7 @@ export class SingleProductService {
   }
 
   getValue() {
+    localStorage.setItem('image', JSON.stringify(this.item))
     return this.item
   }
 

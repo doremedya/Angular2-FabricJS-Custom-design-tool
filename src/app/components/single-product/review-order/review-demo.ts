@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SingleProductService } from '../../../services/single-product.service';
 
 declare var $;
@@ -7,10 +7,6 @@ declare var fabric;
 var frontCanvas;
 var backCanvas;
 var canvasInfo;
-var allImage = {
-  front: "",
-  back: ""
-};
 
 function setFrontCanvas() {
   frontCanvas = new fabric.Canvas('front-canvas', {
@@ -32,7 +28,6 @@ function setFrontCanvas() {
     width: frontCanvas.width,
     height: frontCanvas.height,
   });
-
   frontCanvas.renderAll();
 }
 
@@ -56,7 +51,8 @@ function setBackCanvas() {
     width: backCanvas.width,
     height: backCanvas.height,
   });
-  backCanvas.renderAll();
+  backCanvas.renderAll();    
+    
 }
 
 function flipImages() {
@@ -65,15 +61,16 @@ function flipImages() {
     // Callback function
     onInit: function () {
       $(".ui-front").css({
-        'z-index': '1000',
-        '-webkit-transform': "rotateY(0deg)",
-        '-moz-transform': "rotateY(0deg)"
+        'z-index': '900',
+        'opacity': '1',
+        '-webkit-transform': "rotateY(-180deg)",
+        '-moz-transform': "rotateY(-180deg)"
       });
 
       $(".ui-back").css({
-        'z-index': '-1',
-        '-webkit-transform': "rotateY(-180deg)",
-        '-moz-transform': "rotateY(-180deg)"
+        'z-index': '1000',
+        '-webkit-transform': "rotateY(0deg)",
+        '-moz-transform': "rotateY(0deg)"
       })
     },
     onSlide: function (position, value) {
@@ -86,32 +83,38 @@ function flipImages() {
 function swipeImgLeft(value) {
   if(value < 90) {
     $(".ui-front").css({
-      'z-index': '1000',
-      '-webkit-transform': "rotateY(" + (-value) + "deg)",
-      '-moz-transform': "rotateY(" + (-value) + "deg)"
+      'z-index': '900',
+      'opacity': '1',
+      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
     });
   } else {
     $(".ui-front").css({
-      'z-index': '-1',
-      '-webkit-transform': "rotateY(" + (-value) + "deg)",
-      '-moz-transform': "rotateY(" + (-value) + "deg)"
+      'z-index': '900',
+      'opacity': '1',
+      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
+      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
     });
   }  
 }
 
 function swipeImgRight(value) {
+  console.log(value)
+  $(".ui-back").addClass("original");
   $(".ui-front").addClass("original");
   if(value > 90) {
     $(".ui-back").css({
       'z-index': '1000',
-      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
+      'opacity': '1',
+      '-webkit-transform': "rotateY(" + (-value) + "deg)",
+      '-moz-transform': "rotateY(" + (-value) + "deg)"
     })
   } else {
     $(".ui-back").css({
       'z-index': '-1',
-      '-webkit-transform': "rotateY(" + (180 - value) + "deg)",
-      '-moz-transform': "rotateY(" + (180 - value) + "deg)"
+      'opacity': '1',
+      '-webkit-transform': "rotateY(" + (-value) + "deg)",
+      '-moz-transform': "rotateY(" + (-value) + "deg)"
     })
   }  
 }
@@ -151,20 +154,35 @@ export class ReviewOrderComponent implements OnInit {
       })
 
       $("#paper-original").click(function() {
+        $(".ui-back").removeClass("cotton");
+        $(".ui-back").removeClass("super");
+        $(".ui-back").removeClass("luxe");
+        $(".ui-back").addClass("original");
         $(".ui-front").removeClass("cotton");
         $(".ui-front").removeClass("super");
         $(".ui-front").removeClass("luxe");
-        $(".ui-front").addClass("original");        
+        $(".ui-front").addClass("original");
+        
       })
 
       $("#paper-super").click(function() {
+        $(".ui-back").removeClass("cotton");
+        $(".ui-back").removeClass("luxe");
+        $(".ui-back").removeClass("original");
+        $(".ui-back").addClass("super");
+
         $(".ui-front").removeClass("cotton");
-        $(".ui-front").removeClass("luxe");
         $(".ui-front").removeClass("original");
+        $(".ui-front").removeClass("luxe");
         $(".ui-front").addClass("super");
       })
 
       $("#paper-luxe").click(function() {
+        $(".ui-back").removeClass("cotton");
+        $(".ui-back").removeClass("super");
+        $(".ui-back").removeClass("original");
+        $(".ui-back").addClass("luxe");
+
         $(".ui-front").removeClass("cotton");
         $(".ui-front").removeClass("super");
         $(".ui-front").removeClass("original");
@@ -172,6 +190,11 @@ export class ReviewOrderComponent implements OnInit {
       })
 
       $("#paper-cotton").click(function() {
+        $(".ui-back").removeClass("luxe");
+        $(".ui-back").removeClass("super");
+        $(".ui-back").removeClass("original");
+        $(".ui-back").addClass("cotton");
+
         $(".ui-front").removeClass("luxe");
         $(".ui-front").removeClass("super");
         $(".ui-front").removeClass("original");

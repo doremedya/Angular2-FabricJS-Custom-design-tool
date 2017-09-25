@@ -151,17 +151,19 @@
                 <div class="ui-rotator text-left">
                     <div class="ui-flip-card mb-5 pb-3">
                         <div class="ui-front">
-                            <canvas id="front-canvas" class="canvas"></canvas>                            
+                            <canvas id="front-canvas" class="canvas"></canvas>   
+                           <!--  <img [src]="frontImage" class="canvas" />   -->                       
                         </div>
                         <div class="ui-back">
                             <canvas id="back-canvas" class="canvas"></canvas>
+                            <!-- <img [src]="backIamge" class="canvas" />     -->
                         </div>
                     </div>
                     <input type="range" class="ui-ranger" min="0" max="180" step="1" value="0">
                 </div>
             </div>
         </div>
-
+        
         <div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end">
             <div class="form-check mr-4">
                 <label class="form-check-label">
@@ -169,7 +171,7 @@
                     I have reviewed and approve my design...
                 </label>
             </div>
-            <a href="" class="btn btn-dark-green">
+            <a href="cart" class="btn btn-dark-green">
                 Proceed to checkout <i class="fa fa-chevron-right"></i>
             </a>
         </div>
