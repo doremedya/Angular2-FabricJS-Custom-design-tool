@@ -5,6 +5,9 @@
 @import 'components/thank-you.css';
 @import 'components/single-product.css';
 
+body {
+    overflow: hidden;
+}
 body, html {
     font-size: 14px;
     font-family: 'Lato', sans-serif;

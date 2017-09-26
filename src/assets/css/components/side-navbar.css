@@ -272,7 +272,7 @@ app-side-navbar::before {
 @media screen and (min-width: 1025px) {
     app-side-navbar {
         margin-left: 0;
-        min-height: 895px;
+        min-height: 894px;
     }
 
     .main-content {
