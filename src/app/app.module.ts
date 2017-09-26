@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -23,6 +23,8 @@ import { ShippingComponent } from './components/setting/shipping/shipping.compon
 import { CreditComponent } from './components/setting/credit/credit.component';
 import { OtherComponent } from './components/setting/other/other.component';
 import { CartComponent } from './components/cart/cart.component';
+import { AlertComponent } from './components/alert-modal/alert.component';
+
 
 const ROUTES = [{
   path: '',
@@ -62,12 +64,15 @@ const ROUTES = [{
     ShippingComponent,
     CreditComponent,
     OtherComponent,
-    CartComponent
+    CartComponent,
+    AlertComponent
   ],
+  entryComponents: [AlertComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    BootstrapModalModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [SingleProductService],
