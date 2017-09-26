@@ -56,6 +56,14 @@ function activeNavPills() {
     })
 }
 
+function activeAllProducts() {
+    $('.product-ui-item .nav-link').click(function () {
+        $('.ui-product-nav .nav-link.active').removeClass('active');
+        $(this).addClass('active');
+    })
+}
+
+
 function addSmoothScroll() {
     $(".ui-product-lists .nav-pills .nav-link").on('click', function (event) {
 
@@ -155,16 +163,7 @@ function scrollMonitor() {
             }
         }
     });
-    var wp7 = new Waypoint({
-        element: document.getElementById('all-products'),
-        handler: function (direction) {
-            if (direction === 'down') {
-                $('.ui-product-nav .nav-link.active').removeClass('active');
-            }
-        },
-        offset: offset
-    });
-    var wp8 = new Waypoint.Inview({
+    var wp7 = new Waypoint.Inview({
         element: document.getElementById('saved-draft'),
         enter: function (direction) {
             if (direction === 'up') {
@@ -173,6 +172,36 @@ function scrollMonitor() {
             }
         }
     });
+    var wp8 = new Waypoint.Inview({
+        element: document.getElementById('saved-draft'),
+        enter: function (direction) {
+            if (direction === 'down') {
+                $('.ui-product-nav .nav-link.active').removeClass('active');
+                $('#saved-draft-link').addClass('active');
+            }
+        }
+    });
+    var wp9 = new Waypoint({
+        element: document.getElementById('all-products'),
+        handler: function (direction) {
+            if (direction === 'down') {
+                $('.ui-product-nav .nav-link.active').removeClass('active');
+                $('#all-products-link').addClass('active');
+            }
+        },
+        offset: offset
+    });
+    var wp10 = new Waypoint({
+        element: document.getElementById('all-products'),
+        handler: function (direction) {
+            if (direction === 'up') {
+                $('.ui-product-nav .nav-link.active').removeClass('active');
+                $('#all-products-link').addClass('active');
+            }
+        },
+        offset: offset
+    });
+
 
     $(".main .nav-pills .nav-link").on('click', function (event) {
 
@@ -210,6 +239,30 @@ function scrollMonitor() {
 
     });
 
+    $(".product-ui-item .nav-link").on('click', function (event) {
+        console.log(123123);
+        wp9.disable();
+        wp10.disable();
+
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 70
+            }, 800, function () {
+                window.location.hash = hash;
+
+                setTimeout(function () {
+                    wp9.disable();
+                    wp10.disable();
+                }, 100);
+
+            });
+        } // End if
+
+    });
+
 }
 
 
@@ -231,6 +284,7 @@ export class ProductsViewerComponent implements OnInit {
         //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         //Add 'implements AfterViewInit' to the class.
         activeNavPills();
+        activeAllProducts();
         addSmoothScroll();
         scrollOnHover();
 
