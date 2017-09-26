@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-single-product',
@@ -13,6 +13,10 @@ export class SingleProductComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  public changedIpageGet(changedIpage: any):void {
+    this.ipage = changedIpage.ipage.currentValue
   }
 
 }

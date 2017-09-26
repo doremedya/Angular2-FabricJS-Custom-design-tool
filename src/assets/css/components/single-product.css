@@ -10,6 +10,37 @@
     color: #193e55;
 }
 
+.ui-single-product .ui-main-body .btn-left-panel-show {
+    display: none;
+    float: left;
+    background: #424242;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 50px;
+    height: 50px;
+    color: #ffffff;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-left: -21px;
+}
+
+.ui-single-product .ui-main-body .btn-left-panel-hide {    
+    float: left;
+    background: #424242;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 50px;
+    height: 50px;
+    color: #ffffff;
+   /* display: flex;*/
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-left: -21px;
+}
+
 .ui-single-product .review-product-section {
     height: 750px;
     overflow: scroll;
@@ -44,6 +75,9 @@
     color: #2d9735 !important;
 }
 
+.ui-single-product .ui-right-title .nav-link:hover {
+    cursor: pointer;
+}
 .ui-single-product .ui-right-title .nav-link.active {
     color: #444444 !important;
 }
@@ -108,6 +142,40 @@
     width: 100%;
 }
 
+.ui-single-product .ui-main-footer.back-forward {
+    border-top: 1px solid #d4d4d4;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.ui-single-product .ui-main-footer.back-forward:hover {
+    cursor: pointer;
+}
+
+.ui-single-product .ui-main-footer.back-forward .btn-forward, .ui-single-product .ui-main-footer.back-forward .btn-back {
+    height: 80px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #9c9c9c;
+}
+
+.ui-single-product .ui-main-footer.back-forward .btn-forward.active, .ui-single-product .ui-main-footer.back-forward .btn-back.active {
+    border: 4px solid #298b30;
+}
+
+.ui-single-product .ui-main-footer.back-forward .btn-forward.active .fa, .ui-single-product .ui-main-footer.back-forward .btn-back.active .fa {
+    color: #298b30;
+}
+.ui-single-product .ui-main-footer.back-forward .fa {
+    font-size: 30px;
+    color: #9c9c9c;
+}
 .ui-single-product .ui-main-footer i {
     padding: 0;
     margin: 0 0 0 5px;
@@ -512,6 +580,9 @@
 /* ----------------------------------------------
     Print Builder Style (Marek 2017-09-14)
  ---------------------------------------------- */
+#print-builder {
+    height: calc(100% - 135px);
+}
 #print-builder .ui-bg-light-grey {
     height: 760px;
     overflow: auto;

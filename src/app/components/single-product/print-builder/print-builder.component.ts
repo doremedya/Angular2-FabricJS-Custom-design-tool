@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import { SingleProductService } from '../../../services/single-product.service';
 
 declare var $;
@@ -56,13 +56,13 @@ function updateModifications(savehistory) {
 
 function drawImage(image) {
   canvas.setBackgroundImage(image, canvas.renderAll.bind(canvas), {
-      backgroundImageOpacity: 0.5,
-      backgroundImageStrech: true,
-      top: 0,
-        left: 0,
-        originX: 'left',
-        originY: 'top',
-        width: canvas.width,
+    backgroundImageOpacity: 0.5,
+    backgroundImageStrech: true,
+    top: 0,
+    left: 0,
+    originX: 'left',
+    originY: 'top',
+    width: canvas.width,
     height: canvas.height,
   });
 
@@ -90,6 +90,7 @@ export class PrintBuilderComponent implements OnInit {
   public frontImage: any;
   public backImage: any;
   @Input() ipage: string;
+  @Output() changedIpage = new EventEmitter();
 
   constructor(public spService: SingleProductService) {
     this.colorId = 'white';
@@ -334,38 +335,115 @@ export class PrintBuilderComponent implements OnInit {
 
   ngOnChanges(changes) {
     if(changes.ipage.currentValue != this.currentBuilder) {
-      this.leftPanel = 'designs';
-      canvas.clear();
-      this.currentBuilder = changes.ipage.currentValue;
-      currentBuilder = this.currentBuilder;
-      if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
-        if(this.frontImage) {         
-          drawImage(this.frontImage)
-        }   
-        this.backImage = backImage; 
-        this.currentBackState = backState;
-        this.spService.setValue('backImage', this.backImage)
-        this.spService.setValue('backState', this.currentBackState)
-        state = []
-        
-        if(this.currentFrontState.length != 0) {          
-          canvas.loadFromJSON(this.currentFrontState[this.currentFrontState.length - 1]);
-        }       
-        
-      } else {        
-        if(this.backImage) {          
-          drawImage(this.backImage)
-        }
-        this.frontImage = frontImage;
-        this.currentFrontState = frontState;
-        this.spService.setValue('frontImage', this.frontImage)
-        this.spService.setValue('frontState', this.currentFrontState)
-        state = []
-        if(this.currentBackState.length != 0) {         
-          canvas.loadFromJSON(this.currentBackState[this.currentBackState.length - 1]);
-        }
-      }
-      canvas.renderAll();
+      this.changeBuilder(changes);
+      
     }       
+  }
+
+  changeBuilder(changes) {
+    this.leftPanel = 'designs';
+    this.changedIpage.emit(changes)
+    canvas.clear();
+    this.currentBuilder = changes.ipage.currentValue;
+    currentBuilder = this.currentBuilder;
+    if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
+      if(this.frontImage) {         
+        drawImage(this.frontImage)
+      }   
+      this.backImage = backImage; 
+      this.currentBackState = backState;
+      this.spService.setValue('backImage', this.backImage)
+      this.spService.setValue('backState', this.currentBackState)
+      state = []
+      
+      if(this.currentFrontState.length != 0) {          
+        canvas.loadFromJSON(this.currentFrontState[this.currentFrontState.length - 1]);
+      } 
+
+      if(this.currentBuilder == 'front-builder') {
+        $(".btn-forward").prop('disabled', false);
+        $(".btn-back").prop('disabled', true);
+      } else {
+        $(".btn-forward").prop('disabled', true);
+        $(".btn-back").prop('disabled', false);
+      }    
+      
+    } else {        
+      if(this.backImage) {          
+        drawImage(this.backImage)
+      }
+      this.frontImage = frontImage;
+      this.currentFrontState = frontState;
+      this.spService.setValue('frontImage', this.frontImage)
+      this.spService.setValue('frontState', this.currentFrontState)
+      state = []
+      if(this.currentBackState.length != 0) {         
+        canvas.loadFromJSON(this.currentBackState[this.currentBackState.length - 1]);
+      }
+    }
+    canvas.renderAll();
+  }
+
+  back() {
+    this.currentBuilder = 'front-builder' 
+    this.ipage = 'front-builder'    
+    $(".btn-back").removeClass("active");
+    $(".btn-forward").addClass("active");
+    var changes = {
+      ipage: {
+        currentValue: 'front-builder',
+        previousValue: 'back-builder'
+      }
+    }
+    this.changeBuilder(changes);
+  }
+
+  forward() {
+    this.currentBuilder = 'back-builder';
+    this.ipage = 'back-builder'
+    $(".btn-forward").removeClass("active");
+    $(".btn-back").addClass("active");
+    var changes = {
+      ipage: {
+        currentValue: 'back-builder',
+        previousValue: 'front-builder'
+      }
+    }
+    this.changeBuilder(changes);
+  }
+
+  hideLeftPanel() {
+    $("#ui-bg-light-grey").animate({width: '-150px'}, "slow");
+    setTimeout(function() {
+      height = 600
+      width = 1000
+      canvas.setHeight(height);
+      canvas.setWidth(width);
+      if(this.currentBuilder == 'front-builder') {
+        drawImage(this.frontImage)
+      } else {
+        drawImage(this.backImage)
+      }
+      $(".btn-left-panel-hide").css('display', 'none')
+      $(".btn-left-panel-show").css('display', 'block')
+    }, 1000)    
+  }
+
+  showLeftPanel() {
+    $("#ui-bg-light-grey").animate({width: '0px'}, "slow");
+  //  setTimeout(function(){
+      height = 400
+      width = 600
+      canvas.setHeight(400);
+      canvas.setWidth(600);
+      if(this.currentBuilder == 'front-builder') {
+        drawImage(this.frontImage)
+      } else {
+        drawImage(this.backImage)
+      }
+      $(".btn-left-panel-show").css('display', 'none')
+      $(".btn-left-panel-hide").css('display', 'block')
+  //  }, 1000)
+
   }
 }
