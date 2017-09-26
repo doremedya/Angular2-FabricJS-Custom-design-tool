@@ -163,6 +163,15 @@ function scrollMonitor() {
         },
         offset: offset
     });
+    var wp8 = new Waypoint.Inview({
+        element: document.getElementById('saved-draft'),
+        enter: function (direction) {
+            if (direction === 'up') {
+                $('.ui-product-nav .nav-link.active').removeClass('active');
+                $('#saved-draft-link').addClass('active');
+            }
+        }
+    });
 
     $(".main .nav-pills .nav-link").on('click', function (event) {
 
@@ -173,6 +182,7 @@ function scrollMonitor() {
         wp5.disable();
         wp6.disable();
         wp7.disable();
+        wp8.disable();
 
         if (this.hash !== "") {
             event.preventDefault();
@@ -191,6 +201,7 @@ function scrollMonitor() {
                     wp5.enable();
                     wp6.enable();
                     wp7.enable();
+                    wp8.enable();
                 }, 100);
 
             });
