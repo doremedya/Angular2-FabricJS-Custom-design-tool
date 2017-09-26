@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $;
 declare var Waypoint;
@@ -218,7 +219,7 @@ function scrollMonitor() {
 })
 
 export class ProductsViewerComponent implements OnInit {
-    constructor() {
+    constructor(private router: Router) {
 
     }
 
@@ -240,4 +241,8 @@ export class ProductsViewerComponent implements OnInit {
         fixNavPills();
         scrollMonitor();
     }
+
+    gotToSingPage = function () {
+        this.router.navigate(['/single-product']);
+    };
 }
