@@ -15,7 +15,7 @@ var frontImage = "";
 var backImage = "";
 var height = 400
 var width = 600
-
+var isCollapse = false
 function initCanvas() {
   canvas = new fabric.Canvas('canvas', {
     hoverCursor: 'pointer',
@@ -322,7 +322,15 @@ export class PrintBuilderComponent implements OnInit {
           });
         };
         reader.readAsDataURL(file);
-      })      
+      })   
+
+      $(".btn-collapse").click(function() {
+        if(isCollapse)
+          $(".back-forward").css("width", '100%')
+        else {
+          $(".back-forward").css("width", '67%')
+        }
+      })   
     })
   }
 
@@ -379,6 +387,7 @@ export class PrintBuilderComponent implements OnInit {
 
   OnCollapse() {
     this.isCollapse = !this.isCollapse;
+    isCollapse = this.isCollapse
     if(this.isCollapse) {
       this.reDesignCanvas(1000, 600)
     } else {
