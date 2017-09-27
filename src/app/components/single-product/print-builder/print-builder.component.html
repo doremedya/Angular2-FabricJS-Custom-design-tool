@@ -1,5 +1,5 @@
 <div id="print-builder" class="row no-gutters">
-    <div class="col-md-4 ui-bg-light-grey">
+    <div class="col-md-4 ui-bg-light-grey" [ngClass]="isCollapse ? 'collapsed': 'expanded'">
     	<nav class="nav nav-pills nav-justified ui-right-title flex-lg-nowrap">
     		<a class="nav-item nav-link" (click)="leftPanel='designs'" [ngClass]="{'active': leftPanel==='designs'}"><i class="fa fa-paint-brush"></i>Designs</a>
     		<a class="nav-item nav-link" (click)="leftPanel='edit'" [ngClass]="{'active': leftPanel==='edit'}"><i class="fa fa-edit"></i>Edit</a>
@@ -142,7 +142,7 @@
                                 <div class="ui-m-box">
                                 	<i class="fa fa-square-o fa-2x"></i>
                                 </div>
-                                <p class="ui-checkbox-label">Medium <br/> 6" x 4
+                                <p class="ui-checkbox-label">Medium <br/> 6" x 4"
                                 <div class="ui-border-bottom"></div>
                             </div>
                         </div>
@@ -161,14 +161,23 @@
 	    	</div>	
     	</div>    	
     </div>
-    <div class="col">
-    	<div class="ui-main-body"> 	
+    <div class="col" id="right-panel">
+    	<div class="ui-main-body">
+    		<div class="btn-collapse" (click)="OnCollapse()">
+    			<i class="fa fa-angle-double-left" aria-hidden="true" *ngIf="!isCollapse"></i>
+    			<i class="fa fa-angle-double-right" aria-hidden="true" *ngIf="isCollapse"></i>
+    		</div>
 	    	<div class="canvas">
 	    		<canvas id="canvas"></canvas>
 	    	</div>
     	</div>
-    	<div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end">
-
+    	<div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end back-forward">
+    		<div class="btn-back" (click)="back()" [ngClass]="{'active': currentBuilder==='back-builder'}">
+    			<i class="fa fa-chevron-left" aria-hidden="true"></i>	
+    		</div>
+    		<div class="btn-forward" (click)="forward()" [ngClass]="{'active': currentBuilder==='front-builder'}">
+	    		<i class="fa fa-chevron-right" aria-hidden="true"></i>
+	    	</div>
     	</div>
     </div>
 </div>
