@@ -92,6 +92,7 @@
     border-top-color: #f38112;
     border-width: 17px;
     margin-left: -17px;
+    z-index: 1000;
 }
 
 .ui-product-lists .nav-pills .nav-link.active {
