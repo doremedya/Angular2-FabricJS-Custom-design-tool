@@ -40,14 +40,16 @@ function offCanvasNavClick() {
 /*Product Page*/
 function fixNavPills() {
   var nav = $('.ui-product-nav');
-  var scrollTop = $(window).scrollTop(),
-    elementOffset = nav.offset().top,
-    distance = (elementOffset - scrollTop);
+  if(nav.offset()) {    
+    var scrollTop = $(window).scrollTop(),
+      elementOffset = nav.offset().top,
+      distance = (elementOffset - scrollTop);
 
-  if (scrollTop > distance) {
-    nav.addClass('fixed-top');
-  } else {
-    nav.removeClass('fixed-top');
+    if (scrollTop > distance) {
+      nav.addClass('fixed-top');
+    } else {
+      nav.removeClass('fixed-top');
+    }
   }
 }
 
@@ -274,7 +276,9 @@ function scrollMonitor() {
 })
 
 export class ProductsViewerComponent implements OnInit {
-  constructor(private router: Router, private dialogService:DialogService) {
+  public showAlert: boolean = false;
+
+  constructor(private router: Router, private dialogService: DialogService) {
 
   }
 
@@ -298,13 +302,15 @@ export class ProductsViewerComponent implements OnInit {
     scrollMonitor();
   }
 
-  gotToSingPage = function () {
+  gotToSingPage = function () {    
+    this.showAlert = true
     this.dialogService.addDialog(AlertComponent, {
       title:'Confirmation',
       message:'Bla bla confirm some action?'
     }).subscribe((isConfirmed)=>{
-      if(isConfirmed)
-        this.router.navigate(['/single-product']);
+      this.showAlert = false;
+      // if(isConfirmed)
+      //   this.router.navigate(['/single-product']);
     });
 
   };
