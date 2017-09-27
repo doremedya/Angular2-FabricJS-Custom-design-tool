@@ -1,5 +1,5 @@
 <div id="print-builder" class="row no-gutters">
-    <div class="col-md-4 ui-bg-light-grey" id="ui-bg-light-grey">
+    <div class="col-md-4 ui-bg-light-grey" [ngClass]="isCollapse ? 'collapse': 'expanded'">
     	<nav class="nav nav-pills nav-justified ui-right-title flex-lg-nowrap">
     		<a class="nav-item nav-link" (click)="leftPanel='designs'" [ngClass]="{'active': leftPanel==='designs'}"><i class="fa fa-paint-brush"></i>Designs</a>
     		<a class="nav-item nav-link" (click)="leftPanel='edit'" [ngClass]="{'active': leftPanel==='edit'}"><i class="fa fa-edit"></i>Edit</a>
@@ -163,11 +163,9 @@
     </div>
     <div class="col" id="right-panel">
     	<div class="ui-main-body">
-    		<div class="btn-left-panel-hide" (click)="hideLeftPanel()">
-    			<i class="fa fa-angle-double-left" aria-hidden="true"></i>
-    		</div>
-    		<div class="btn-left-panel-show" (click)="showLeftPanel()">
-    			<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+    		<div class="btn-collapse" (click)="OnCollapse()">
+    			<i class="fa fa-angle-double-left" aria-hidden="true" *ngIf="!isCollapse"></i>
+    			<i class="fa fa-angle-double-right" aria-hidden="true" *ngIf="isCollapse"></i>
     		</div>
 	    	<div class="canvas">
 	    		<canvas id="canvas"></canvas>

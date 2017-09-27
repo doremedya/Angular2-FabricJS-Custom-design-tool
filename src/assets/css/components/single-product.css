@@ -10,23 +10,7 @@
     color: #193e55;
 }
 
-.ui-single-product .ui-main-body .btn-left-panel-show {
-    display: none;
-    float: left;
-    background: #424242;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    width: 50px;
-    height: 50px;
-    color: #ffffff;
-    /*display: flex;*/
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    margin-left: -21px;
-}
-
-.ui-single-product .ui-main-body .btn-left-panel-hide {    
+.ui-single-product .ui-main-body .btn-collapse {    
     float: left;
     background: #424242;
     border-top-right-radius: 20px;
@@ -588,9 +572,30 @@
     background: #ffffff;
 }
 #print-builder .ui-bg-light-grey {
+    width: 100%;
     height: 760px;
     overflow: auto;
 }
+
+#print-builder .ui-bg-light-grey.collapse {
+    width: 0;
+    display: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#print-builder .ui-bg-light-grey.expanded {
+    width: 100%;
+    display: block;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+
 #print-builder .nav-link {
     color: #444!important;
     padding: 20px 0;

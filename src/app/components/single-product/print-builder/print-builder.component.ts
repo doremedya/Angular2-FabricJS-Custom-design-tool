@@ -88,6 +88,7 @@ export class PrintBuilderComponent implements OnInit {
   public currentBackState: any[] = [];
   public frontImage: any;
   public backImage: any;
+  public isCollapse: boolean = false;
   @Input() ipage: string;
   @Output() changedIpage = new EventEmitter();
 
@@ -405,65 +406,26 @@ export class PrintBuilderComponent implements OnInit {
     this.changeBuilder(changes);
   }
 
-  hideLeftPanel() {
-    // $('#right-panel').animate({
-    //   'left' : "-=435px"
-    // }, 1000, function() {
-    //   $("#ui-bg-light-grey").toggle( "slide", 1, function() {
-    //     $('#right-panel').animate({
-    //       'left' : "0px"
-    //     }, 1)
-    //     height = 600
-    //     width = 1000
-    //     canvas.setHeight(height);
-    //     canvas.setWidth(width);
-    //     if(this.currentBuilder == 'front-builder') {
-    //       this.frontImage = frontImage;
-    //       if(this.frontImage)
-    //         drawImage(this.frontImage)
-    //     } else {
-    //       this.backImage = backImage;
-    //       if(this.backImage)
-    //         drawImage(this.backImage)
-    //     }
-    //     $(".btn-left-panel-hide").css('display', 'none')
-    //     $(".btn-left-panel-show").css('display', 'block')
-    //   })
-    // });
-
-    $("#ui-bg-light-grey").toggle( "slide", 1000, function() {
-      height = 600
-      width = 1000
-      canvas.setHeight(height);
-      canvas.setWidth(width);
-      if(this.currentBuilder == 'front-builder') {
-        this.frontImage = frontImage;
-        if(this.frontImage)
-          drawImage(this.frontImage)
-      } else {
-        this.backImage = backImage;
-        if(this.backImage)
-          drawImage(this.backImage)
-      }
-      $(".btn-left-panel-hide").css('display', 'none')
-      $(".btn-left-panel-show").css('display', 'block')
-    })
+  OnCollapse() {
+    this.isCollapse = !this.isCollapse;
+    if(this.isCollapse) {
+      this.reDesignCanvas(1000, 600)
+    } else {
+      this.reDesignCanvas(600, 400)
+    }
   }
 
-  showLeftPanel() {
-    $("#ui-bg-light-grey").toggle( "slide", 1000 );
-    height = 400
-    width = 600
-    canvas.setHeight(400);
-    canvas.setWidth(600);
+  reDesignCanvas(width, height) {
+    canvas.setHeight(height);
+    canvas.setWidth(width);
     if(this.currentBuilder == 'front-builder') {
+      this.frontImage = frontImage;
       if(this.frontImage)
         drawImage(this.frontImage)
     } else {
+      this.backImage = backImage;
       if(this.backImage)
         drawImage(this.backImage)
     }
-    $(".btn-left-panel-show").css('display', 'none')
-    $(".btn-left-panel-hide").css('display', 'block')
   }
 }
