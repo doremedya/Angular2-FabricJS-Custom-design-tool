@@ -406,30 +406,48 @@ export class PrintBuilderComponent implements OnInit {
   }
 
   hideLeftPanel() {
-    $('#right-panel').animate({
-      'left' : "-=435px"
-    }, 1000, function() {
-      $("#ui-bg-light-grey").toggle( "slide", 1, function() {
-        $('#right-panel').animate({
-          'left' : "0px"
-        }, 1)
-        height = 600
-        width = 1000
-        canvas.setHeight(height);
-        canvas.setWidth(width);
-        if(this.currentBuilder == 'front-builder') {
-          this.frontImage = frontImage;
-          if(this.frontImage)
-            drawImage(this.frontImage)
-        } else {
-          this.backImage = backImage;
-          if(this.backImage)
-            drawImage(this.backImage)
-        }
-        $(".btn-left-panel-hide").css('display', 'none')
-        $(".btn-left-panel-show").css('display', 'block')
-      })
-    });
+    // $('#right-panel').animate({
+    //   'left' : "-=435px"
+    // }, 1000, function() {
+    //   $("#ui-bg-light-grey").toggle( "slide", 1, function() {
+    //     $('#right-panel').animate({
+    //       'left' : "0px"
+    //     }, 1)
+    //     height = 600
+    //     width = 1000
+    //     canvas.setHeight(height);
+    //     canvas.setWidth(width);
+    //     if(this.currentBuilder == 'front-builder') {
+    //       this.frontImage = frontImage;
+    //       if(this.frontImage)
+    //         drawImage(this.frontImage)
+    //     } else {
+    //       this.backImage = backImage;
+    //       if(this.backImage)
+    //         drawImage(this.backImage)
+    //     }
+    //     $(".btn-left-panel-hide").css('display', 'none')
+    //     $(".btn-left-panel-show").css('display', 'block')
+    //   })
+    // });
+
+    $("#ui-bg-light-grey").toggle( "slide", 1000, function() {
+      height = 600
+      width = 1000
+      canvas.setHeight(height);
+      canvas.setWidth(width);
+      if(this.currentBuilder == 'front-builder') {
+        this.frontImage = frontImage;
+        if(this.frontImage)
+          drawImage(this.frontImage)
+      } else {
+        this.backImage = backImage;
+        if(this.backImage)
+          drawImage(this.backImage)
+      }
+      $(".btn-left-panel-hide").css('display', 'none')
+      $(".btn-left-panel-show").css('display', 'block')
+    })
   }
 
   showLeftPanel() {

@@ -277,14 +277,12 @@ function scrollMonitor() {
 
 export class ProductsViewerComponent implements OnInit {
   public showAlert: boolean = false;
-
+  
   constructor(private router: Router, private dialogService: DialogService) {
 
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
@@ -305,8 +303,8 @@ export class ProductsViewerComponent implements OnInit {
   gotToSingPage = function () {    
     this.showAlert = true
     this.dialogService.addDialog(AlertComponent, {
-      title:'Confirmation',
-      message:'Bla bla confirm some action?'
+      title:'',
+      message:''
     }).subscribe((isConfirmed)=>{
       this.showAlert = false;
       // if(isConfirmed)
