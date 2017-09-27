@@ -129,6 +129,8 @@ export class ReviewOrderComponent implements OnInit {
   public borderStyle: string = 'square';
   public finishType: string = '';
   public paperType: string = 'original';
+  public checkedMatted: boolean = false;
+  public checkedGloss: boolean = false;
 
   constructor(public spService: SingleProductService) {
     this.canvasInfo = this.spService.getValue();
@@ -148,34 +150,6 @@ export class ReviewOrderComponent implements OnInit {
         $(".canvas").css({
           borderRadius: 0
         })
-      })
-
-      $("#paper-original").click(function() {
-        $(".ui-front").removeClass("cotton");
-        $(".ui-front").removeClass("super");
-        $(".ui-front").removeClass("luxe");
-        $(".ui-front").addClass("original");        
-      })
-
-      $("#paper-super").click(function() {
-        $(".ui-front").removeClass("cotton");
-        $(".ui-front").removeClass("luxe");
-        $(".ui-front").removeClass("original");
-        $(".ui-front").addClass("super");
-      })
-
-      $("#paper-luxe").click(function() {
-        $(".ui-front").removeClass("cotton");
-        $(".ui-front").removeClass("super");
-        $(".ui-front").removeClass("original");
-        $(".ui-front").addClass("luxe");
-      })
-
-      $("#paper-cotton").click(function() {
-        $(".ui-front").removeClass("luxe");
-        $(".ui-front").removeClass("super");
-        $(".ui-front").removeClass("original");
-        $(".ui-front").addClass("cotton");
       })
 
       $("#finish-matte").click(function() {

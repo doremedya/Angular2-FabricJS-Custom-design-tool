@@ -8,7 +8,7 @@ declare var $;
 })
 export class SingleProductComponent implements OnInit {
   public ipage: string = '';
-
+  public forwardFlag: boolean = true;
   constructor() {
     this.ipage = 'front-builder';
   }
@@ -17,8 +17,27 @@ export class SingleProductComponent implements OnInit {
     $('html, body').css('overflowY', 'hidden'); 
   }
 
-  public changedIpageGet(changedIpage: any):void {
-    this.ipage = changedIpage.ipage.currentValue
+  back() {
+    this.forwardFlag = false
+    if(this.ipage == 'review-order') {
+      this.ipage = 'back-builder'
+    } else if(this.ipage == 'back-builder') {
+      this.ipage = 'front-builder'
+    } else if (this.ipage == 'front-builder') {
+      this.ipage = 'type-family'
+      this.forwardFlag = true
+    }
+  }
+
+  forward() {
+    this.forwardFlag = true
+    if(this.ipage == 'type-family') {
+      this.ipage = 'front-builder'
+    } else if(this.ipage == 'front-builder') {
+      this.ipage = 'back-builder'
+    } else if (this.ipage == 'back-builder') {
+      this.ipage = 'review-order'
+    }
   }
 
 }

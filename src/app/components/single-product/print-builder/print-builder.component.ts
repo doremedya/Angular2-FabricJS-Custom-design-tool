@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges } from '@angular/core';
 import { SingleProductService } from '../../../services/single-product.service';
 
 declare var $;
@@ -90,7 +90,6 @@ export class PrintBuilderComponent implements OnInit {
   public backImage: any;
   public isCollapse: boolean = false;
   @Input() ipage: string;
-  @Output() changedIpage = new EventEmitter();
 
   constructor(public spService: SingleProductService) {
     this.colorId = 'white';
@@ -328,6 +327,7 @@ export class PrintBuilderComponent implements OnInit {
   }
 
   ngOnChanges(changes) {
+    console.log(changes);
     if(changes.ipage.currentValue != this.currentBuilder) {
       this.changeBuilder(changes);
       
@@ -336,7 +336,6 @@ export class PrintBuilderComponent implements OnInit {
 
   changeBuilder(changes) {
     this.leftPanel = 'designs';
-    this.changedIpage.emit(changes)
     canvas.clear();
     this.currentBuilder = changes.ipage.currentValue;
     currentBuilder = this.currentBuilder;
@@ -376,35 +375,7 @@ export class PrintBuilderComponent implements OnInit {
       }
     }
     canvas.renderAll();
-  }
-
-  back() {
-    this.currentBuilder = 'front-builder' 
-    this.ipage = 'front-builder'    
-    $(".btn-back").removeClass("active");
-    $(".btn-forward").addClass("active");
-    var changes = {
-      ipage: {
-        currentValue: 'front-builder',
-        previousValue: 'back-builder'
-      }
-    }
-    this.changeBuilder(changes);
-  }
-
-  forward() {
-    this.currentBuilder = 'back-builder';
-    this.ipage = 'back-builder'
-    $(".btn-forward").removeClass("active");
-    $(".btn-back").addClass("active");
-    var changes = {
-      ipage: {
-        currentValue: 'back-builder',
-        previousValue: 'front-builder'
-      }
-    }
-    this.changeBuilder(changes);
-  }
+  }  
 
   OnCollapse() {
     this.isCollapse = !this.isCollapse;
