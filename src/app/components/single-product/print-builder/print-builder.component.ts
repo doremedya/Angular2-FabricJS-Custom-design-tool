@@ -432,7 +432,8 @@ export class PrintBuilderComponent implements OnInit {
     });
   }
 
-  showLeftPanel() {    
+  showLeftPanel() {
+    $("#ui-bg-light-grey").toggle( "slide", 1000 );
     height = 400
     width = 600
     canvas.setHeight(400);
