@@ -1,5 +1,5 @@
 <div id="print-builder" class="row no-gutters">
-    <div class="col-md-4 ui-bg-light-grey" [ngClass]="isCollapse ? 'collapse': 'expanded'">
+    <div class="col-md-4 ui-bg-light-grey" [ngClass]="isCollapse ? 'collapsed': 'expanded'">
     	<nav class="nav nav-pills nav-justified ui-right-title flex-lg-nowrap">
     		<a class="nav-item nav-link" (click)="leftPanel='designs'" [ngClass]="{'active': leftPanel==='designs'}"><i class="fa fa-paint-brush"></i>Designs</a>
     		<a class="nav-item nav-link" (click)="leftPanel='edit'" [ngClass]="{'active': leftPanel==='edit'}"><i class="fa fa-edit"></i>Edit</a>
@@ -142,7 +142,7 @@
                                 <div class="ui-m-box">
                                 	<i class="fa fa-square-o fa-2x"></i>
                                 </div>
-                                <p class="ui-checkbox-label">Medium <br/> 6" x 4
+                                <p class="ui-checkbox-label">Medium <br/> 6" x 4"
                                 <div class="ui-border-bottom"></div>
                             </div>
                         </div>

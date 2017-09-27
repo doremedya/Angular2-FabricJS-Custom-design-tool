@@ -57,9 +57,12 @@
     background: #4e961a;
 }
 .modal-body .layout-panel .justify-content-center i {
-	font-size: 20px;
 	color: #343538;
 }
+.modal-body .layout-panel .justify-content-center .vertical-window {
+    transform: rotate(90deg);
+}
+
 .modal-body .layout-panel .justify-content-center .ui-checkbox-label {
 	color: #444444;
 }
