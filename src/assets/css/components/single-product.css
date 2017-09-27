@@ -26,8 +26,7 @@
 }
 
 .ui-single-product .review-product-section {
-    height: 750px;
-    overflow: scroll;
+    overflow: hidden;
 }
 .ui-single-product .ui-main-body .ui-strike-off {
     font-size: 1.111em;
@@ -46,7 +45,7 @@
 }
 
 .ui-single-product .ui-main-body .ui-title {
-    margin-bottom: 2.778em;
+    margin-bottom: 15px;
 }
 
 .ui-single-product .ui-main-body .canvas{
@@ -121,11 +120,13 @@
 
 .ui-single-product .ui-main-footer {
     border-top: 1px solid #d4d4d4;
-    position: relative;
-    bottom: 0;
+    position: absolute;
     width: 100%;
 }
 
+.ui-single-product .review-section {
+    height: 100%;
+}
 .ui-single-product .ui-main-footer.back-forward {
     border-top: 1px solid #d4d4d4;
     position: absolute;
@@ -176,14 +177,15 @@
 }
 
 .ui-rotator {
-    margin: 4.444em 0;
-    padding-bottom: 1em;
+    margin: 15px;
+    padding-bottom: 20px;
     position: relative;
     overflow: hidden;
 }
 
 .ui-flip-card {
     margin: 0 auto;
+    margin-bottom: 28px !important;
     position: relative;
     font-size: .8em;
     -webkit-perspective: 600px;
