@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SingleProductService } from '../../services/single-product.service';
 
+declare var $;
 
 @Component({
   selector: 'shopping-cart',
@@ -24,7 +25,9 @@ export class CartComponent implements OnInit {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    $('html, body').css('overflowY', 'auto');
+  }
 
   order() {
     let handler = (<any>window).StripeCheckout.configure({

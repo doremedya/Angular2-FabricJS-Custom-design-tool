@@ -1,5 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 
+declare var $;
+
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html'
@@ -12,7 +14,7 @@ export class SingleProductComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    $('html, body').css('overflowY', 'hidden'); 
   }
 
   public changedIpageGet(changedIpage: any):void {
