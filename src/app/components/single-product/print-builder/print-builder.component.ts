@@ -406,29 +406,33 @@ export class PrintBuilderComponent implements OnInit {
   }
 
   hideLeftPanel() {
-    $("#ui-bg-light-grey").fadeOut("slow");
-    //$("#ui-bg-light-grey").animate({width: 'toggle'}, "slow");
-    setTimeout(function() {
-      height = 600
-      width = 1000
-      canvas.setHeight(height);
-      canvas.setWidth(width);
-      if(this.currentBuilder == 'front-builder') {
-        this.frontImage = frontImage;
-        if(this.frontImage)
-          drawImage(this.frontImage)
-      } else {
-        this.backImage = backImage;
-        if(this.backImage)
-          drawImage(this.backImage)
-      }
-      $(".btn-left-panel-hide").css('display', 'none')
-      $(".btn-left-panel-show").css('display', 'block')
-    }, 200)
+    $('#right-panel').animate({
+      'left' : "-=435px"
+    }, 1000, function() {
+      $("#ui-bg-light-grey").toggle( "slide", 1, function() {
+        $('#right-panel').animate({
+          'left' : "0px"
+        }, 1)
+        height = 600
+        width = 1000
+        canvas.setHeight(height);
+        canvas.setWidth(width);
+        if(this.currentBuilder == 'front-builder') {
+          this.frontImage = frontImage;
+          if(this.frontImage)
+            drawImage(this.frontImage)
+        } else {
+          this.backImage = backImage;
+          if(this.backImage)
+            drawImage(this.backImage)
+        }
+        $(".btn-left-panel-hide").css('display', 'none')
+        $(".btn-left-panel-show").css('display', 'block')
+      })
+    });
   }
 
-  showLeftPanel() {
-    $("#ui-bg-light-grey").fadeIn("slow");
+  showLeftPanel() {    
     height = 400
     width = 600
     canvas.setHeight(400);
