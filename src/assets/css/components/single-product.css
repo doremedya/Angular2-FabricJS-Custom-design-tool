@@ -25,10 +25,14 @@
     margin-left: -21px;
 }
 
-.ui-single-product .review-product-section {
-    height: 750px;
-    overflow: scroll;
+.ui-single-product .ui-main-body .btn-collapse:hover {
+    cursor: pointer;
 }
+
+.ui-single-product .review-product-section {
+    overflow: hidden;
+}
+
 .ui-single-product .ui-main-body .ui-strike-off {
     font-size: 1.111em;
     color: #b9b9b9;
@@ -46,7 +50,7 @@
 }
 
 .ui-single-product .ui-main-body .ui-title {
-    margin-bottom: 2.778em;
+    margin-bottom: 15px;
 }
 
 .ui-single-product .ui-main-body .canvas{
@@ -121,19 +125,23 @@
 
 .ui-single-product .ui-main-footer {
     border-top: 1px solid #d4d4d4;
-    position: relative;
-    bottom: 0;
+    position: absolute;
     width: 100%;
 }
 
+.ui-single-product .review-section {
+    height: 100%;
+}
 .ui-single-product .ui-main-footer.back-forward {
     border-top: 1px solid #d4d4d4;
     position: absolute;
+    right: 0;
     bottom: 0;
-    width: 100%;
+    width: 67%;
     height: 80px;
     display: flex !important;
     justify-content: space-between !important;
+    z-index: 9999;
 }
 
 .ui-single-product .ui-main-footer.back-forward:hover {
@@ -176,14 +184,15 @@
 }
 
 .ui-rotator {
-    margin: 4.444em 0;
-    padding-bottom: 1em;
+    margin: 15px;
+    padding-bottom: 20px;
     position: relative;
     overflow: hidden;
 }
 
 .ui-flip-card {
     margin: 0 auto;
+    margin-bottom: 28px !important;
     position: relative;
     font-size: .8em;
     -webkit-perspective: 600px;
@@ -350,50 +359,6 @@
     transform-style: preserve-3d;
     transition: all ease;
 }
-
-.coin {
-    font-size: 200px;
-    width: 0.1em;
-    height: 1em;
-    background: red;
-    margin: auto;
-    -webkit-animation: rotate 4s infinite linear;
-    -moz-animation: rotate 4s infinite linear;
-    animation: rotate 4s infinite linear;
-    transform-style: preserve-3d;
-}
-.coin .side, .coin:before, .coin:after {
-    content: "";
-    position: absolute;
-    width: 1em;
-    height: 1em;
-    overflow: hidden;
-    background: #dab007;
-    border-radius: 50%;
-    right: -0.4em;
-    text-align: center;
-    line-height: 1;
-    color: blue;
-    transform: rotateY(-90deg);
-    backface-visibility: hidden;
-}
-.coin .tails, .coin:after {
-    left: -0.4em;
-    transform: rotateY(90deg);
-}
-.coin:before, .coin:after {
-    background: red;
-    backface-visibility: hidden;
-    transform: rotateY(90deg);
-}
-.coin:after {
-    transform: rotateY(-90deg);
-}
-
-
-@keyframes rotate { 100% {
-    transform: rotateY(360deg);
-}}
 
 /*
     matte effect
