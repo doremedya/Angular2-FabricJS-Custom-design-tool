@@ -281,9 +281,7 @@ export class ProductsViewerComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    $('html, body').css('overflowY', 'auto');
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.

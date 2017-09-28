@@ -13,9 +13,7 @@ export class SingleProductComponent implements OnInit {
     this.ipage = 'front-builder';
   }
 
-  ngOnInit() {
-    $('html, body').css('overflowY', 'hidden'); 
-  }
+  ngOnInit() {}
 
   back() {
     this.forwardFlag = false

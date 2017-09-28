@@ -25,9 +25,7 @@ export class CartComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    $('html, body').css('overflowY', 'auto');
-  }
+  ngOnInit() {}
 
   order() {
     let handler = (<any>window).StripeCheckout.configure({

@@ -538,14 +538,14 @@
     Print Builder Style (Marek 2017-09-14)
  ---------------------------------------------- */
 #print-builder {
-    height: calc(100% - 135px);
+    /*height: calc(100% - 135px);*/
 }
 #print-builder #right-panel {
     z-index: 999;
     background: #ffffff;
 }
 #print-builder .ui-bg-light-grey {
-    height: 760px;
+    height: 765px;
     overflow: auto;
     -webkit-transition: .3s ease-in-out;
     -moz-transition: .3s ease-in-out;
