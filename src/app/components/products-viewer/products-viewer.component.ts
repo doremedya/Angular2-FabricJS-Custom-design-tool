@@ -244,7 +244,6 @@ function scrollMonitor() {
   });
 
   $(".product-ui-item .nav-link").on('click', function (event) {
-    console.log(123123);
     wp9.disable();
     wp10.disable();
 
@@ -283,7 +282,7 @@ export class ProductsViewerComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('html, body').css('overflowY', 'auto');
+    //$('html, body').css('overflowY', 'auto');
   }
 
   ngAfterViewInit() {

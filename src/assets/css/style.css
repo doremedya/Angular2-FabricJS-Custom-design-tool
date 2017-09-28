@@ -172,6 +172,9 @@ a, a:hover {
 
 .pre-print-builder {
     display: none !important;
+    position: absolute;
+    height: 0;
+    max-width: 0 !important;
 }
 @media screen and (max-width: 576px) {
     body {
