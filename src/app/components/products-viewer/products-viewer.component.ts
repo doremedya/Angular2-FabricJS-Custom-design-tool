@@ -282,7 +282,7 @@ export class ProductsViewerComponent implements OnInit {
   }
 
   ngOnInit() {
-    //$('html, body').css('overflowY', 'auto');
+    $('html, body').css('overflowY', 'auto');
   }
 
   ngAfterViewInit() {
