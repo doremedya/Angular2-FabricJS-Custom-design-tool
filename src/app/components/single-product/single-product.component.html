@@ -27,10 +27,10 @@
     <print-builder [ipage]="ipage" [hidden]="ipage=='review-order' || ipage=='type-family'"></print-builder>
     <review-order  *ngIf="ipage=='review-order'"></review-order>
     <div class="ui-main-footer d-flex flex-nowrap align-items-center justify-content-end back-forward" *ngIf="ipage!='review-order'">
-        <div class="btn-back" (click)="back()" [ngClass]="{'active': !forwardFlag}">
+        <div class="btn-back active" (click)="back()" [ngClass]="{'deactive': ipage=='type-family'}">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>   
         </div>
-        <div class="btn-forward" (click)="forward()" [ngClass]="{'active': forwardFlag}">
+        <div class="btn-forward active" (click)="forward()">
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </div>
     </div>
