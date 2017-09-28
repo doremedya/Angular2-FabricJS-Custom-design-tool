@@ -1,4 +1,7 @@
-
+app-top-bar {
+    height: 10vh;
+    max-height: 10vh !important;
+}
 .topbar {
     position: relative;
     z-index: 3;

@@ -1,3 +1,6 @@
+.ui-single-product {
+    height: 90vh !important;
+}
 .ui-single-product .ui-main-body {
     padding: 2.778em 1.5em;
     padding-bottom: 0;
