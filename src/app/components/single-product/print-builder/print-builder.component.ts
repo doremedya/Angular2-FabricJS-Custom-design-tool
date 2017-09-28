@@ -388,24 +388,24 @@ export class PrintBuilderComponent implements OnInit {
   OnCollapse() {
     this.isCollapse = !this.isCollapse;
     isCollapse = this.isCollapse
-    if(this.isCollapse) {
-      this.reDesignCanvas(1000, 600)
-    } else {
-      this.reDesignCanvas(600, 400)
-    }
+    // if(this.isCollapse) {
+    //   this.reDesignCanvas(1000, 600)
+    // } else {
+    //   this.reDesignCanvas(600, 400)
+    // }
   }
 
-  reDesignCanvas(width, height) {
-    canvas.setHeight(height);
-    canvas.setWidth(width);
-    if(this.currentBuilder == 'front-builder') {
-      this.frontImage = frontImage;
-      if(this.frontImage)
-        drawImage(this.frontImage)
-    } else {
-      this.backImage = backImage;
-      if(this.backImage)
-        drawImage(this.backImage)
-    }
-  }
+  // reDesignCanvas(width, height) {
+  //   canvas.setHeight(height);
+  //   canvas.setWidth(width);
+  //   if(this.currentBuilder == 'front-builder') {
+  //     this.frontImage = frontImage;
+  //     if(this.frontImage)
+  //       drawImage(this.frontImage)
+  //   } else {
+  //     this.backImage = backImage;
+  //     if(this.backImage)
+  //       drawImage(this.backImage)
+  //   }
+  // }
 }

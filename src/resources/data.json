@@ -1,0 +1,25 @@
+{
+    {
+        front-image: "",
+        back-image: "",
+        position: {
+            address: "",
+            phone: "",
+            name: "",
+            email: ""
+        }
+        small: {
+            width: 500,
+            height: 700
+        },
+        medium: {
+            width: 600,
+            height: 800
+        },
+        large: {
+            width: 700,
+            height: 900
+        }
+    }
+
+}

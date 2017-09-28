@@ -26,6 +26,11 @@
     justify-content: center;
     font-size: 30px;
     margin-left: -21px;
+    z-index: 1000
+}
+
+.ui-single-product .ui-main-body .btn-collapse .mobile-ui {
+    display: none;
 }
 
 .ui-single-product .ui-main-body .btn-collapse:hover {
@@ -547,6 +552,14 @@
     z-index: 999;
     background: #ffffff;
 }
+#print-builder #right-panel .canvas {
+    padding: 15px;
+    max-width: 1050px;
+    height: 640px;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+}
 #print-builder .ui-bg-light-grey {
     height: 765px;
     overflow: auto;
@@ -554,6 +567,7 @@
     -moz-transition: .3s ease-in-out;
     -o-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
+    display: block;
 }
 
 #print-builder .ui-bg-light-grey.collapsed {
@@ -563,7 +577,7 @@
 
 #print-builder .ui-bg-light-grey.expanded {
     width: 100%;
-    max-width: 33.33%;
+    max-width: 33.33%;    
 }
 
 
@@ -937,4 +951,49 @@ select:not([multiple]) {
 #print-builder .layout-panel  .form-check:hover .ui-border-bottom {
     display: block;
 
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .ui-single-product .ui-main-footer.back-forward {
+        width: 100% !important;
+    }
+    #print-builder .ui-bg-light-grey {
+        z-index: 10000;
+    }
+
+    #print-builder .ui-bg-light-grey.collapsed {
+        width: 0;
+        max-width: 0;
+    }
+
+    #print-builder .ui-bg-light-grey.expanded {
+        width: 100%;
+        max-width: 33.33%;
+    }
+
+    ui-single-product .review-section {
+        overflow: auto;
+    }
+
+    #print-builder #right-panel .canvas {
+        height: 530px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        overflow: auto;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #print-builder #right-panel .canvas {
+        height: 300px;
+        width: 90%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        overflow: auto;
+    }
 }
