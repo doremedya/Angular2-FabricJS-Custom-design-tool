@@ -8,9 +8,9 @@
     	<div class="panel-left">
 	    	<div class="design-panel" [hidden]="leftPanel!='designs'">
 	    		<ul>
-	    			<li *ngFor="let image of images"  class="designs">	    				
-					    <img [src]="image.horizontal.front" class="front" (click)="setInitCanvas(image, 'front', layoutPanel)">					
-					    <img [src]="image.horizontal.back" class="back" (click)="setInitCanvas(image, 'back', layoutPanel)">
+	    			<li *ngFor="let image of images"  class="designs" (click)="setInitCanvas(image)">	    				
+					    <img [src]="image.horizontal.front" class="front">					
+					    <img [src]="image.horizontal.back" class="back">
 					</li>
 	    		</ul>
 	    	</div>

@@ -12,7 +12,133 @@
         "address": "Address Postision",
         "phone": "123456789",
         "name": "John",
-        "email": "john@gmail.com",        
+        "email": "john@gmail.com",
+         "position": {
+            "land": {
+                "large": {
+                    "name": {
+                        "left": 120,
+                        "top": 200,
+                        "fontSize": 36
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260,
+                        "fontSize": 12
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200,
+                        "fontSize": 24
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280,
+                        "fontSize": 12
+                    }
+                },
+                "medium": {
+                    "name": {
+                        "left": 100,
+                        "top": 150,
+                        "fontSize": 30
+                    },
+                    "address": {
+                        "left": 250,
+                        "top": 150,
+                        "fontSize": 20
+                    },
+                    "phone": {
+                        "left": 280,
+                        "top": 200,
+                        "fontSize": 12
+                    },
+                    "email": {
+                        "left": 280,
+                        "top": 220,
+                        "fontSize": 12
+                    }
+                },
+                "small": {
+                    "name": {
+                        "left": 60,
+                        "top": 130,
+                        "fontSize": 12
+                    },                    
+                    "address": {
+                        "left": 160,
+                        "top": 120,
+                        "fontSize": 10
+                    },
+                    "phone": {
+                        "left": 180,
+                        "top": 155,
+                        "fontSize": 10
+                    },
+                    "email": {
+                        "left": 180,
+                        "top": 165,
+                        "fontSize": 10
+                    }
+                }
+            },
+            "portait": {
+                "large": {
+                    "name": {
+                        "left": 120,
+                        "top": 280
+                    },
+                    "phone": {
+                        "left": 120,
+                        "top": 450
+                    },
+                    "address": {
+                        "left": 100,
+                        "top": 410
+                    },
+                    "email": {
+                        "left": 120,
+                        "top": 470
+                    }
+                },
+                "medium": {
+                    "name": {
+                        "left": 120,
+                        "top": 200
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280
+                    }
+                },
+                "small": {
+                    "name": {
+                        "left": 120,
+                        "top": 200
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280
+                    }
+                }
+            }
+        },    
         "small": {
             "width": 500,
             "height": 700
