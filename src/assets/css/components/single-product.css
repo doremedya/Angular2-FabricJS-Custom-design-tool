@@ -896,10 +896,8 @@ select:not([multiple]) {
 
 #print-builder .design-panel ul li {
     width: 100%;
-    display: flex;
-    /*width: 48%;
-    float: left; */   
-    margin-bottom: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 #print-builder .design-panel ul li img:hover {
@@ -919,8 +917,8 @@ select:not([multiple]) {
 }
 
 #print-builder .design-panel ul li img:nth-child(2n+1){
-    margin-right: 10px;
     clear: both;
+    float: left;
 }
 
 #print-builder .layout-panel {

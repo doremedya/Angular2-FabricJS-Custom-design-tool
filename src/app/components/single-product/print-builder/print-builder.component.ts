@@ -430,8 +430,7 @@ export class PrintBuilderComponent implements OnInit {
 
   ngOnChanges(changes) {
     if(changes.ipage.currentValue != this.currentBuilder) {
-      this.changeBuilder(changes);
-      
+      this.changeBuilder(changes);      
     }       
   }
 
@@ -442,6 +441,7 @@ export class PrintBuilderComponent implements OnInit {
     currentBuilder = this.currentBuilder;
     this.frontImage = frontImage;
     this.backImage = backImage;
+    
     if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
     //  drawImage(this.frontImage) 
       this.currentBackState = backState;
