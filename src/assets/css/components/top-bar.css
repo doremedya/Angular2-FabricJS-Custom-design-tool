@@ -1,6 +1,8 @@
 app-top-bar {
-    height: 10vh;
-    max-height: 10vh !important;
+    height: 65px;
+}
+app-top-bar .content-body{
+    height: 65px;
 }
 .topbar {
     position: relative;
