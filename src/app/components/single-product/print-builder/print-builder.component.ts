@@ -163,9 +163,6 @@ function setCanvas(images, direction, layoutPanel) {
       }
     }
   }
-  
-
-  
 }
 
 function InitTextonCanvas(value, left, top, fontSize, color=null) {
@@ -351,10 +348,10 @@ export class PrintBuilderComponent implements OnInit {
         }
         layoutPanel = 'horizontal'
         canvas.clear()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
+        // if(currentBuilder == 'front-builder')
+        //   setCanvas(frontImage, "", layoutPanel)
+        // else 
+        //   setCanvas(backImage, "", layoutPanel)
       })
 
       $("#layout-checkbox2").click(function() {
@@ -371,10 +368,10 @@ export class PrintBuilderComponent implements OnInit {
         }
         layoutPanel = 'vertical'
         canvas.clear()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
+        // if(currentBuilder == 'front-builder')
+        //   // setCanvas(frontImage, "", layoutPanel)
+        // else 
+        //   // setCanvas(backImage, "", layoutPanel)
       })
 
       $("#size-checkbox1").click(function() {
@@ -389,10 +386,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(width);
         }
         canvas.clear()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
+        // if(currentBuilder == 'front-builder')
+        //   setCanvas(frontImage, "", layoutPanel)
+        // else 
+        //   setCanvas(backImage, "", layoutPanel)
         
       })
 
@@ -408,10 +405,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(width);
         }
         canvas.clear()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
+        // if(currentBuilder == 'front-builder')
+        //   setCanvas(frontImage, "", layoutPanel)
+        // else 
+        //   setCanvas(backImage, "", layoutPanel)
       })
 
       $("#size-checkbox3").click(function() {
@@ -424,10 +421,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(originalCanvasWidth);
         }
         canvas.clear()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
+        // if(currentBuilder == 'front-builder')
+        //   setCanvas(frontImage, "", layoutPanel)
+        // else 
+        //   setCanvas(backImage, "", layoutPanel)
       })
 
       $("#myFile").on("change", function(e) { 
@@ -499,8 +496,7 @@ export class PrintBuilderComponent implements OnInit {
 
   ngOnChanges(changes) {
     if(changes.ipage.currentValue != this.currentBuilder) {
-      this.changeBuilder(changes);
-      
+      this.changeBuilder(changes);      
     }       
   }
 
@@ -511,6 +507,7 @@ export class PrintBuilderComponent implements OnInit {
     currentBuilder = this.currentBuilder;
     this.frontImage = frontImage;
     this.backImage = backImage;
+    
     if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
       this.currentBackState = backState;
       this.spService.setValue('backImage', this.backImage)
