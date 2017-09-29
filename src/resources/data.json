@@ -3,29 +3,125 @@
         "id": 1,
         "front-land-image": "/assets/images/temp/fly-front-land.png",
         "back-land-image": "/assets/images/temp/fly-back-land.png",
-        "front-port-image": "/assets/images/temp/fly-front-portait.jpg",
-        "back-port-image": "/assets/images/temp/fly-back-portait.jpg",
+        "front-port-image": "/assets/images/temp/fly-front-portait.png",
+        "back-port-image": "/assets/images/temp/fly-back-portait.png",
         "face-img": "/assets/images/temp/face.png",
         "address": "Address Postision",
         "phone": "123456789",
         "name": "John",
         "email": "john@gmail.com",
         "position": {
-            "name": {
-                "left": 120,
-                "top": 200
+            "land": {
+                "large": {
+                    "name": {
+                        "left": 120,
+                        "top": 200
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280
+                    }
+                },
+                "medium": {
+                    "name": {
+                        "left": 120,
+                        "top": 200
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280
+                    }
+                },
+                "small": {
+                    "name": {
+                        "left": 120,
+                        "top": 200
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280
+                    }
+                }
             },
-            "phone": {
-                "left": 350,
-                "top": 260
-            },
-            "address": {
-                "left": 330,
-                "top": 200
-            },
-            "email": {
-                "left": 350,
-                "top": 280
+            "portait": {
+                "large": {
+                    "name": {
+                        "left": 120,
+                        "top": 280
+                    },
+                    "phone": {
+                        "left": 120,
+                        "top": 450
+                    },
+                    "address": {
+                        "left": 100,
+                        "top": 410
+                    },
+                    "email": {
+                        "left": 120,
+                        "top": 470
+                    }
+                },
+                "medium": {
+                    "name": {
+                        "left": 120,
+                        "top": 200
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280
+                    }
+                },
+                "small": {
+                    "name": {
+                        "left": 120,
+                        "top": 200
+                    },
+                    "phone": {
+                        "left": 350,
+                        "top": 260
+                    },
+                    "address": {
+                        "left": 330,
+                        "top": 200
+                    },
+                    "email": {
+                        "left": 350,
+                        "top": 280
+                    }
+                }
             }
         },
         "small": {
