@@ -4,8 +4,8 @@ import {Injectable} from '@angular/core';
 export class SingleProductService {
   
   public item: any;
-  public layout: string = "";
-  public size: string = "";
+  public layout: string = "horizontal";
+  public size: string = "large";
   public selectedImage: any;
 
   constructor() {
@@ -14,6 +14,11 @@ export class SingleProductService {
       frontState: [],
       backImage: "",
       backState: []
+    }
+
+    this.selectedImage = {
+      'front-builder': "",
+      "back-builder": ""
     }
   }
 
@@ -42,8 +47,8 @@ export class SingleProductService {
     return this.size
   }
 
-  setSelectedImage(val) {
-    this.selectedImage = val
+  setSelectedImage(key, value) {
+    this.selectedImage[key] = value
   }
 
   getSelectedImage() {

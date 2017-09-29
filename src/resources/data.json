@@ -1,11 +1,14 @@
 [
     {
-        "id": 1,
-        "front-land-image": "/assets/images/temp/fly-front-land.jpg",
-        "back-land-image": "/assets/images/temp/fly-back-land.jpg",
-        "front-port-image": "/assets/images/temp/fly-front-portait.jpg",
-        "back-port-image": "/assets/images/temp/fly-back-portait.jpg",
-        "face-img": "/assets/images/temp/face.png",
+        "id": 0,
+        "horizontal": {
+            "front": "/assets/images/temp/fly-front-land.jpg",
+            "back": "/assets/images/temp/fly-back-land.jpg"
+        },
+        "vertical": {
+            "front": "/assets/images/temp/fly-front-portait.jpg",
+            "back": "/assets/images/temp/fly-back-portait.jpg"
+        },
         "address": "Address Postision",
         "phone": "123456789",
         "name": "John",
@@ -25,11 +28,14 @@
     },
     {
         "id": 1,
-        "front-land-image": "/assets/images/temp/business-front-land.png",
-        "back-land-image": "/assets/images/temp/business-back-land.png",
-        "front-port-image": "/assets/images/temp/business-front-portrait.png",
-        "back-port-image": "/assets/images/temp/business-back-portrait.png",
-        "face-img": "/assets/images/temp/face.png",
+        "horizontal": {
+            "front": "/assets/images/temp/business-front-land.png",
+            "back": "assets/images/temp/business-back-land.png"
+        },
+        "vertical": {
+            "front": "/assets/images/temp/business-front-portrait.png",
+            "back": "/assets/images/temp/business-back-portrait.png"
+        },
         "address": "Address Postision",
         "phone": "123456789",
         "name": "John",

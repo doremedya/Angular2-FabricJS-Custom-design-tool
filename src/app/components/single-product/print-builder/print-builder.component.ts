@@ -90,37 +90,16 @@ function setCanvas(value) {
   console.log(layoutPanel)
   if(currentBuilder == 'front-builder') {
     if(frontState.length > 0) 
-       canvas.loadFromJSON(frontState[frontState.length - 1]);
-    if(layoutPanel == "horizontal") {
-      frontImage = value['front-land-image'];
-      
-      drawImage(frontImage)
-      // InitTextonCanvas(value.name, value.position.land[sizePanel].name.left, value.position.land[sizePanel].name.top, value.position.land[sizePanel].name.fontSize)
-      // InitTextonCanvas(value.address, value.position.land[sizePanel].address.left, value.position.land[sizePanel].address.top, value.position.land[sizePanel].address.fontSize)
-      // InitTextonCanvas(value.phone, value.position.land[sizePanel].phone.left, value.position.land[sizePanel].phone.top, value.position.land[sizePanel].phone.fontSize)
-      // InitTextonCanvas(value.email, value.position.land[sizePanel].email.left, value.position.land[sizePanel].email.top, value.position.land[sizePanel].email.fontSize)
-    } else {
-      frontImage = value['front-port-image'];
-      drawImage(frontImage)
-      // InitTextonCanvas(value.name, value.position.portait[sizePanel].name.left, value.position.portait[sizePanel].name.top, value.position.portait[sizePanel].name.fontSize)
-      // InitTextonCanvas(value.address, value.position.portait[sizePanel].address.left, value.position.portait[sizePanel].address.top, value.position.portait[sizePanel].address.fontSize)
-      // InitTextonCanvas(value.phone, value.position.portait[sizePanel].phone.left, value.position.portait[sizePanel].phone.top, value.position.portait[sizePanel].phone.fontSize)
-      // InitTextonCanvas(value.email, value.position.portait[sizePanel].email.left, value.position.portait[sizePanel].email.top, value.position.portait[sizePanel].email.fontSize)
-    }
+      canvas.loadFromJSON(frontState[frontState.length - 1]);
+    frontImage = value[layoutPanel].front;
+    drawImage(frontImage)
     localStorage.setItem('frontImage', frontImage)
 
   } else {
     if(backState.length > 0) 
       canvas.loadFromJSON(backState[backState.length - 1]);
-    if(layoutPanel == "horizontal") {
-      backImage = value['back-land-image'];
-      drawImage(backImage)
-    //  InitTextonCanvas(value.name, value.position.land[sizePanel].name.left, value.position.land[sizePanel].name.top, 36)
-    } else {
-      backImage = value['back-port-image'];
-      drawImage(backImage)
-    //  InitTextonCanvas("John", 90, 495, 26, '#ffffff')
-    }
+    backImage = value[layoutPanel].back;
+    drawImage(backImage)
     localStorage.setItem('backImage', backImage)
   }
 }
@@ -187,16 +166,6 @@ export class PrintBuilderComponent implements OnInit {
       }
 
       $("#addText").click(function() {
-        // var left = 100;
-        // var top = 100;
-        // var fontSize = 24
-        // if(sizePanel == "small") {
-        //   fontSize = 12
-        // } else if (sizePanel =="medium") {
-        //   fontSize = 18
-        // } else {
-        //   fontSize = 24
-        // } 
         var textSample = new fabric.IText('Sample Text', {
           left: fabric.util.getRandomInt(0, originalCanvasWidth / 2),
           top: fabric.util.getRandomInt(0, originalCanvasHeight / 2),
@@ -502,10 +471,11 @@ export class PrintBuilderComponent implements OnInit {
   setInitCanvas(value) {
     selectImage = value
     setCanvas(value)
-    this.spService.setSelectedImage(value)
+    //this.spService.setSelectedImage(value)
   }
 
   saveLabel() {
+    console.log(this.label)
     var textSample = new fabric.IText(this.label, {
       left: fabric.util.getRandomInt(0, canvas.width / 2),
       top: fabric.util.getRandomInt(0, canvas.height / 2),
