@@ -8,11 +8,11 @@ export interface ConfirmModel {
 }
 
 @Component({
-  selector: 'alert',
-  templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.css']
+  selector: 'signup-confirm',
+  templateUrl: './signup-confirm.component.html',
+  styleUrls: ['./signup-confirm.component.css']
 })
-export class AlertComponent extends DialogComponent<ConfirmModel, boolean> implements ConfirmModel {
+export class SignupConfirmComponent extends DialogComponent<ConfirmModel, boolean> implements ConfirmModel {
   title: string;
   message: string;
   layoutPanel: string = 'horizontal';
@@ -24,7 +24,7 @@ export class AlertComponent extends DialogComponent<ConfirmModel, boolean> imple
   confirm() {
     this.result = true;
     this.close();
-    this.router.navigate(['/single-product']);  
+    this.router.navigate(['/']);  
   }
   cancel() {
     this.result = false;

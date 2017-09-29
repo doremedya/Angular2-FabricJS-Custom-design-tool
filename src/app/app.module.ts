@@ -24,6 +24,7 @@ import { CreditComponent } from './components/setting/credit/credit.component';
 import { OtherComponent } from './components/setting/other/other.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AlertComponent } from './components/alert-modal/alert.component';
+import { SignupConfirmComponent } from './components/signup-confirm/signup-confirm.component';
 
 
 const ROUTES = [{
@@ -65,9 +66,10 @@ const ROUTES = [{
     CreditComponent,
     OtherComponent,
     CartComponent,
-    AlertComponent
+    AlertComponent,
+    SignupConfirmComponent
   ],
-  entryComponents: [AlertComponent],
+  entryComponents: [AlertComponent, SignupConfirmComponent],
   imports: [
     BrowserModule,
     FormsModule,
