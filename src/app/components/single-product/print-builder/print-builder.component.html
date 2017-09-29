@@ -8,11 +8,9 @@
     	<div class="panel-left">
 	    	<div class="design-panel" [hidden]="leftPanel!='designs'">
 	    		<ul>
-	    			<li *ngFor="let image of images"  class="designs" (click)="setInitCanvas(image)">	    				
-					    <img [src]="image['front-land-image']" class="front">
-					</li>
-					<li *ngFor="let image of images"  class="designs" (click)="setInitCanvas(image)">
-					    <img [src]="image['back-land-image']" class="back">
+	    			<li *ngFor="let image of images"  class="designs">	    				
+					    <img [src]="image.horizontal.front" class="front" (click)="setInitCanvas(image, 'front', layoutPanel)">					
+					    <img [src]="image.horizontal.back" class="back" (click)="setInitCanvas(image, 'back', layoutPanel)">
 					</li>
 	    		</ul>
 	    	</div>
@@ -25,9 +23,9 @@
 	    		<div class="label section col-md-12">
 	    			<label>Label</label>
 	    			<div class="input-group">
-						<input type="text" class="form-control label-text" placeholder="label...">
+						<input type="text" class="form-control label-text" placeholder="label..." [(ngModel)]="label">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Save</button>
+							<button class="btn btn-default" type="button" (click)="saveLabel()">Save</button>
 						</span>
 				    </div><!-- /input-group -->
 	    		</div>

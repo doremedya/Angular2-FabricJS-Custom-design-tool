@@ -11,7 +11,6 @@ var allImage = {
   front: "",
   back: ""
 };
-var selectedImage;
 
 function setFrontCanvas() {
   frontCanvas = new fabric.Canvas('front-canvas', {
@@ -23,7 +22,7 @@ function setFrontCanvas() {
   frontCanvas.setHeight(400);
   frontCanvas.setWidth(600);
   frontCanvas.loadFromJSON(canvasInfo.frontState[canvasInfo.frontState.length - 1]);
-  frontCanvas.setBackgroundImage(selectedImage['front-land-image'], frontCanvas.renderAll.bind(frontCanvas), {
+  frontCanvas.setBackgroundImage(canvasInfo.frontImage, frontCanvas.renderAll.bind(frontCanvas), {
     backgroundImageOpacity: 0.5,
     backgroundImageStrech: true,
     top: 0,
@@ -47,7 +46,7 @@ function setBackCanvas() {
   backCanvas.setHeight(400);
   backCanvas.setWidth(600);
   backCanvas.loadFromJSON(canvasInfo.backState[canvasInfo.backState.length - 1]);
-  backCanvas.setBackgroundImage(selectedImage['back-land-image'], backCanvas.renderAll.bind(backCanvas), {
+  backCanvas.setBackgroundImage(canvasInfo.backImage, backCanvas.renderAll.bind(backCanvas), {
     backgroundImageOpacity: 0.5,
     backgroundImageStrech: true,
     top: 0,
@@ -132,12 +131,8 @@ export class ReviewOrderComponent implements OnInit {
   public paperType: string = 'original';
   public checkedMatted: boolean = false;
   public checkedGloss: boolean = false;
-  public selectedImage: any;
 
   constructor(public spService: SingleProductService) {
-    this.selectedImage = this.spService.getSelectedImage()
-    console.log(this.selectedImage)
-    selectedImage = this.selectedImage
     this.canvasInfo = this.spService.getValue();
     canvasInfo = this.spService.getValue();
 
@@ -160,24 +155,24 @@ export class ReviewOrderComponent implements OnInit {
       $("#finish-matte").click(function() {
         console.log(checkedFinishType)
         if(checkedFinishType) {
-          $("canvas.upper-canvas").removeClass("stripped");
-          $("canvas.upper-canvas").addClass("dotted");
+          $("canvas").removeClass("stripped");
+          $("canvas").addClass("dotted");
           checkedFinishType = false;
           shineFlag = true; 
         } else {
-          $("canvas.upper-canvas").removeClass("dotted");
+          $("canvas").removeClass("dotted");
           checkedFinishType = true;
         }
       })
 
       $("#finish-gloss").click(function() {
         if(shineFlag){
-          $("canvas.upper-canvas").addClass("stripped");
-          $("canvas.upper-canvas").removeClass("dotted");
+          $("canvas").addClass("stripped");
+          $("canvas").removeClass("dotted");
           shineFlag = false;  
           checkedFinishType = true;
         } else {
-          $("canvas.upper-canvas").removeClass("stripped");
+          $("canvas").removeClass("stripped");
           shineFlag = true;  
         }        
       })

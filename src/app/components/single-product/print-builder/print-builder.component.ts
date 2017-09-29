@@ -86,43 +86,86 @@ function drawImage(image) {
   canvas.renderAll();
 }
 
-function setCanvas(value) {
-  console.log(layoutPanel)
-  if(currentBuilder == 'front-builder') {
-    if(frontState.length > 0) 
-       canvas.loadFromJSON(frontState[frontState.length - 1]);
-    if(layoutPanel == "horizontal") {
-      frontImage = value['front-land-image'];
-      
+var imageDirection = ""
+var imagelayoutPanel = ""
+function setCanvas(images, direction, layoutPanel) {
+  if(direction != "") {
+    imageDirection = direction
+    imagelayoutPanel = layoutPanel
+    selectImage = images
+    console.log(selectImage)
+    if(currentBuilder == 'front-builder') {
+      if(frontState.length > 0) 
+        canvas.loadFromJSON(frontState[frontState.length - 1]);
+      frontImage = images[layoutPanel][imageDirection];
       drawImage(frontImage)
-      // InitTextonCanvas(value.name, value.position.land[sizePanel].name.left, value.position.land[sizePanel].name.top, value.position.land[sizePanel].name.fontSize)
-      // InitTextonCanvas(value.address, value.position.land[sizePanel].address.left, value.position.land[sizePanel].address.top, value.position.land[sizePanel].address.fontSize)
-      // InitTextonCanvas(value.phone, value.position.land[sizePanel].phone.left, value.position.land[sizePanel].phone.top, value.position.land[sizePanel].phone.fontSize)
-      // InitTextonCanvas(value.email, value.position.land[sizePanel].email.left, value.position.land[sizePanel].email.top, value.position.land[sizePanel].email.fontSize)
-    } else {
-      frontImage = value['front-port-image'];
-      drawImage(frontImage)
-      // InitTextonCanvas(value.name, value.position.portait[sizePanel].name.left, value.position.portait[sizePanel].name.top, value.position.portait[sizePanel].name.fontSize)
-      // InitTextonCanvas(value.address, value.position.portait[sizePanel].address.left, value.position.portait[sizePanel].address.top, value.position.portait[sizePanel].address.fontSize)
-      // InitTextonCanvas(value.phone, value.position.portait[sizePanel].phone.left, value.position.portait[sizePanel].phone.top, value.position.portait[sizePanel].phone.fontSize)
-      // InitTextonCanvas(value.email, value.position.portait[sizePanel].email.left, value.position.portait[sizePanel].email.top, value.position.portait[sizePanel].email.fontSize)
-    }
-    localStorage.setItem('frontImage', frontImage)
+      localStorage.setItem('frontImage', frontImage)
 
-  } else {
-    if(backState.length > 0) 
-      canvas.loadFromJSON(backState[backState.length - 1]);
-    if(layoutPanel == "horizontal") {
-      backImage = value['back-land-image'];
-      drawImage(backImage)
-    //  InitTextonCanvas(value.name, value.position.land[sizePanel].name.left, value.position.land[sizePanel].name.top, 36)
     } else {
-      backImage = value['back-port-image'];
+      if(backState.length > 0) 
+        canvas.loadFromJSON(backState[backState.length - 1]);
+      backImage = images[layoutPanel][imageDirection];
       drawImage(backImage)
-    //  InitTextonCanvas("John", 90, 495, 26, '#ffffff')
+      localStorage.setItem('backImage', backImage)
     }
-    localStorage.setItem('backImage', backImage)
+  } else {
+    if(imagelayoutPanel == layoutPanel) {
+      if(currentBuilder == 'front-builder') {
+        if(frontState.length > 0) 
+          canvas.loadFromJSON(frontState[frontState.length - 1]);
+        drawImage(frontImage)
+        localStorage.setItem('frontImage', frontImage)
+
+      } else {
+        if(backState.length > 0) 
+          canvas.loadFromJSON(backState[backState.length - 1]);
+        drawImage(backImage)
+        localStorage.setItem('backImage', backImage)
+      }
+    }else {
+      imagelayoutPanel = layoutPanel
+      console.log(selectImage)
+      console.log(images)    
+        var key = Object.keys(selectImage.horizontal).filter(function(key) {return selectImage.horizontal[key] == images })[0];
+        var key1 = Object.keys(selectImage.vertical).filter(function(key) {return selectImage.vertical[key] == images })[0];
+        console.log(key)
+        console.log(key1)
+      if(key) {
+        if(currentBuilder == 'front-builder') {
+          if(frontState.length > 0) 
+            canvas.loadFromJSON(frontState[frontState.length - 1]);
+          frontImage = selectImage.vertical[key];
+          drawImage(frontImage)
+          localStorage.setItem('frontImage', frontImage)
+
+        } else {
+          if(backState.length > 0) 
+            canvas.loadFromJSON(backState[backState.length - 1]);
+          backImage = selectImage.vertical[key];
+          drawImage(backImage)
+          localStorage.setItem('backImage', backImage)
+        }
+      } else if(key1) {
+        if(currentBuilder == 'front-builder') {
+          if(frontState.length > 0) 
+            canvas.loadFromJSON(frontState[frontState.length - 1]);
+          frontImage = selectImage.horizontal[key1];
+          drawImage(frontImage)
+          localStorage.setItem('frontImage', frontImage)
+
+        } else {
+          if(backState.length > 0) 
+            canvas.loadFromJSON(backState[backState.length - 1]);
+          backImage = selectImage.horizontal[key1];
+          drawImage(backImage)
+          localStorage.setItem('backImage', backImage)
+        }
+      }
+    }
   }
+  
+
+  
 }
 
 function InitTextonCanvas(value, left, top, fontSize, color=null) {
@@ -159,6 +202,7 @@ export class PrintBuilderComponent implements OnInit {
   public backImage: any;
   public isCollapse: boolean = false;
   public images: any;
+  public label: string = "";
 
   @Input() ipage: string;
 
@@ -166,7 +210,6 @@ export class PrintBuilderComponent implements OnInit {
     this.colorId = 'white';
     this.currentBuilder = 'front-builder';
     this.images = require("../../../../resources/data.json");
-    console.log(this.spService.getLayout())
   }
 
   ngOnInit() {
@@ -174,7 +217,6 @@ export class PrintBuilderComponent implements OnInit {
     this.sizePanel = this.spService.getSizePanel();
     layoutPanel = this.spService.getLayout()
     sizePanel = this.spService.getSizePanel()
-    console.log(this.layoutPanel)
     localStorage.clear();
     initCanvas()
     $(document).ready(function() {
@@ -186,16 +228,6 @@ export class PrintBuilderComponent implements OnInit {
       }
 
       $("#addText").click(function() {
-        // var left = 100;
-        // var top = 100;
-        // var fontSize = 24
-        // if(sizePanel == "small") {
-        //   fontSize = 12
-        // } else if (sizePanel =="medium") {
-        //   fontSize = 18
-        // } else {
-        //   fontSize = 24
-        // } 
         var textSample = new fabric.IText('Sample Text', {
           left: fabric.util.getRandomInt(0, originalCanvasWidth / 2),
           top: fabric.util.getRandomInt(0, originalCanvasHeight / 2),
@@ -319,7 +351,10 @@ export class PrintBuilderComponent implements OnInit {
         }
         layoutPanel = 'horizontal'
         canvas.clear()
-        setCanvas(selectImage)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#layout-checkbox2").click(function() {
@@ -336,7 +371,10 @@ export class PrintBuilderComponent implements OnInit {
         }
         layoutPanel = 'vertical'
         canvas.clear()
-        setCanvas(selectImage)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#size-checkbox1").click(function() {
@@ -351,7 +389,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(width);
         }
         canvas.clear()
-        setCanvas(selectImage)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
         
       })
 
@@ -367,7 +408,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(width);
         }
         canvas.clear()
-        setCanvas(selectImage)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#size-checkbox3").click(function() {
@@ -380,7 +424,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(originalCanvasWidth);
         }
         canvas.clear()
-        setCanvas(selectImage)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#myFile").on("change", function(e) { 
@@ -465,7 +512,6 @@ export class PrintBuilderComponent implements OnInit {
     this.frontImage = frontImage;
     this.backImage = backImage;
     if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
-    //  drawImage(this.frontImage) 
       this.currentBackState = backState;
       this.spService.setValue('backImage', this.backImage)
       this.spService.setValue('backState', this.currentBackState)
@@ -481,10 +527,9 @@ export class PrintBuilderComponent implements OnInit {
       } else {
         $(".btn-forward").prop('disabled', true);
         $(".btn-back").prop('disabled', false);
-      }    
-      setCanvas(selectImage)
-    } else {   
-    //  drawImage(this.backImage)
+      }
+      setCanvas(this.frontImage, "", layoutPanel)
+    } else {
       this.currentFrontState = frontState;
       this.spService.setValue('frontImage', this.frontImage)
       this.spService.setValue('frontState', this.currentFrontState)
@@ -493,38 +538,33 @@ export class PrintBuilderComponent implements OnInit {
         canvas.loadFromJSON(this.currentBackState[this.currentBackState.length - 1]);
         
       }
-      setCanvas(selectImage)
+      setCanvas(this.backImage, "", layoutPanel)
     }
     canvas.renderAll();
   }
 
-  setInitCanvas(value) {
-    selectImage = value
-    setCanvas(value)
-    this.spService.setSelectedImage(value)
+  setInitCanvas(images, direction, layoutPanel) {
+    setCanvas(images, direction, layoutPanel)
+    //this.spService.setSelectedImage(value)
+  }
+
+  saveLabel() {
+    console.log(this.label)
+    var textSample = new fabric.IText(this.label, {
+      left: fabric.util.getRandomInt(0, canvas.width / 2),
+      top: fabric.util.getRandomInt(0, canvas.height / 2),
+      fontFamily: 'helvetica',
+      fontSize: 24,
+      angle: 0,
+      fill: '#000000',
+      hasRotatingPoint:true
+    });       
+    canvas.add(textSample);
+    updateModifications(true);
   }
 
   OnCollapse() {
     this.isCollapse = !this.isCollapse;
     isCollapse = this.isCollapse
-    // if(this.isCollapse) {
-    //   this.reDesignCanvas(1000, 600)
-    // } else {
-    //   this.reDesignCanvas(600, 400)
-    // }
   }
-
-  // reDesignCanvas(width, height) {
-  //   canvas.setHeight(height);
-  //   canvas.setWidth(width);
-  //   if(this.currentBuilder == 'front-builder') {
-  //     this.frontImage = frontImage;
-  //     if(this.frontImage)
-  //       drawImage(this.frontImage)
-  //   } else {
-  //     this.backImage = backImage;
-  //     if(this.backImage)
-  //       drawImage(this.backImage)
-  //   }
-  // }
 }
