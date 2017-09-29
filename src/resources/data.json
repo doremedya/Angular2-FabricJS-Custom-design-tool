@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "logo": "/assets/images/temp/fly-back-land.png",
+        "logo": "/assets/images/temp/logo.png",
         "horizontal": {
             "front": "/assets/images/temp/fly-front-land.png",
             "back": "/assets/images/temp/fly-back-land.png"
@@ -14,171 +14,373 @@
         "phone": "123456789",
         "name": "John",
         "email": "john@gmail.com",
+        "serial": "Relator #123456789",
          "position": {
-            "land": {
-                "large": {
-                    "logo": {
-                        "left": 150,
-                        "top": 80
+            "front": {
+                "horizontal": {
+                    "large": {
+                        "logo": {
+                            "left": 150,
+                            "top": 80,
+                            "width": 250,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 100,
+                            "top": 200,
+                            "fontSize": 36
+                        },
+                        "phone": {
+                            "left": 350,
+                            "top": 260,
+                            "fontSize": 12
+                        },
+                        "address": {
+                            "left": 330,
+                            "top": 200,
+                            "fontSize": 24
+                        },
+                        "email": {
+                            "left": 350,
+                            "top": 280,
+                            "fontSize": 12
+                        },
+                        "serial": {
+                            "left": 70,
+                            "top": 250,
+                            "fontSize": 24
+                        }
                     },
-                    "name": {
-                        "left": 120,
-                        "top": 200,
-                        "fontSize": 36
+                    "medium": {
+                        "logo": {
+                            "left": 80,
+                            "top": 30,
+                            "width": 250,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 100,
+                            "top": 150,
+                            "fontSize": 30
+                        },
+                        "address": {
+                            "left": 250,
+                            "top": 150,
+                            "fontSize": 20
+                        },
+                        "phone": {
+                            "left": 280,
+                            "top": 200,
+                            "fontSize": 12
+                        },
+                        "email": {
+                            "left": 280,
+                            "top": 220,
+                            "fontSize": 12
+                        },
+                        "serial": {
+                            "left": 70,
+                            "top": 180,
+                            "fontSize": 18
+                        }
                     },
-                    "phone": {
-                        "left": 350,
-                        "top": 260,
-                        "fontSize": 12
-                    },
-                    "address": {
-                        "left": 330,
-                        "top": 200,
-                        "fontSize": 24
-                    },
-                    "email": {
-                        "left": 350,
-                        "top": 280,
-                        "fontSize": 12
+                    "small": {
+                        "logo": {
+                            "left": 50,
+                            "top": 30,
+                            "width": 200,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 60,
+                            "top": 130,
+                            "fontSize": 12
+                        },                    
+                        "address": {
+                            "left": 180,
+                            "top": 120,
+                            "fontSize": 10
+                        },
+                        "phone": {
+                            "left": 180,
+                            "top": 155,
+                            "fontSize": 10
+                        },
+                        "email": {
+                            "left": 180,
+                            "top": 165,
+                            "fontSize": 10
+                        },
+                        "serial": {
+                            "left": 30,
+                            "top": 150,
+                            "fontSize": 10
+                        }
                     }
                 },
-                "medium": {
-                    "logo": {
-                        "left": 150,
-                        "top": 80
+                "vertical": {
+                    "large": {
+                        "logo": {
+                            "left": 50,
+                            "top": 80,
+                            "width": 250,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 80,
+                            "top": 300,
+                            "fontSize": 36
+                        },
+                        "phone": {
+                            "left": 60,
+                            "top": 450,
+                            "fontSize": 20
+                        },
+                        "address": {
+                            "left": 60,
+                            "top": 400,
+                            "fontSize": 20
+                        },
+                        "email": {
+                            "left": 60,
+                            "top": 470,
+                            "fontSize": 20
+                        },
+                        "serial": {
+                            "left": 60,
+                            "top": 350,
+                            "fontSize": 24
+                        }
                     },
-                    "name": {
-                        "left": 100,
-                        "top": 150,
-                        "fontSize": 30
+                    "medium": {
+                        "logo": {
+                            "left": 60,
+                            "top": 50,
+                            "width": 200,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 80,
+                            "top": 250,
+                            "fontSize": 30
+                        },
+                        "phone": {
+                            "left": 60,
+                            "top": 400,
+                            "fontSize": 18
+                        },
+                        "address": {
+                            "left": 60,
+                            "top": 350,
+                            "fontSize": 18
+                        },
+                        "email": {
+                            "left": 60,
+                            "top": 370,
+                            "fontSize": 18
+                        },
+                        "serial": {
+                            "left": 60,
+                            "top": 300,
+                            "fontSize": 20
+                        }
                     },
-                    "address": {
-                        "left": 250,
-                        "top": 150,
-                        "fontSize": 20
-                    },
-                    "phone": {
-                        "left": 280,
-                        "top": 200,
-                        "fontSize": 12
-                    },
-                    "email": {
-                        "left": 280,
-                        "top": 220,
-                        "fontSize": 12
-                    }
-                },
-                "small": {
-                    "logo": {
-                        "left": 150,
-                        "top": 80
-                    },
-                    "name": {
-                        "left": 60,
-                        "top": 130,
-                        "fontSize": 12
-                    },                    
-                    "address": {
-                        "left": 160,
-                        "top": 120,
-                        "fontSize": 10
-                    },
-                    "phone": {
-                        "left": 180,
-                        "top": 155,
-                        "fontSize": 10
-                    },
-                    "email": {
-                        "left": 180,
-                        "top": 165,
-                        "fontSize": 10
+                    "small": {
+                        "logo": {
+                            "left":60,
+                            "top": 50,
+                            "width": 100,
+                            "height": 30
+                        },
+                        "name": {
+                            "left": 80,
+                            "top": 160,
+                            "fontSize": 18
+                        },
+                        "phone": {
+                            "left": 60,
+                            "top": 240,
+                            "fontSize": 12
+                        },
+                        "address": {
+                            "left": 60,
+                            "top": 200,
+                            "fontSize": 12
+                        },
+                        "email": {
+                            "left": 60,
+                            "top": 270,
+                            "fontSize": 12
+                        },
+                        "serial": {
+                            "left": 60,
+                            "top": 180,
+                            "fontSize": 12
+                        }
                     }
                 }
             },
-            "portait": {
-                "large": {
-                    "name": {
-                        "left": 120,
-                        "top": 280
+            "back": {
+                "horizontal": {
+                    "large": {
+                        "logo": {
+                            "left": 260,
+                            "top": 80,
+                            "width": 250,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 300,
+                            "top": 170,
+                            "fontSize": 36
+                        },
+                        "serial": {
+                            "left": 260,
+                            "top": 220,
+                            "fontSize": 24
+                        }
                     },
-                    "phone": {
-                        "left": 120,
-                        "top": 450
+                    "medium": {
+                        "logo": {
+                            "left": 210,
+                            "top": 80,
+                            "width": 200,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 230,
+                            "top": 160,
+                            "fontSize": 30
+                        },
+                        "serial": {
+                            "left": 210,
+                            "top": 200,
+                            "fontSize": 20
+                        }
                     },
-                    "address": {
-                        "left": 100,
-                        "top": 410
-                    },
-                    "email": {
-                        "left": 120,
-                        "top": 470
+                    "small": {
+                        "logo": {
+                            "left": 140,
+                            "top": 60,
+                            "width": 150,
+                            "height": 26
+                        },
+                        "name": {
+                            "left": 150,
+                            "top": 120,
+                            "fontSize": 24
+                        },
+                        "serial": {
+                            "left": 140,
+                            "top": 150,
+                            "fontSize": 12
+                        }
                     }
                 },
-                "medium": {
-                    "name": {
-                        "left": 120,
-                        "top": 200
+                "vertical": {
+                    "large": {
+                        "logo": {
+                            "left": 50,
+                            "top": 80,
+                            "width": 250,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 80,
+                            "top": 300,
+                            "fontSize": 36
+                        },
+                        "phone": {
+                            "left": 60,
+                            "top": 450,
+                            "fontSize": 20
+                        },
+                        "address": {
+                            "left": 60,
+                            "top": 400,
+                            "fontSize": 20
+                        },
+                        "email": {
+                            "left": 60,
+                            "top": 470,
+                            "fontSize": 20
+                        },
+                        "serial": {
+                            "left": 60,
+                            "top": 350,
+                            "fontSize": 24
+                        }
                     },
-                    "phone": {
-                        "left": 350,
-                        "top": 260
+                    "medium": {
+                        "logo": {
+                            "left": 60,
+                            "top": 50,
+                            "width": 200,
+                            "height": 50
+                        },
+                        "name": {
+                            "left": 80,
+                            "top": 250,
+                            "fontSize": 30
+                        },
+                        "phone": {
+                            "left": 60,
+                            "top": 400,
+                            "fontSize": 18
+                        },
+                        "address": {
+                            "left": 60,
+                            "top": 350,
+                            "fontSize": 18
+                        },
+                        "email": {
+                            "left": 60,
+                            "top": 370,
+                            "fontSize": 18
+                        },
+                        "serial": {
+                            "left": 60,
+                            "top": 300,
+                            "fontSize": 20
+                        }
                     },
-                    "address": {
-                        "left": 330,
-                        "top": 200
-                    },
-                    "email": {
-                        "left": 350,
-                        "top": 280
-                    }
-                },
-                "small": {
-                    "name": {
-                        "left": 120,
-                        "top": 200
-                    },
-                    "phone": {
-                        "left": 350,
-                        "top": 260
-                    },
-                    "address": {
-                        "left": 330,
-                        "top": 200
-                    },
-                    "email": {
-                        "left": 350,
-                        "top": 280
+                    "small": {
+                        "logo": {
+                            "left":60,
+                            "top": 50,
+                            "width": 100,
+                            "height": 30
+                        },
+                        "name": {
+                            "left": 80,
+                            "top": 160,
+                            "fontSize": 18
+                        },
+                        "phone": {
+                            "left": 60,
+                            "top": 240,
+                            "fontSize": 12
+                        },
+                        "address": {
+                            "left": 60,
+                            "top": 200,
+                            "fontSize": 12
+                        },
+                        "email": {
+                            "left": 60,
+                            "top": 270,
+                            "fontSize": 12
+                        },
+                        "serial": {
+                            "left": 60,
+                            "top": 180,
+                            "fontSize": 12
+                        }
                     }
                 }
             }
+            
         },    
-        "small": {
-            "width": 500,
-            "height": 700
-        },
-        "medium": {
-            "width": 600,
-            "height": 800
-        },
-        "large": {
-            "width": 700,
-            "height": 900
-        }
-    },
-    {
-        "id": 1,
-        "horizontal": {
-            "front": "/assets/images/temp/business-front-land.png",
-            "back": "assets/images/temp/business-back-land.png"
-        },
-        "vertical": {
-            "front": "/assets/images/temp/business-front-portrait.png",
-            "back": "/assets/images/temp/business-back-portrait.png"
-        },
-        "address": "Address Postision",
-        "phone": "123456789",
-        "name": "John",
-        "email": "john@gmail.com",        
         "small": {
             "width": 500,
             "height": 700
