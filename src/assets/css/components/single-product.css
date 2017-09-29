@@ -135,6 +135,7 @@
     border-top: 1px solid #d4d4d4;
     position: absolute;
     width: 100%;
+    bottom: 67px;
 }
 
 .ui-single-product .review-section {
