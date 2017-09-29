@@ -1,26 +1,18 @@
 [
     {
-        "id": 0,
-        "logo": "/assets/images/temp/fly-back-land.png",
-        "horizontal": {
-            "front": "/assets/images/temp/fly-front-land.png",
-            "back": "/assets/images/temp/fly-back-land.png"
-        },
-        "vertical": {
-            "front": "/assets/images/temp/fly-front-portait.png",
-            "back": "/assets/images/temp/fly-back-portait.png"
-        },
+        "id": 1,
+        "front-land-image": "/assets/images/temp/fly-front-land.png",
+        "back-land-image": "/assets/images/temp/fly-back-land.png",
+        "front-port-image": "/assets/images/temp/fly-front-portait.png",
+        "back-port-image": "/assets/images/temp/fly-back-portait.png",
+        "face-img": "/assets/images/temp/face.png",
         "address": "Address Postision",
         "phone": "123456789",
         "name": "John",
         "email": "john@gmail.com",
-         "position": {
+        "position": {
             "land": {
                 "large": {
-                    "logo": {
-                        "left": 150,
-                        "top": 80
-                    },
                     "name": {
                         "left": 120,
                         "top": 200,
@@ -43,10 +35,6 @@
                     }
                 },
                 "medium": {
-                    "logo": {
-                        "left": 150,
-                        "top": 80
-                    },
                     "name": {
                         "left": 100,
                         "top": 150,
@@ -69,10 +57,6 @@
                     }
                 },
                 "small": {
-                    "logo": {
-                        "left": 150,
-                        "top": 80
-                    },
                     "name": {
                         "left": 60,
                         "top": 130,
@@ -151,34 +135,7 @@
                     }
                 }
             }
-        },    
-        "small": {
-            "width": 500,
-            "height": 700
         },
-        "medium": {
-            "width": 600,
-            "height": 800
-        },
-        "large": {
-            "width": 700,
-            "height": 900
-        }
-    },
-    {
-        "id": 1,
-        "horizontal": {
-            "front": "/assets/images/temp/business-front-land.png",
-            "back": "assets/images/temp/business-back-land.png"
-        },
-        "vertical": {
-            "front": "/assets/images/temp/business-front-portrait.png",
-            "back": "/assets/images/temp/business-back-portrait.png"
-        },
-        "address": "Address Postision",
-        "phone": "123456789",
-        "name": "John",
-        "email": "john@gmail.com",        
         "small": {
             "width": 500,
             "height": 700
