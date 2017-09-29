@@ -20,7 +20,7 @@ function setFrontCanvas() {
     selectionBorderColor:'blue'
   });
 
-  frontCanvas.setHeight(400);
+  frontCanvas.setHeight(343);
   frontCanvas.setWidth(600);
   frontCanvas.loadFromJSON(canvasInfo.frontState[canvasInfo.frontState.length - 1]);
   frontCanvas.setBackgroundImage(selectedImage.horizontal.front, frontCanvas.renderAll.bind(frontCanvas), {
@@ -44,7 +44,7 @@ function setBackCanvas() {
     selectionBorderColor:'blue'
   });
 
-  backCanvas.setHeight(400);
+  backCanvas.setHeight(343);
   backCanvas.setWidth(600);
   backCanvas.loadFromJSON(canvasInfo.backState[canvasInfo.backState.length - 1]);
   backCanvas.setBackgroundImage(selectedImage.horizontal.back, backCanvas.renderAll.bind(backCanvas), {

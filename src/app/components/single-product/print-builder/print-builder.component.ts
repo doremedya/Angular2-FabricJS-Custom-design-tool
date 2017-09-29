@@ -13,7 +13,7 @@ var frontState = [];
 var backState = [];
 var frontImage = "";
 var backImage = "";
-var height = 400
+var height = 343
 var width = 600
 var isCollapse = false
 var layoutPanel = "horizontal";
@@ -27,10 +27,10 @@ function initCanvas() {
     selectionBorderColor:'blue'
   });
   if(sizePanel == "small") {
-    height = 240
+    height = 183
     width = 320
   } else if(sizePanel == "medium") {
-    height = 320
+    height = 274
     width = 480
   }
   
