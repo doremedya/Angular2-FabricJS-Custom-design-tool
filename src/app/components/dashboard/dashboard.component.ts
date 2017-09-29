@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   	this.activatedRoute.queryParams.subscribe((params: Params) => {
 		let signupConfirm = params['signupConfirm'];
-		console.log(signupConfirm);
+
 		if(signupConfirm == 'true') {
 			this.dialogService.addDialog(SignupConfirmComponent, {
 				title:'',
