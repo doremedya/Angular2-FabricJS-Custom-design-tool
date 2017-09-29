@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "front-land-image": "/assets/images/temp/fly-front-land.jpg",
+        "back-land-image": "/assets/images/temp/fly-back-land.jpg",
+        "front-port-image": "/assets/images/temp/fly-front-portait.jpg",
+        "back-port-image": "/assets/images/temp/fly-back-portait.jpg",
+        "face-img": "/assets/images/temp/face.png",
+        "address": "Address Postision",
+        "phone": "123456789",
+        "name": "John",
+        "email": "john@gmail.com",        
+        "small": {
+            "width": 500,
+            "height": 700
+        },
+        "medium": {
+            "width": 600,
+            "height": 800
+        },
+        "large": {
+            "width": 700,
+            "height": 900
+        }
+    }
+]

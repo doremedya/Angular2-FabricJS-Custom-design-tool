@@ -19,7 +19,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-6">
                             <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox1" 
-                            	(click)="layoutPanel='horizontal'" [ngClass]="{'active': layoutPanel==='horizontal'}">
+                            	(click)="layoutPanel=setLayoutPanel('horizontal')" [ngClass]="{'active': layoutPanel==='horizontal'}">
                                 <div class="ui-h-box">
                                 	<i class="fa fa-window-maximize"></i>
                                 </div>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox2"
-                            	(click)="layoutPanel='vertical'" [ngClass]="{'active': layoutPanel==='vertical'}">
+                            	(click)="setLayoutPanel('vertical')" [ngClass]="{'active': layoutPanel==='vertical'}">
                                 <div class="ui-v-box">
                                 	<i class="fa fa-window-maximize vertical-window"></i>
                                 </div>
@@ -47,7 +47,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox1"
-                            	(click)="sizePanel='small'" [ngClass]="{'active': sizePanel==='small'}">
+                            	(click)="setSizePanel('small')" [ngClass]="{'active': sizePanel==='small'}">
                                 <div class="ui-s-box">
                                 	<i class="fa fa-square-o fa-lg"></i>
                                 </div>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox2"
-                            	(click)="sizePanel='medium'" [ngClass]="{'active': sizePanel==='medium'}">
+                            	(click)="setSizePanel('medium')" [ngClass]="{'active': sizePanel==='medium'}">
                                 <div class="ui-m-box">
                                 	<i class="fa fa-square-o fa-2x"></i>
                                 </div>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox3"
-                            	(click)="sizePanel='large'" [ngClass]="{'active': sizePanel==='large'}">
+                            	(click)="setSizePanel('large')" [ngClass]="{'active': sizePanel==='large'}">
                                 <div class="ui-l-box">
                                 	<i class="fa fa-square-o fa-3x"></i>
                                 </div>
