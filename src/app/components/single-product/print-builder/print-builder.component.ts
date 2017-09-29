@@ -16,6 +16,7 @@ var backImage = "";
 var height = 400
 var width = 600
 var isCollapse = false
+
 function initCanvas() {
   canvas = new fabric.Canvas('canvas', {
     hoverCursor: 'pointer',
@@ -70,6 +71,38 @@ function drawImage(image) {
   canvas.renderAll();
 }
 
+function setCanvas(value) {
+  console.log(value)
+  frontImage = value['front-land-image'];
+  backImage = value['back-land-image'];
+  if(currentBuilder == 'front-builder') {    
+    localStorage.setItem('frontImage', frontImage)
+    drawImage(frontImage)
+    InitTextonCanvas(value.name, value.position.name.left, value.position.name.top, 36)
+    InitTextonCanvas(value.address, value.position.address.left, value.position.address.top, 24)
+    InitTextonCanvas(value.phone, value.position.phone.left, value.position.phone.top, 12)
+    InitTextonCanvas(value.email, value.position.email.left, value.position.email.top, 12)
+  } else {    
+    localStorage.setItem('backImage', backImage)
+    drawImage(backImage)
+    InitTextonCanvas(value.email, value.position.email.left, value.position.email.top, 20)
+  }
+}
+
+function InitTextonCanvas(value, left, top, fontSize) {
+  var textSample = new fabric.IText(value, {
+    left: left,
+    top: top,
+    fontFamily: 'helvetica',
+    fontSize: fontSize,
+    angle: 0,
+    fill: '#000000',
+    hasRotatingPoint:true
+  });       
+  canvas.add(textSample);
+  updateModifications(true);
+}
+
 @Component({
   selector: 'print-builder',
   templateUrl: './print-builder.component.html'
@@ -89,11 +122,14 @@ export class PrintBuilderComponent implements OnInit {
   public frontImage: any;
   public backImage: any;
   public isCollapse: boolean = false;
+  public images: any
   @Input() ipage: string;
 
   constructor(public spService: SingleProductService) {
     this.colorId = 'white';
     this.currentBuilder = 'front-builder';
+    this.images = require("../../../../resources/data.json");
+    console.log(this.images)
   }
 
   ngOnInit() {
@@ -103,40 +139,54 @@ export class PrintBuilderComponent implements OnInit {
       var originalCanvasWidth = canvas.width
       var originalCanvasHeight = canvas.height
       var layoutHorizontal = false
-      $(".design-panel ul li.designs").click(function() {
-        $(".design-panel ul li").removeClass('active')
-        $(this).addClass('active')
-        var bgImage = $(this).find('img').attr('src');
-        originalImage = bgImage;
-        if(currentBuilder == 'front-builder') {
-          frontImage = originalImage;
-          localStorage.setItem('frontImage', frontImage)
-        } else {
-          backImage = originalImage;
-          localStorage.setItem('backImage', backImage)
-        }
-        
-        canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
-          backgroundImageOpacity: 0.5,
-          backgroundImageStrech: true,
-          top: 0,
-          left: 0,
-          originX: 'left',
-          originY: 'top',
-          width: canvas.width,
-          height: canvas.height
-        });
-        canvas.renderAll();  
-        
-      })
 
       $("#addText").click(function() {
+        var namePosition = {
+          left: 0,
+          top: 0
+        }        
+        var address = {
+          left: 0,
+          top: 0
+        }
+        var mobile = {
+          left: 0,
+          top: 0
+        } 
+        var email = {
+          left: 0,
+          top: 0
+        }
+        if(currentBuilder =='front-builder') {
+          namePosition = {
+            left: 200,
+            top: 500
+          }
+          address = {
+            left: 400,
+            top: 200
+          }
+          mobile = {
+            left: 450,
+            top: 480,
+          }
+          email = {
+            left: 450,
+            top: 500
+          }
+        } else {
+          namePosition = {
+            left: 300,
+            top: 205
+          }
+        }
         var textSample = new fabric.IText('Sample Text', {
-          left: fabric.util.getRandomInt(0, originalCanvasWidth / 2),
-          top: fabric.util.getRandomInt(0, originalCanvasHeight / 2),
+          left: namePosition.left,
+          top: namePosition.top,
           fontFamily: 'helvetica',
+          fontSize: 24,
           angle: 0,
-          fill: '#000000',
+          fill: '#ffffff',
           hasRotatingPoint:true
         });       
         canvas.add(textSample);
@@ -301,7 +351,23 @@ export class PrintBuilderComponent implements OnInit {
         drawImage(originalImage)
       })
 
-      $("#myFile").on("change", function(e) {   
+      $("#myFile").on("change", function(e) { 
+        var left = 0;
+        var top = 0;  
+        var width = 0;
+        var height = 0;
+        console.log(currentBuilder)
+        if(currentBuilder == 'front-builder') {
+          left = 40;
+          top = 40;
+          width = 195;
+          height = 300;
+        } else {
+          left = 50;
+          top = 50;
+          width = 210;
+          height = 320;
+        }
         var file = e.target.files[0];
         var reader = new FileReader();
         reader.onload = function (f) {
@@ -309,11 +375,11 @@ export class PrintBuilderComponent implements OnInit {
           var data: string = target.result;
           fabric.Image.fromURL(data, function (img) {
             var oImg = img.set({
-              left: 0,
-              top: 0,
+              left: left,
+              top: top,
               angle: 0,
-              width: 200,
-              height: 200
+              width: width,
+              height: height
             }).scale(0.9);
             canvas.add(oImg).renderAll();
             var a = canvas.setActiveObject(oImg);
@@ -347,11 +413,10 @@ export class PrintBuilderComponent implements OnInit {
     canvas.clear();
     this.currentBuilder = changes.ipage.currentValue;
     currentBuilder = this.currentBuilder;
+    this.frontImage = frontImage;
+    this.backImage = backImage;
     if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
-      if(this.frontImage) {         
-        drawImage(this.frontImage)
-      }   
-      this.backImage = backImage; 
+      drawImage(this.frontImage) 
       this.currentBackState = backState;
       this.spService.setValue('backImage', this.backImage)
       this.spService.setValue('backState', this.currentBackState)
@@ -369,11 +434,9 @@ export class PrintBuilderComponent implements OnInit {
         $(".btn-back").prop('disabled', false);
       }    
       
-    } else {        
-      if(this.backImage) {          
-        drawImage(this.backImage)
-      }
-      this.frontImage = frontImage;
+    } else {    
+      console.log(this.backImage)    
+      drawImage(this.backImage)
       this.currentFrontState = frontState;
       this.spService.setValue('frontImage', this.frontImage)
       this.spService.setValue('frontState', this.currentFrontState)
@@ -383,7 +446,11 @@ export class PrintBuilderComponent implements OnInit {
       }
     }
     canvas.renderAll();
-  }  
+  }
+
+  setInitCanvas(value) {
+    setCanvas(value)
+  }
 
   OnCollapse() {
     this.isCollapse = !this.isCollapse;

@@ -554,7 +554,7 @@
 }
 #print-builder #right-panel .canvas {
     padding: 15px;
-    max-width: 1050px;
+   /* max-width: 1050px;*/
     height: 640px;
     overflow: auto;
     display: flex;
@@ -886,9 +886,12 @@ select:not([multiple]) {
 }
 
 #print-builder .design-panel ul li {
-    width: 48%;
+    width: 100%;
     float: left;    
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 #print-builder .design-panel ul li:hover {
@@ -902,10 +905,11 @@ select:not([multiple]) {
     border-radius: 3px;
 }
 #print-builder .design-panel ul li img {
-    width: 100%;
+    width: 150px;
+    height: 100px;
 }
 
-#print-builder .design-panel ul li:nth-child(2n+1){
+#print-builder .design-panel ul li img:nth-child(2n+1){
     margin-right: 10px;
     clear: both;
 }
@@ -983,10 +987,18 @@ select:not([multiple]) {
         z-index: -1;
         overflow: auto;
     }
+    
+    #print-builder .design-panel ul li {
+        width: 100%;
+        margin-right: 0 !important;
+    }
 }
 
 
 @media (min-width: 320px) and (max-width: 767px) {
+    #print-builder .ui-bg-light-grey {
+        z-index: 10000;
+    }
     #print-builder #right-panel .canvas {
         height: 300px;
         width: 90%;
@@ -995,5 +1007,9 @@ select:not([multiple]) {
         right: 0;
         z-index: -1;
         overflow: auto;
+    }
+    #print-builder .design-panel ul li {
+        width: 100%;
+        margin-right: 0 !important;
     }
 }
