@@ -1,5 +1,5 @@
 .ui-single-product {
-    height: 90vh !important;
+    height: calc(100vh - 65px) !important;
 }
 .ui-single-product .ui-main-body {
     padding: 2.778em 1.5em;
@@ -140,6 +140,11 @@
 .ui-single-product .review-section {
     height: 100%;
 }
+
+.ui-single-product .review-section canvas {
+    border: 1px solid #444;
+}
+
 .ui-single-product .ui-main-footer.back-forward {
     border-top: 1px solid #d4d4d4;
     position: absolute;
@@ -551,7 +556,7 @@
     Print Builder Style (Marek 2017-09-14)
  ---------------------------------------------- */
 #print-builder {
-    /*height: calc(100% - 135px);*/
+    height: 100%;
 }
 #print-builder #right-panel {
     z-index: 999;
@@ -566,7 +571,6 @@
     align-items: center;
 }
 #print-builder .ui-bg-light-grey {
-    height: 765px;
     overflow: auto;
     -webkit-transition: .3s ease-in-out;
     -moz-transition: .3s ease-in-out;
