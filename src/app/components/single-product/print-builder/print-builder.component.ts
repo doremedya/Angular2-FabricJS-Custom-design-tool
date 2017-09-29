@@ -159,6 +159,7 @@ export class PrintBuilderComponent implements OnInit {
   public backImage: any;
   public isCollapse: boolean = false;
   public images: any;
+  public label: string = "";
 
   @Input() ipage: string;
 
@@ -502,6 +503,20 @@ export class PrintBuilderComponent implements OnInit {
     selectImage = value
     setCanvas(value)
     this.spService.setSelectedImage(value)
+  }
+
+  saveLabel() {
+    var textSample = new fabric.IText(this.label, {
+      left: fabric.util.getRandomInt(0, canvas.width / 2),
+      top: fabric.util.getRandomInt(0, canvas.height / 2),
+      fontFamily: 'helvetica',
+      fontSize: 24,
+      angle: 0,
+      fill: '#000000',
+      hasRotatingPoint:true
+    });       
+    canvas.add(textSample);
+    updateModifications(true);
   }
 
   OnCollapse() {
