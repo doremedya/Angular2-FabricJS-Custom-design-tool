@@ -381,18 +381,23 @@
 */
 
 .dotted {
-    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-    -webkit-background-size: 5px 5px;
-    -moz-background-size: 5px 5px;
-    background-size: 5px 5px;
+    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,1), rgba(0,0,0,1) 0px, transparent 1.5px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,1), rgba(0,0,0,1) 0px, transparent 1.5px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,1), rgba(0,0,0,1) 0px, transparent 1.5px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, rgba(0,0,0,1), rgba(0,0,0,1) 0px, transparent 1.5px, transparent 100%);
+    -webkit-background-size: 15px 15px;
+    -moz-background-size: 15px 15px;
+    background-size: 15px 15px;
 }
 
 .stripped {
-  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,.1), rgba(0,0,0,.1) 2px, transparent 4px,rgba(0,0,0,.1) 6px);
-  background-size: 8px 8px;
+  /*background-image: repeating-linear-gradient(135deg, rgba(0,0,0,.1), rgba(0,0,0,.1) 2px, transparent 4px,rgba(0,0,0,.1) 6px);*/
+  /*background-size: 8px 8px;*/
+  
+    background: -webkit-repeating-linear-gradient(-45deg, rgba(0,0,0,1), rgba(0,0,0,0) 1px, rgba(0,0,0,0) 19.8px, rgba(0,0,0,0) 10px);
+    background: -moz-repeating-linear-gradient(-45deg, rgba(0,0,0,1), rgba(0,0,0,0) 1px, rgba(0,0,0,0) 19.8px, rgba(0,0,0,0) 10px);
+    background: -ms-repeating-linear-gradient(-45deg, rgba(0,0,0,1), rgba(0,0,0,0) 1px, rgba(0,0,0,0) 19.8px, rgba(0,0,0,0) 10px);
+    background: repeating-linear-gradient(-45deg, rgba(0,0,0,1), rgba(0,0,0,0) 1px, rgba(0,0,0,0) 19.8px, rgba(0,0,0,0) 10px);
 }
 
 

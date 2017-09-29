@@ -36,7 +36,7 @@ export class AlertComponent extends DialogComponent<ConfirmModel, boolean> imple
 
   confirm() {
     this.result = true;
-    this.close();  
+    this.close();
     this.router.navigate(['/single-product']);  
   }
 

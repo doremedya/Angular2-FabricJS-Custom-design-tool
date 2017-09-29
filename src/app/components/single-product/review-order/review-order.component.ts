@@ -160,24 +160,24 @@ export class ReviewOrderComponent implements OnInit {
       $("#finish-matte").click(function() {
         console.log(checkedFinishType)
         if(checkedFinishType) {
-          $("canvas").removeClass("stripped");
-          $("canvas").addClass("dotted");
+          $(".ui-front canvas.upper-canvas").removeClass("stripped");
+          $(".ui-front canvas.upper-canvas").addClass("dotted");
           checkedFinishType = false;
           shineFlag = true; 
         } else {
-          $("canvas").removeClass("dotted");
+          $(".ui-front canvas.upper-canvas").removeClass("dotted");
           checkedFinishType = true;
         }
       })
 
       $("#finish-gloss").click(function() {
         if(shineFlag){
-          $("canvas").addClass("stripped");
-          $("canvas").removeClass("dotted");
+          $(".ui-front canvas.upper-canvas").addClass("stripped");
+          $(".ui-front canvas.upper-canvas").removeClass("dotted");
           shineFlag = false;  
           checkedFinishType = true;
         } else {
-          $("canvas").removeClass("stripped");
+          $(".ui-front canvas.upper-canvas").removeClass("stripped");
           shineFlag = true;  
         }        
       })
