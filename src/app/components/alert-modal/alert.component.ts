@@ -17,13 +17,15 @@ export class AlertComponent extends DialogComponent<ConfirmModel, boolean> imple
   title: string;
   message: string;
   layoutPanel: string = 'horizontal';
-  sizePanel: string = 'small';
+  sizePanel: string = 'large';
   constructor(private router: Router, dialogService: DialogService, public spService: SingleProductService) {
     super(dialogService);
+    this.spService.setLayout('horizontal');
+     this.spService.setSizePanel('large');
   }
 
   setLayoutPanel(value) {
-    this.layoutPanel=value
+    this.layoutPanel = value
     this.spService.setLayout(value);
   }
 
@@ -37,7 +39,7 @@ export class AlertComponent extends DialogComponent<ConfirmModel, boolean> imple
     this.close();  
     this.router.navigate(['/single-product']);  
   }
-  
+
   cancel() {
     this.result = false;
     this.close();

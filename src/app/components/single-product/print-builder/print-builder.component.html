@@ -10,8 +10,10 @@
 	    		<ul>
 	    			<li *ngFor="let image of images"  class="designs" (click)="setInitCanvas(image)">	    				
 					    <img [src]="image['front-land-image']" class="front">
+					</li>
+					<li *ngFor="let image of images"  class="designs" (click)="setInitCanvas(image)">
 					    <img [src]="image['back-land-image']" class="back">
-					 </li>
+					</li>
 	    		</ul>
 	    	</div>
 	    	<div class="edit-panel" [hidden]="leftPanel!='edit'">

@@ -6,6 +6,8 @@ export class SingleProductService {
   public item: any;
   public layout: string = "";
   public size: string = "";
+  public selectedImage: any;
+
   constructor() {
     this.item = {
       frontImage: "",
@@ -38,6 +40,14 @@ export class SingleProductService {
 
   getSizePanel() {
     return this.size
+  }
+
+  setSelectedImage(val) {
+    this.selectedImage = val
+  }
+
+  getSelectedImage() {
+    return this.selectedImage
   }
 
 }
