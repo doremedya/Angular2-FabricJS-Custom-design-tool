@@ -6,8 +6,8 @@
             "back": "/assets/images/temp/fly-back-land.jpg"
         },
         "vertical": {
-            "front": "/assets/images/temp/fly-front-portait.jpg",
-            "back": "/assets/images/temp/fly-back-portait.jpg"
+            "front": "/assets/images/temp/fly-front-portrait.jpg",
+            "back": "/assets/images/temp/fly-back-portrait.jpg"
         },
         "address": "Address Postision",
         "phone": "123456789",
@@ -29,12 +29,12 @@
     {
         "id": 1,
         "horizontal": {
-            "front": "/assets/images/temp/business-front-land.png",
-            "back": "assets/images/temp/business-back-land.png"
+            "front": "/assets/images/temp/business-front-land.jpg",
+            "back": "assets/images/temp/business-back-land.jpg"
         },
         "vertical": {
-            "front": "/assets/images/temp/business-front-portrait.png",
-            "back": "/assets/images/temp/business-back-portrait.png"
+            "front": "/assets/images/temp/business-front-portrait.jpg",
+            "back": "/assets/images/temp/business-back-portrait.jpg"
         },
         "address": "Address Postision",
         "phone": "123456789",

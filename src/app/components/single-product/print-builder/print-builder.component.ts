@@ -54,7 +54,7 @@ function initCanvas() {
     
 }
 
-function updateModifications(savehistory) {  
+function updateModifications(savehistory) {
   if (savehistory === true) {
     var myjson = JSON.stringify(canvas);
     state.push(myjson);
@@ -93,7 +93,7 @@ function setCanvas(images, direction, layoutPanel) {
     imageDirection = direction
     imagelayoutPanel = layoutPanel
     selectImage = images
-    console.log(selectImage)
+    // console.log(selectImage)
     if(currentBuilder == 'front-builder') {
       if(frontState.length > 0) 
         canvas.loadFromJSON(frontState[frontState.length - 1]);
@@ -101,35 +101,59 @@ function setCanvas(images, direction, layoutPanel) {
       drawImage(frontImage)
       localStorage.setItem('frontImage', frontImage)
 
+      if(backImage){
+        backImage = getOppositeImg(frontImage, backImage);
+        localStorage.setItem('backImage', backImage)
+      }
+
     } else {
       if(backState.length > 0) 
         canvas.loadFromJSON(backState[backState.length - 1]);
       backImage = images[layoutPanel][imageDirection];
       drawImage(backImage)
       localStorage.setItem('backImage', backImage)
+
+      if(frontImage){
+        frontImage = getOppositeImg(backImage, frontImage);
+        localStorage.setItem('frontImage', frontImage)
+      }
     }
   } else {
     if(imagelayoutPanel == layoutPanel) {
       if(currentBuilder == 'front-builder') {
+
         if(frontState.length > 0) 
           canvas.loadFromJSON(frontState[frontState.length - 1]);
+
         drawImage(frontImage)
         localStorage.setItem('frontImage', frontImage)
+
+        if(backImage){
+          backImage = getOppositeImg(frontImage, backImage);
+          localStorage.setItem('backImage', backImage)
+        }
 
       } else {
         if(backState.length > 0) 
           canvas.loadFromJSON(backState[backState.length - 1]);
         drawImage(backImage)
         localStorage.setItem('backImage', backImage)
+
+        if(frontImage){
+          frontImage = getOppositeImg(backImage, frontImage);
+          localStorage.setItem('frontImage', frontImage)
+        }
+
       }
-    }else {
+    }else {   
       imagelayoutPanel = layoutPanel
-      console.log(selectImage)
-      console.log(images)    
-        var key = Object.keys(selectImage.horizontal).filter(function(key) {return selectImage.horizontal[key] == images })[0];
-        var key1 = Object.keys(selectImage.vertical).filter(function(key) {return selectImage.vertical[key] == images })[0];
-        console.log(key)
-        console.log(key1)
+      // console.log(selectImage)
+      // console.log(images)    
+      var key = Object.keys(selectImage.horizontal).filter(function(key) {return selectImage.horizontal[key] == images })[0];
+      var key1 = Object.keys(selectImage.vertical).filter(function(key) {return selectImage.vertical[key] == images })[0];
+      // console.log(key)
+      // console.log(key1)
+
       if(key) {
         if(currentBuilder == 'front-builder') {
           if(frontState.length > 0) 
@@ -138,12 +162,22 @@ function setCanvas(images, direction, layoutPanel) {
           drawImage(frontImage)
           localStorage.setItem('frontImage', frontImage)
 
+          if(backImage){
+            backImage = getOppositeImg(frontImage, backImage);
+            localStorage.setItem('backImage', backImage)
+          }
         } else {
           if(backState.length > 0) 
             canvas.loadFromJSON(backState[backState.length - 1]);
           backImage = selectImage.vertical[key];
           drawImage(backImage)
           localStorage.setItem('backImage', backImage)
+
+          if(frontImage){
+            frontImage = getOppositeImg(backImage, frontImage);
+            localStorage.setItem('frontImage', frontImage)
+          }
+
         }
       } else if(key1) {
         if(currentBuilder == 'front-builder') {
@@ -153,16 +187,39 @@ function setCanvas(images, direction, layoutPanel) {
           drawImage(frontImage)
           localStorage.setItem('frontImage', frontImage)
 
+          if(backImage){
+            backImage = getOppositeImg(frontImage, backImage);
+            localStorage.setItem('backImage', backImage)
+          }
+
         } else {
           if(backState.length > 0) 
             canvas.loadFromJSON(backState[backState.length - 1]);
           backImage = selectImage.horizontal[key1];
           drawImage(backImage)
           localStorage.setItem('backImage', backImage)
+
+          if(frontImage){
+            frontImage = getOppositeImg(backImage, frontImage);
+            localStorage.setItem('frontImage', frontImage)
+          }
+
         }
       }
     }
   }
+}
+
+function getOppositeImg(img, oppositeImg) {
+
+  var img_name = img.split('-').pop(-1);
+  var mode = img_name.split('.')[0];
+
+  var oppositeImg_nameAry = oppositeImg.split('-');
+  var oppositeImg_name = oppositeImg_nameAry.pop(-1);
+  var new_oppositeImg_name = oppositeImg_nameAry[0]+'-'+oppositeImg_nameAry[1]+'-'+mode+'.'+oppositeImg_name.split('.')[1];
+
+  return new_oppositeImg_name;
 }
 
 function InitTextonCanvas(value, left, top, fontSize, color=null) {
@@ -348,10 +405,10 @@ export class PrintBuilderComponent implements OnInit {
         }
         layoutPanel = 'horizontal'
         canvas.clear()
-        // if(currentBuilder == 'front-builder')
-        //   setCanvas(frontImage, "", layoutPanel)
-        // else 
-        //   setCanvas(backImage, "", layoutPanel)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#layout-checkbox2").click(function() {
@@ -368,14 +425,14 @@ export class PrintBuilderComponent implements OnInit {
         }
         layoutPanel = 'vertical'
         canvas.clear()
-        // if(currentBuilder == 'front-builder')
-        //   // setCanvas(frontImage, "", layoutPanel)
-        // else 
-        //   // setCanvas(backImage, "", layoutPanel)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#size-checkbox1").click(function() {
-        var height = 240
+        var height = 183
         var width = 320
         sizePanel = 'small'
         if(layoutHorizontal) {
@@ -386,15 +443,15 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(width);
         }
         canvas.clear()
-        // if(currentBuilder == 'front-builder')
-        //   setCanvas(frontImage, "", layoutPanel)
-        // else 
-        //   setCanvas(backImage, "", layoutPanel)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
         
       })
 
       $("#size-checkbox2").click(function() {
-        var height = 320
+        var height = 274
         var width = 480
         sizePanel = 'medium'
         if(layoutHorizontal) {
@@ -405,10 +462,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(width);
         }
         canvas.clear()
-        // if(currentBuilder == 'front-builder')
-        //   setCanvas(frontImage, "", layoutPanel)
-        // else 
-        //   setCanvas(backImage, "", layoutPanel)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#size-checkbox3").click(function() {
@@ -421,10 +478,10 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(originalCanvasWidth);
         }
         canvas.clear()
-        // if(currentBuilder == 'front-builder')
-        //   setCanvas(frontImage, "", layoutPanel)
-        // else 
-        //   setCanvas(backImage, "", layoutPanel)
+        if(currentBuilder == 'front-builder')
+          setCanvas(frontImage, "", layoutPanel)
+        else 
+          setCanvas(backImage, "", layoutPanel)
       })
 
       $("#myFile").on("change", function(e) { 
