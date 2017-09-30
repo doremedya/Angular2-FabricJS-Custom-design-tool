@@ -2,6 +2,7 @@
     {
         "id": 0,
         "logo": "/assets/images/temp/logo.png",
+        "description": "Each office is independently owned and operated",
         "horizontal": {
             "front": "/assets/images/temp/fly-front-land.png",
             "back": "/assets/images/temp/fly-back-land.png"
@@ -10,50 +11,78 @@
             "front": "/assets/images/temp/fly-front-portrait.png",
             "back": "/assets/images/temp/fly-back-portrait.png"
         },
-        "address": "Address Postision",
-        "phone": "123456789",
-        "name": "John",
-        "email": "john@gmail.com",
-        "serial": "Relator #123456789",
-         "position": {
+        "address1": "3963 West Side Avenue",
+        "address2": "New Brunswick, NJ 08901",
+        "telphone": "(301) 555-0100",
+        "cellphone": "077 5005 3489",
+        "name": "John Smith",
+        "email": "emmanuel@email.com",
+        "website": "www.realestate.com",
+        "serial": "REALTOR | BRE# 01998060",
+        "image1": "/assets/images/temp/face.png",
+        "position": {
             "front": {
                 "horizontal": {
                     "large": {
                         "logo": {
-                            "left": 150,
-                            "top": 80,
+                            "left": 175,
+                            "top": 60,
                             "width": 250,
-                            "height": 50
+                            "height": 52
+                        },
+                        "description": {
+                            "left": 165,
+                            "top": 120,
+                            "fontSize": 14,
+                            "fontColor": "#4e4e4e"
                         },
                         "name": {
                             "left": 100,
-                            "top": 200,
-                            "fontSize": 36,
+                            "top": 190,
+                            "fontSize": 30,
                             "fontColor": "#4e4e4e"
                         },
-                        "phone": {
-                            "left": 350,
-                            "top": 260,
+                        "address1": {
+                            "left": 330,
+                            "top": 160,
+                            "fontSize": 17,
+                            "fontColor": "#4e4e4e"
+                        },
+                        "address2": {
+                            "left": 330,
+                            "top": 180,
+                            "fontSize": 17,
+                            "fontColor": "#4e4e4e"
+                        },
+                        "telphone": {
+                            "left": 330,
+                            "top": 220,
                             "fontSize": 12,
                             "fontColor": "#4e4e4e"
                         },
-                        "address": {
+                        "cellphone": {
                             "left": 330,
-                            "top": 200,
-                            "fontSize": 24,
+                            "top": 235,
+                            "fontSize": 12,
                             "fontColor": "#4e4e4e"
                         },
                         "email": {
-                            "left": 350,
-                            "top": 280,
+                            "left": 330,
+                            "top": 250,
+                            "fontSize": 12,
+                            "fontColor": "#4e4e4e"
+                        },
+                        "website": {
+                            "left": 330,
+                            "top": 265,
                             "fontSize": 12,
                             "fontColor": "#4e4e4e"
                         },
                         "serial": {
                             "left": 70,
-                            "top": 250,
-                            "fontSize": 24,
-                            "fontColor": "#c50036"
+                            "top": 230,
+                            "fontSize": 18,
+                            "fontColor": "#c50035"
                         }
                     },
                     "medium": {
@@ -137,40 +166,64 @@
                 "vertical": {
                     "large": {
                         "logo": {
-                            "left": 50,
+                            "left": 75,
                             "top": 80,
-                            "width": 250,
-                            "height": 50
+                            "width": 200,
+                            "height": 42
+                        },
+                        "description": {
+                            "left": 55,
+                            "top": 135,
+                            "fontSize": 12,
+                            "fontColor": "#4e4e4e"
                         },
                         "name": {
-                            "left": 80,
-                            "top": 300,
-                            "fontSize": 36,
+                            "left": 100,
+                            "top": 315,
+                            "fontSize": 28,
                             "fontColor": "#4e4e4e"
                         },
-                        "phone": {
-                            "left": 60,
-                            "top": 450,
-                            "fontSize": 20,
-                            "fontColor": "#4e4e4e"
-                        },
-                        "address": {
+                        "address1": {
                             "left": 60,
                             "top": 400,
-                            "fontSize": 20,
+                            "fontSize": 16,
+                            "fontColor": "#4e4e4e"
+                        },
+                        "address2": {
+                            "left": 60,
+                            "top": 420,
+                            "fontSize": 16,
+                            "fontColor": "#4e4e4e"
+                        },
+                        "telphone": {
+                            "left": 60,
+                            "top": 460,
+                            "fontSize": 14,
+                            "fontColor": "#4e4e4e"
+                        },
+                        "cellphone": {
+                            "left": 60,
+                            "top": 475,
+                            "fontSize": 14,
                             "fontColor": "#4e4e4e"
                         },
                         "email": {
                             "left": 60,
-                            "top": 470,
-                            "fontSize": 20,
+                            "top": 490,
+                            "fontSize": 14,
+                            "fontColor": "#4e4e4e"
+                        },
+                        "website": {
+                            "left": 60,
+                            "top": 505,
+                            "fontSize": 14,
                             "fontColor": "#4e4e4e"
                         },
                         "serial": {
-                            "left": 60,
-                            "top": 350,
-                            "fontSize": 24,
-                            "fontColor": "#c50036"
+                            "left": 80,
+                            "top": 345,
+                            "fontSize": 14,
+                            "fontColor": "#c50035"
                         }
                     },
                     "medium": {
@@ -258,40 +311,28 @@
                     "large": {
                         "logo": {
                             "left": 260,
-                            "top": 80,
+                            "top": 100,
                             "width": 250,
-                            "height": 50
+                            "height": 52
+                        },
+                        "image1": {
+                            "left": 29,
+                            "top": 24,
+                            "width": 210,
+                            "height": 290
                         },
                         "name": {
-                            "left": 300,
-                            "top": 170,
-                            "fontSize": 36,
+                            "left": 280,
+                            "top": 175,
+                            "fontSize": 32,
                             "fontColor": "#ffffff"
                         },
-                        "serial": {
+                        "description": {
                             "left": 260,
-                            "top": 220,
-                            "fontSize": 24,
-                            "fontColor": "#c50036"
-                        },
-                       "phone": {
-                            "left": -100,
-                            "top": -100,
-                            "fontSize": 18,
-                            "fontColor": "#ffffff"
-                        },
-                        "address": {
-                            "left": -100,
-                            "top": -100,
-                            "fontSize": 18,
-                            "fontColor": "#ffffff"
-                        },
-                        "email": {
-                            "left": -100,
-                            "top": -100,
-                            "fontSize": 18,
-                            "fontColor": "#ffffff"
-                        }
+                            "top": 230,
+                            "fontSize": 14,
+                            "fontColor": "#4e4e4e"
+                        }                       
                     },
                     "medium": {
                         "logo": {
@@ -373,39 +414,21 @@
                 "vertical": {
                     "large": {
                         "logo": {
-                            "left": 60,
-                            "top": 400,
+                            "left": 42,
+                            "top": 440,
                             "width": 250,
-                            "height": 50
+                            "height": 52
+                        },
+                        "image1": {
+                            "left": 42,
+                            "top": 45,
+                            "width": 259,
+                            "height": 358
                         },
                         "name": {
-                            "left": 70,
-                            "top": 490,
-                            "fontSize": 36,
-                            "fontColor": "#ffffff"
-                        },
-                        "serial": {
-                            "left": 60,
-                            "top": 530,
-                            "fontSize": 24,
-                            "fontColor": "#c50036"
-                        },
-                        "phone": {
-                            "left": -100,
-                            "top": -100,
-                            "fontSize": 18,
-                            "fontColor": "#ffffff"
-                        },
-                        "address": {
-                            "left": -100,
-                            "top": -100,
-                            "fontSize": 18,
-                            "fontColor": "#ffffff"
-                        },
-                        "email": {
-                            "left": -100,
-                            "top": -100,
-                            "fontSize": 18,
+                            "left": 62,
+                            "top": 507,
+                            "fontSize": 28,
                             "fontColor": "#ffffff"
                         }
                     },

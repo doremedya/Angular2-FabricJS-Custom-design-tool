@@ -73,7 +73,7 @@ function updateModifications(savehistory) {
 
 function drawImage(image) {
   canvas.setBackgroundImage(image, canvas.renderAll.bind(canvas), {
-    backgroundImageOpacity: 0.5,
+    backgroundImageOpacity: 1,
     backgroundImageStrech: true,
     top: 0,
     left: 0,
@@ -99,9 +99,7 @@ function setCanvas(images, direction, layoutPanel) {
       if(currentBuilder == 'front-builder') {
         // if(frontState.length > 0) 
         //   canvas.loadFromJSON(frontState[frontState.length - 1]);
-        console.log(images)
-        console.log(layoutPanel)
-        console.log(imageDirection)
+
         frontImage = images[layoutPanel][imageDirection];
         drawImage(frontImage)
         localStorage.setItem('frontImage', frontImage)
@@ -130,9 +128,7 @@ function setCanvas(images, direction, layoutPanel) {
 
           // if(frontState.length > 0) 
           //   canvas.loadFromJSON(frontState[frontState.length - 1]);
-          console.log(selectImage)
-          console.log(imageDirection)
-          console.log(layoutPanel)
+
           drawImage(frontImage)
           localStorage.setItem('frontImage', frontImage)
           allPropertiesonCanvas(selectImage)
@@ -219,12 +215,129 @@ function setCanvas(images, direction, layoutPanel) {
 }
 
 function allPropertiesonCanvas(selectImage) {
-  InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontColor)
-  InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontColor)
-  InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontColor)
-  InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontColor)
-  InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontColor)
-  setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+  canvas.clear().renderAll();
+
+  if(
+    selectImage.description && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].description &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].description.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].description.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].description.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].description.fontColor 
+  ){
+    InitTextonCanvas(selectImage.description, selectImage.position[imageDirection][layoutPanel][sizePanel].description.left, selectImage.position[imageDirection][layoutPanel][sizePanel].description.top, selectImage.position[imageDirection][layoutPanel][sizePanel].description.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].description.fontColor)
+  }
+
+  if(
+    selectImage.name && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].name &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].name.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].name.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontColor 
+  ){
+    InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontColor)
+  }
+
+  if(
+    selectImage.serial && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].serial &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontColor
+  ){
+    InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontColor)
+  }
+  
+  if(
+    selectImage.address1 && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address1 &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address1.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address1.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address1.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address1.fontColor
+  ){
+    InitTextonCanvas(selectImage.address1, selectImage.position[imageDirection][layoutPanel][sizePanel].address1.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address1.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address1.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].address1.fontColor)
+  }
+
+  if(
+    selectImage.address2 && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address2 &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address2.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address2.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address2.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].address2.fontColor
+  ){
+    InitTextonCanvas(selectImage.address2, selectImage.position[imageDirection][layoutPanel][sizePanel].address2.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address2.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address2.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].address2.fontColor)
+  }
+
+  if(
+    selectImage.cellphone && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.fontColor 
+  ){
+    InitTextonCanvas(selectImage.cellphone, selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].cellphone.fontColor)
+  }
+
+  if(
+    selectImage.telphone && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].telphone &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.fontColor 
+  ){
+    InitTextonCanvas(selectImage.telphone, selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].telphone.fontColor)
+  }
+  
+  if(
+    selectImage.email && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].email &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].email.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].email.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontColor 
+  ){
+    InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontColor)
+  }
+
+  if(
+    selectImage.website && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].website &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].website.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].website.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].website.fontSize &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].website.fontColor 
+  ){
+    InitTextonCanvas(selectImage.website, selectImage.position[imageDirection][layoutPanel][sizePanel].website.left, selectImage.position[imageDirection][layoutPanel][sizePanel].website.top, selectImage.position[imageDirection][layoutPanel][sizePanel].website.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].website.fontColor)
+  }
+  
+  if(
+    selectImage.logo && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].logo &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height 
+  ){
+    setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+  }
+
+  if(
+    selectImage.image1 && 
+    selectImage.position[imageDirection][layoutPanel][sizePanel].image1 &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].image1.left &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].image1.top &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].image1.width &&
+    selectImage.position[imageDirection][layoutPanel][sizePanel].image1.height 
+  ){
+    setLogo(selectImage.image1, selectImage.position[imageDirection][layoutPanel][sizePanel].image1.left, selectImage.position[imageDirection][layoutPanel][sizePanel].image1.top, selectImage.position[imageDirection][layoutPanel][sizePanel].image1.width, selectImage.position[imageDirection][layoutPanel][sizePanel].image1.height)
+  }
+  
   canvas.renderAll();
 }
 
@@ -246,7 +359,6 @@ function InitTextonCanvas(value, left, top, fontSize, color) {
   var textSample = new fabric.IText(value, {
     left: left,
     top: top,
-    fontFamily: 'helvetica',
     fontSize: fontSize,
     angle: 0,
     fill: color,
@@ -446,78 +558,78 @@ export class PrintBuilderComponent implements OnInit {
           setCanvas(backImage, "", layoutPanel)
       })
 
-      $("#layout-checkbox2").click(function() {
-        var activeObject = canvas.getActiveObject();
-        var canvasWidth = canvas.width
-        var canvasHeight = canvas.height
-        if(!layoutHorizontal) {          
-          canvas.setHeight(canvasWidth);
-          canvas.setWidth(canvasHeight);
-          layoutHorizontal = true
-        } else {
-          canvas.setHeight(canvasHeight);
-          canvas.setWidth(canvasWidth);
-        }
-        layoutPanel = 'vertical'
-        canvas.clear().renderAll()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
-      })
+      // $("#layout-checkbox2").click(function() {
+      //   var activeObject = canvas.getActiveObject();
+      //   var canvasWidth = canvas.width
+      //   var canvasHeight = canvas.height
+      //   if(!layoutHorizontal) {          
+      //     canvas.setHeight(canvasWidth);
+      //     canvas.setWidth(canvasHeight);
+      //     layoutHorizontal = true
+      //   } else {
+      //     canvas.setHeight(canvasHeight);
+      //     canvas.setWidth(canvasWidth);
+      //   }
+      //   layoutPanel = 'vertical'
+      //   canvas.clear().renderAll()
+      //   if(currentBuilder == 'front-builder')
+      //     setCanvas(frontImage, "", layoutPanel)
+      //   else 
+      //     setCanvas(backImage, "", layoutPanel)
+      // })
 
-      $("#size-checkbox1").click(function() {
-        var height = 183
-        var width = 320
-        sizePanel = 'small'
-        if(layoutHorizontal) {
-          canvas.setHeight(width);
-          canvas.setWidth(height);
-        } else {
-          canvas.setHeight(height);
-          canvas.setWidth(width);
-        }
-        canvas.clear().renderAll()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
+      // $("#size-checkbox1").click(function() {
+      //   var height = 183
+      //   var width = 320
+      //   sizePanel = 'small'
+      //   if(layoutHorizontal) {
+      //     canvas.setHeight(width);
+      //     canvas.setWidth(height);
+      //   } else {
+      //     canvas.setHeight(height);
+      //     canvas.setWidth(width);
+      //   }
+      //   canvas.clear().renderAll()
+      //   if(currentBuilder == 'front-builder')
+      //     setCanvas(frontImage, "", layoutPanel)
+      //   else 
+      //     setCanvas(backImage, "", layoutPanel)
         
-      })
+      // })
 
-      $("#size-checkbox2").click(function() {
-        var height = 274
-        var width = 480
-        sizePanel = 'medium'
-        if(layoutHorizontal) {
-          canvas.setHeight(width);
-          canvas.setWidth(height);
-        } else {
-          canvas.setHeight(height);
-          canvas.setWidth(width);
-        }
-        canvas.clear().renderAll()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
-      })
+      // $("#size-checkbox2").click(function() {
+      //   var height = 274
+      //   var width = 480
+      //   sizePanel = 'medium'
+      //   if(layoutHorizontal) {
+      //     canvas.setHeight(width);
+      //     canvas.setWidth(height);
+      //   } else {
+      //     canvas.setHeight(height);
+      //     canvas.setWidth(width);
+      //   }
+      //   canvas.clear().renderAll()
+      //   if(currentBuilder == 'front-builder')
+      //     setCanvas(frontImage, "", layoutPanel)
+      //   else 
+      //     setCanvas(backImage, "", layoutPanel)
+      // })
 
-      $("#size-checkbox3").click(function() {
-        sizePanel = 'large'
-        if(layoutHorizontal) {
-          canvas.setHeight(originalCanvasWidth);
-          canvas.setWidth(originalCanvasHeight);
-        } else {
-          canvas.setHeight(originalCanvasHeight);
-          canvas.setWidth(originalCanvasWidth);
-        }
-        canvas.clear().renderAll()
-        if(currentBuilder == 'front-builder')
-          setCanvas(frontImage, "", layoutPanel)
-        else 
-          setCanvas(backImage, "", layoutPanel)
-      })
+      // $("#size-checkbox3").click(function() {
+      //   sizePanel = 'large'
+      //   if(layoutHorizontal) {
+      //     canvas.setHeight(originalCanvasWidth);
+      //     canvas.setWidth(originalCanvasHeight);
+      //   } else {
+      //     canvas.setHeight(originalCanvasHeight);
+      //     canvas.setWidth(originalCanvasWidth);
+      //   }
+      //   canvas.clear().renderAll()
+      //   if(currentBuilder == 'front-builder')
+      //     setCanvas(frontImage, "", layoutPanel)
+      //   else 
+      //     setCanvas(backImage, "", layoutPanel)
+      // })
 
       $("#myFile").on("change", function(e) { 
         var left = 30;

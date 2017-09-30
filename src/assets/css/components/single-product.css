@@ -1,4 +1,4 @@
-.ui-single-product {
+g.ui-single-product {
     height: calc(100vh - 65px) !important;
 }
 .ui-single-product .ui-main-body {
@@ -913,8 +913,8 @@ select:not([multiple]) {
 }
 #print-builder .design-panel ul li img {
     /*width: 100%;*/
-    width: 49%;
-    height: 130px;
+    width: 48%;
+    float: right;
 }
 
 #print-builder .design-panel ul li img:nth-child(2n+1){
