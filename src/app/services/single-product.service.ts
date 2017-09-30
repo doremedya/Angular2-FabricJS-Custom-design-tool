@@ -15,11 +15,6 @@ export class SingleProductService {
       backImage: "",
       backState: []
     }
-
-    this.selectedImage = {
-      'front-builder': "",
-      "back-builder": ""
-    }
   }
 
   setValue(key, value) {
@@ -47,8 +42,8 @@ export class SingleProductService {
     return this.size
   }
 
-  setSelectedImage(key, value) {
-    this.selectedImage[key] = value
+  setSelectedImage(val) {
+    this.selectedImage = val
   }
 
   getSelectedImage() {

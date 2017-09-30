@@ -19,7 +19,7 @@ function setFrontCanvas() {
     selectionBorderColor:'blue'
   });
 
-  frontCanvas.setHeight(343);
+  frontCanvas.setHeight(400);
   frontCanvas.setWidth(600);
   frontCanvas.loadFromJSON(canvasInfo.frontState[canvasInfo.frontState.length - 1]);
   frontCanvas.setBackgroundImage(canvasInfo.frontImage, frontCanvas.renderAll.bind(frontCanvas), {
@@ -43,7 +43,7 @@ function setBackCanvas() {
     selectionBorderColor:'blue'
   });
 
-  backCanvas.setHeight(343);
+  backCanvas.setHeight(400);
   backCanvas.setWidth(600);
   backCanvas.loadFromJSON(canvasInfo.backState[canvasInfo.backState.length - 1]);
   backCanvas.setBackgroundImage(canvasInfo.backImage, backCanvas.renderAll.bind(backCanvas), {
@@ -133,6 +133,7 @@ export class ReviewOrderComponent implements OnInit {
   public checkedGloss: boolean = false;
 
   constructor(public spService: SingleProductService) {
+    
     this.canvasInfo = this.spService.getValue();
     canvasInfo = this.spService.getValue();
 
