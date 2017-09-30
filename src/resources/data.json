@@ -274,9 +274,24 @@
                             "fontSize": 24,
                             "fontColor": "#c50036"
                         },
-                        "phone": {},
-                        "address": {},
-                        "email": {}
+                       "phone": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "address": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        }
                     },
                     "medium": {
                         "logo": {
@@ -297,9 +312,24 @@
                             "fontSize": 20,
                             "fontColor": "#c50036"
                         },
-                        "phone": {},
-                        "address": {},
-                        "email": {}
+                        "phone": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "address": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        }
                     },
                     "small": {
                         "logo": {
@@ -320,9 +350,24 @@
                             "fontSize": 12,
                             "fontColor": "#c50036"
                         },
-                        "phone": {},
-                        "address": {},
-                        "email": {}
+                        "phone": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "address": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        }
                     }
                 },
                 "vertical": {
@@ -345,9 +390,24 @@
                             "fontSize": 24,
                             "fontColor": "#c50036"
                         },
-                        "phone": {},
-                        "address": {},
-                        "email": {}
+                        "phone": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "address": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        }
                     },
                     "medium": {
                         "logo": {
@@ -368,9 +428,24 @@
                             "fontSize": 20,
                             "fontColor": "#c50036"
                         },
-                        "phone": {},
-                        "address": {},
-                        "email": {}
+                        "phone": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "address": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        }
                     },
                     "small": {
                         "logo": {
@@ -391,9 +466,24 @@
                             "fontSize": 12,
                             "fontColor": "#c50036"
                         },
-                        "phone": {},
-                        "address": {},
-                        "email": {}
+                        "phone": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "address": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": -100,
+                            "top": -100,
+                            "fontSize": 18,
+                            "fontColor": "#ffffff"
+                        }
                     }
                 }
             }
