@@ -105,12 +105,7 @@ function setCanvas(images, direction, layoutPanel) {
         frontImage = images[layoutPanel][imageDirection];
         drawImage(frontImage)
         localStorage.setItem('frontImage', frontImage)
-        InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
-        InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
-        InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
-        InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
-        InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
-        setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+        allPropertiesonCanvas()
 
         if(backImage){
           backImage = getOppositeImg(frontImage, backImage);
@@ -121,12 +116,9 @@ function setCanvas(images, direction, layoutPanel) {
         // if(backState.length > 0) 
         //   canvas.loadFromJSON(backState[backState.length - 1]);
         backImage = images[layoutPanel][imageDirection];
-        drawImage(backImage)
-        InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
-        InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
-        setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+        drawImage(backImage)        
         localStorage.setItem('backImage', backImage)
-
+        allPropertiesonCanvas()
         if(frontImage){
           frontImage = getOppositeImg(backImage, frontImage);
           localStorage.setItem('frontImage', frontImage)
@@ -143,12 +135,7 @@ function setCanvas(images, direction, layoutPanel) {
           console.log(layoutPanel)
           drawImage(frontImage)
           localStorage.setItem('frontImage', frontImage)
-          InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
-          InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
-          InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
-          InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
-          InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
-          setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+          allPropertiesonCanvas()
           if(backImage){
             backImage = getOppositeImg(frontImage, backImage);
             localStorage.setItem('backImage', backImage)
@@ -157,11 +144,9 @@ function setCanvas(images, direction, layoutPanel) {
         } else {
           // if(backState.length > 0) 
           //   canvas.loadFromJSON(backState[backState.length - 1]);
-      drawImage(backImage)
-        InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
-        InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
-        setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+        drawImage(backImage)        
         localStorage.setItem('backImage', backImage)
+        allPropertiesonCanvas()
           if(frontImage){
             frontImage = getOppositeImg(backImage, frontImage);
             localStorage.setItem('frontImage', frontImage)
@@ -180,13 +165,7 @@ function setCanvas(images, direction, layoutPanel) {
             frontImage = selectImage.vertical[key];
             drawImage(frontImage)
             localStorage.setItem('frontImage', frontImage)
-            InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
-            InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
-            InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
-            InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
-            InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
-            setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
-            console.log(frontImage)
+            allPropertiesonCanvas()
               if(backImage){
                 backImage = getOppositeImg(frontImage, backImage);
                 localStorage.setItem('backImage', backImage)
@@ -195,11 +174,9 @@ function setCanvas(images, direction, layoutPanel) {
               // if(backState.length > 0) 
               //   canvas.loadFromJSON(backState[backState.length - 1]);
               backImage = selectImage.vertical[key];
-              drawImage(backImage)
-              InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
-              InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
-              setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+              drawImage(backImage)              
               localStorage.setItem('backImage', backImage)
+              allPropertiesonCanvas()
 
             if(frontImage){
               frontImage = getOppositeImg(backImage, frontImage);
@@ -214,13 +191,7 @@ function setCanvas(images, direction, layoutPanel) {
             frontImage = selectImage.horizontal[key1];
             drawImage(frontImage)
             localStorage.setItem('frontImage', frontImage)
-            InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
-            InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
-            InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
-            InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
-            InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
-            setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
-            console.log(frontImage)
+            allPropertiesonCanvas()
               if(backImage){
                 backImage = getOppositeImg(frontImage, backImage);
                 localStorage.setItem('backImage', backImage)
@@ -231,9 +202,7 @@ function setCanvas(images, direction, layoutPanel) {
               //   canvas.loadFromJSON(backState[backState.length - 1]);
               backImage = selectImage.horizontal[key1];
               drawImage(backImage)
-              InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
-              InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
-              setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+              
               localStorage.setItem('backImage', backImage)
 
               if(frontImage){
@@ -247,6 +216,15 @@ function setCanvas(images, direction, layoutPanel) {
     }
   }
   
+}
+
+function allPropertiesonCanvas() {
+  InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontColor)
+  InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontColor)
+  InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontColor)
+  InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontColor)
+  InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontColor)
+  setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
 }
 
 function getOppositeImg(img, oppositeImg) {
@@ -263,14 +241,14 @@ function getOppositeImg(img, oppositeImg) {
   return new_oppositeImg_name;
 }
 
-function InitTextonCanvas(value, left, top, fontSize, color=null) {
+function InitTextonCanvas(value, left, top, fontSize, color) {
   var textSample = new fabric.IText(value, {
     left: left,
     top: top,
     fontFamily: 'helvetica',
     fontSize: fontSize,
     angle: 0,
-    fill: '#4e4e4e',
+    fill: color,
     hasRotatingPoint: true
   });       
   canvas.add(textSample);
