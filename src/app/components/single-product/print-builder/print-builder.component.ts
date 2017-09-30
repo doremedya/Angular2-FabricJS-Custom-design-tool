@@ -88,45 +88,29 @@ function drawImage(image) {
 
 var imageDirection = ""
 var imagelayoutPanel = ""
+
 function setCanvas(images, direction, layoutPanel) {
-  if(direction != "") {
-    imageDirection = direction
-    imagelayoutPanel = layoutPanel
-    selectImage = images
-    // console.log(selectImage)
-    if(currentBuilder == 'front-builder') {
-      if(frontState.length > 0) 
-        canvas.loadFromJSON(frontState[frontState.length - 1]);
-      frontImage = images[layoutPanel][imageDirection];
-      drawImage(frontImage)
-      localStorage.setItem('frontImage', frontImage)
-
-      if(backImage){
-        backImage = getOppositeImg(frontImage, backImage);
-        localStorage.setItem('backImage', backImage)
-      }
-
-    } else {
-      if(backState.length > 0) 
-        canvas.loadFromJSON(backState[backState.length - 1]);
-      backImage = images[layoutPanel][imageDirection];
-      drawImage(backImage)
-      localStorage.setItem('backImage', backImage)
-
-      if(frontImage){
-        frontImage = getOppositeImg(backImage, frontImage);
-        localStorage.setItem('frontImage', frontImage)
-      }
-    }
-  } else {
-    if(imagelayoutPanel == layoutPanel) {
+  if(images) {
+    if(direction != "") {
+      imageDirection = direction
+      imagelayoutPanel = layoutPanel
+      selectImage = images
+      // console.log(selectImage)
       if(currentBuilder == 'front-builder') {
-
-        if(frontState.length > 0) 
-          canvas.loadFromJSON(frontState[frontState.length - 1]);
-
+        // if(frontState.length > 0) 
+        //   canvas.loadFromJSON(frontState[frontState.length - 1]);
+        console.log(images)
+        console.log(layoutPanel)
+        console.log(imageDirection)
+        frontImage = images[layoutPanel][imageDirection];
         drawImage(frontImage)
         localStorage.setItem('frontImage', frontImage)
+        InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
+        InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
+        InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
+        InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
+        InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
+        setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
 
         if(backImage){
           backImage = getOppositeImg(frontImage, backImage);
@@ -134,89 +118,146 @@ function setCanvas(images, direction, layoutPanel) {
         }
 
       } else {
-        if(backState.length > 0) 
-          canvas.loadFromJSON(backState[backState.length - 1]);
+        // if(backState.length > 0) 
+        //   canvas.loadFromJSON(backState[backState.length - 1]);
+        backImage = images[layoutPanel][imageDirection];
         drawImage(backImage)
+        InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
+        InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
+        setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
         localStorage.setItem('backImage', backImage)
 
         if(frontImage){
           frontImage = getOppositeImg(backImage, frontImage);
           localStorage.setItem('frontImage', frontImage)
         }
-
       }
-    }else {   
-      imagelayoutPanel = layoutPanel
-      // console.log(selectImage)
-      // console.log(images)    
-      var key = Object.keys(selectImage.horizontal).filter(function(key) {return selectImage.horizontal[key] == images })[0];
-      var key1 = Object.keys(selectImage.vertical).filter(function(key) {return selectImage.vertical[key] == images })[0];
-      // console.log(key)
-      // console.log(key1)
-
-      if(key) {
+    } else {
+      if(imagelayoutPanel == layoutPanel) {
         if(currentBuilder == 'front-builder') {
-          if(frontState.length > 0) 
-            canvas.loadFromJSON(frontState[frontState.length - 1]);
-          frontImage = selectImage.vertical[key];
+
+          // if(frontState.length > 0) 
+          //   canvas.loadFromJSON(frontState[frontState.length - 1]);
+          console.log(selectImage)
+          console.log(imageDirection)
+          console.log(layoutPanel)
           drawImage(frontImage)
           localStorage.setItem('frontImage', frontImage)
-
+          InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
+          InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
+          InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
+          InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
+          InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
+          setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
           if(backImage){
             backImage = getOppositeImg(frontImage, backImage);
             localStorage.setItem('backImage', backImage)
           }
-        } else {
-          if(backState.length > 0) 
-            canvas.loadFromJSON(backState[backState.length - 1]);
-          backImage = selectImage.vertical[key];
-          drawImage(backImage)
-          localStorage.setItem('backImage', backImage)
 
+        } else {
+          // if(backState.length > 0) 
+          //   canvas.loadFromJSON(backState[backState.length - 1]);
+      drawImage(backImage)
+        InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
+        InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
+        setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+        localStorage.setItem('backImage', backImage)
           if(frontImage){
             frontImage = getOppositeImg(backImage, frontImage);
             localStorage.setItem('frontImage', frontImage)
           }
 
         }
-      } else if(key1) {
-        if(currentBuilder == 'front-builder') {
-          if(frontState.length > 0) 
-            canvas.loadFromJSON(frontState[frontState.length - 1]);
-          frontImage = selectImage.horizontal[key1];
-          drawImage(frontImage)
-          localStorage.setItem('frontImage', frontImage)
+      }else {   
+        imagelayoutPanel = layoutPanel
+        var key = Object.keys(selectImage.horizontal).filter(function(key) {return selectImage.horizontal[key] == images })[0];
+        var key1 = Object.keys(selectImage.vertical).filter(function(key) {return selectImage.vertical[key] == images })[0];
 
-          if(backImage){
-            backImage = getOppositeImg(frontImage, backImage);
-            localStorage.setItem('backImage', backImage)
-          }
-
-        } else {
-          if(backState.length > 0) 
-            canvas.loadFromJSON(backState[backState.length - 1]);
-          backImage = selectImage.horizontal[key1];
-          drawImage(backImage)
-          localStorage.setItem('backImage', backImage)
-
-          if(frontImage){
-            frontImage = getOppositeImg(backImage, frontImage);
+        if(key) {
+          if(currentBuilder == 'front-builder') {
+            // if(frontState.length > 0) 
+            //   canvas.loadFromJSON(frontState[frontState.length - 1]);
+            frontImage = selectImage.vertical[key];
+            drawImage(frontImage)
             localStorage.setItem('frontImage', frontImage)
-          }
+            InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
+            InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
+            InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
+            InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
+            InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
+            setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+            console.log(frontImage)
+              if(backImage){
+                backImage = getOppositeImg(frontImage, backImage);
+                localStorage.setItem('backImage', backImage)
+              }
+            } else {
+              // if(backState.length > 0) 
+              //   canvas.loadFromJSON(backState[backState.length - 1]);
+              backImage = selectImage.vertical[key];
+              drawImage(backImage)
+              InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
+              InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
+              setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+              localStorage.setItem('backImage', backImage)
 
+            if(frontImage){
+              frontImage = getOppositeImg(backImage, frontImage);
+              localStorage.setItem('frontImage', frontImage)
+            }
+
+          }
+        } else if(key1) {
+          if(currentBuilder == 'front-builder') {
+            // if(frontState.length > 0) 
+            //   canvas.loadFromJSON(frontState[frontState.length - 1]);
+            frontImage = selectImage.horizontal[key1];
+            drawImage(frontImage)
+            localStorage.setItem('frontImage', frontImage)
+            InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize)
+            InitTextonCanvas(selectImage.address, selectImage.position[imageDirection][layoutPanel][sizePanel].address.left, selectImage.position[imageDirection][layoutPanel][sizePanel].address.top, selectImage.position[imageDirection][layoutPanel][sizePanel].address.fontSize)
+            InitTextonCanvas(selectImage.phone, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.left, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.top, selectImage.position[imageDirection][layoutPanel][sizePanel].phone.fontSize)
+            InitTextonCanvas(selectImage.email, selectImage.position[imageDirection][layoutPanel][sizePanel].email.left, selectImage.position[imageDirection][layoutPanel][sizePanel].email.top, selectImage.position[imageDirection][layoutPanel][sizePanel].email.fontSize)
+            InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, '#c50035')
+            setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+            console.log(frontImage)
+              if(backImage){
+                backImage = getOppositeImg(frontImage, backImage);
+                localStorage.setItem('backImage', backImage)
+              }
+
+            } else {
+              // if(backState.length > 0) 
+              //   canvas.loadFromJSON(backState[backState.length - 1]);
+              backImage = selectImage.horizontal[key1];
+              drawImage(backImage)
+              InitTextonCanvas(selectImage.name, selectImage.position[imageDirection][layoutPanel][sizePanel].name.left, selectImage.position[imageDirection][layoutPanel][sizePanel].name.top, selectImage.position[imageDirection][layoutPanel][sizePanel].name.fontSize, '#ffffff')
+              InitTextonCanvas(selectImage.serial, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.left, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.top, selectImage.position[imageDirection][layoutPanel][sizePanel].serial.fontSize)
+              setLogo(selectImage.logo, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.left, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.top, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.width, selectImage.position[imageDirection][layoutPanel][sizePanel].logo.height)
+              localStorage.setItem('backImage', backImage)
+
+              if(frontImage){
+                frontImage = getOppositeImg(backImage, frontImage);
+                localStorage.setItem('frontImage', frontImage)
+              }
+
+          }
         }
       }
     }
   }
+  
 }
 
 function getOppositeImg(img, oppositeImg) {
 
   var img_name = img.split('-').pop(-1);
   var mode = img_name.split('.')[0];
-
+  console.log(mode)
   var oppositeImg_nameAry = oppositeImg.split('-');
   var oppositeImg_name = oppositeImg_nameAry.pop(-1);
+  console.log(oppositeImg_nameAry)
+  console.log(oppositeImg_name)
   var new_oppositeImg_name = oppositeImg_nameAry[0]+'-'+oppositeImg_nameAry[1]+'-'+mode+'.'+oppositeImg_name.split('.')[1];
 
   return new_oppositeImg_name;
@@ -229,11 +270,25 @@ function InitTextonCanvas(value, left, top, fontSize, color=null) {
     fontFamily: 'helvetica',
     fontSize: fontSize,
     angle: 0,
-    fill: color ? color : '#000000',
+    fill: '#4e4e4e',
     hasRotatingPoint: true
   });       
   canvas.add(textSample);
   updateModifications(true);
+}
+
+function setLogo(logo, left, top, width, height) {
+  fabric.Image.fromURL(logo, function(img) {
+    var oImg = img.set({
+      left: left,
+      top: top,
+      width: width,
+      height: height,
+      quality: 1
+    })
+    canvas.add(oImg);
+    updateModifications(true);
+  });
 }
 
 @Component({
@@ -404,7 +459,7 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(canvasWidth);
         }
         layoutPanel = 'horizontal'
-        canvas.clear()
+        canvas.clear().renderAll()
         if(currentBuilder == 'front-builder')
           setCanvas(frontImage, "", layoutPanel)
         else 
@@ -424,7 +479,7 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setWidth(canvasWidth);
         }
         layoutPanel = 'vertical'
-        canvas.clear()
+        canvas.clear().renderAll()
         if(currentBuilder == 'front-builder')
           setCanvas(frontImage, "", layoutPanel)
         else 
@@ -442,7 +497,7 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setHeight(height);
           canvas.setWidth(width);
         }
-        canvas.clear()
+        canvas.clear().renderAll()
         if(currentBuilder == 'front-builder')
           setCanvas(frontImage, "", layoutPanel)
         else 
@@ -461,7 +516,7 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setHeight(height);
           canvas.setWidth(width);
         }
-        canvas.clear()
+        canvas.clear().renderAll()
         if(currentBuilder == 'front-builder')
           setCanvas(frontImage, "", layoutPanel)
         else 
@@ -477,7 +532,7 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setHeight(originalCanvasHeight);
           canvas.setWidth(originalCanvasWidth);
         }
-        canvas.clear()
+        canvas.clear().renderAll()
         if(currentBuilder == 'front-builder')
           setCanvas(frontImage, "", layoutPanel)
         else 
@@ -485,37 +540,51 @@ export class PrintBuilderComponent implements OnInit {
       })
 
       $("#myFile").on("change", function(e) { 
-        var left = 50;
-        var top = 50;  
+        var left = 30;
+        var top = 30;  
         var width = 200;
-        var height = 300;
+        var height = 250;
+        console.log(layoutPanel)
+        console.log(sizePanel)
         if(layoutPanel == 'horizontal') {
           if(sizePanel == "small") {
-
+            console.log("small")
+            left = 20;
+            top = 20;
+            width = 100;
+            height = 150;
           } else if (sizePanel == "medium") {
-            left = 55;
-            top = 60;
-            width = 310;
-            height = 370;
+            console.log("medium")
+            left = 30;
+            top = 30;
+            width = 160;
+            height = 230;
           } else {
-            left = 50;
-            top = 50;
-            width = 210;
-            height = 320;
+            console.log("large")
+            left = 40;
+            top = 40;
+            width = 190;
+            height = 250;
           }
         } else {
           if(sizePanel == "small") {
-
-          } else if (sizePanel =="medium") {
-            left = 55;
-            top = 60;
-            width = 220;
-            height = 280;
+          //  console.log("small")
+            left = 30;
+            top = 30;
+            width = 130;
+            height = 190;
+          } else if (sizePanel == "medium") {
+          //  console.log("medium")
+            left = 50;
+            top = 50;
+            width = 210;
+            height = 240;
           } else {
-            left = 55;
+          //  console.log("large")
+            left = 60;
             top = 60;
-            width = 310;
-            height = 370;
+            width = 250;
+            height = 320;
           }
           
         }
@@ -539,7 +608,7 @@ export class PrintBuilderComponent implements OnInit {
           });
         };
         reader.readAsDataURL(file);
-      })   
+      })  
 
       $(".btn-collapse").click(function() {
         if(isCollapse)

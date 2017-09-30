@@ -11,19 +11,18 @@ var allImage = {
   front: "",
   back: ""
 };
-var selectedImage;
+
 function setFrontCanvas() {
-  console.log(selectedImage)
   frontCanvas = new fabric.Canvas('front-canvas', {
     hoverCursor: 'pointer',
     selection: true,
     selectionBorderColor:'blue'
   });
 
-  frontCanvas.setHeight(343);
+  frontCanvas.setHeight(400);
   frontCanvas.setWidth(600);
   frontCanvas.loadFromJSON(canvasInfo.frontState[canvasInfo.frontState.length - 1]);
-  frontCanvas.setBackgroundImage(selectedImage.horizontal.front, frontCanvas.renderAll.bind(frontCanvas), {
+  frontCanvas.setBackgroundImage(canvasInfo.frontImage, frontCanvas.renderAll.bind(frontCanvas), {
     backgroundImageOpacity: 0.5,
     backgroundImageStrech: true,
     top: 0,
@@ -44,10 +43,10 @@ function setBackCanvas() {
     selectionBorderColor:'blue'
   });
 
-  backCanvas.setHeight(343);
+  backCanvas.setHeight(400);
   backCanvas.setWidth(600);
   backCanvas.loadFromJSON(canvasInfo.backState[canvasInfo.backState.length - 1]);
-  backCanvas.setBackgroundImage(selectedImage.horizontal.back, backCanvas.renderAll.bind(backCanvas), {
+  backCanvas.setBackgroundImage(canvasInfo.backImage, backCanvas.renderAll.bind(backCanvas), {
     backgroundImageOpacity: 0.5,
     backgroundImageStrech: true,
     top: 0,
@@ -134,7 +133,6 @@ export class ReviewOrderComponent implements OnInit {
   public checkedGloss: boolean = false;
 
   constructor(public spService: SingleProductService) {
-    selectedImage = this.spService.getSelectedImage()
     
     this.canvasInfo = this.spService.getValue();
     canvasInfo = this.spService.getValue();
