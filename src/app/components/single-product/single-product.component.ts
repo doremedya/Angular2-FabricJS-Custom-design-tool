@@ -9,6 +9,8 @@ declare var $;
 export class SingleProductComponent implements OnInit {
   public ipage: string = '';
   public forwardFlag: boolean = true;
+  public isCollapse = false;
+
   constructor() {
     this.ipage = 'front-builder';
   }
@@ -36,6 +38,10 @@ export class SingleProductComponent implements OnInit {
     } else if (this.ipage == 'back-builder') {
       this.ipage = 'review-order'
     }
+  }
+
+  handleIsCollapse(isCollapse) {
+    this.isCollapse = isCollapse;
   }
 
 }

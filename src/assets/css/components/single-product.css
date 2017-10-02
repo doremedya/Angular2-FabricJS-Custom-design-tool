@@ -1,6 +1,9 @@
-g.ui-single-product {
-    height: calc(100vh - 65px) !important;
+app-single-product {
+    height: calc(100% - 65px);
+    display: inline-block;
+    width: 100%;
 }
+
 .ui-single-product .ui-main-body {
     padding: 2.778em 1.5em;
     padding-bottom: 0;
@@ -86,7 +89,7 @@ g.ui-single-product {
 }
 
 .ui-single-product .ui-sp-title {
-    min-height: 4.444em;
+    min-height: 65px;
 }
 
 .ui-single-product .ui-options {
@@ -135,7 +138,13 @@ g.ui-single-product {
     border-top: 1px solid #d4d4d4;
     position: absolute;
     width: 100%;
-    bottom: 67px;
+    bottom: 0;
+}
+
+review-order {
+    width: 100%;
+    height: calc(100% - 65px);
+    display: inline-block;
 }
 
 .ui-single-product .review-section {
@@ -151,11 +160,11 @@ g.ui-single-product {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 66.5%;
     height: 80px;
     display: flex !important;
     justify-content: space-between !important;
     z-index: 9999;
+    padding: 0;
 }
 
 .ui-single-product .ui-main-footer.back-forward:hover {
@@ -556,6 +565,12 @@ g.ui-single-product {
 /* ----------------------------------------------
     Print Builder Style (Marek 2017-09-14)
  ---------------------------------------------- */
+print-builder {
+    height: calc(100% - 65px);
+    width: 100%;
+    display: inline-block;
+}
+
 #print-builder {
     height: 100%;
 }

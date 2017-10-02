@@ -3,6 +3,10 @@
         "id": 0,
         "logo": "/assets/images/temp/logo.png",
         "description": "Each office is independently owned and operated",
+        "template": {
+            "front": "/assets/images/temp/fly-front.jpg",
+            "back": "/assets/images/temp/fly-back.jpg"
+        },
         "horizontal": {
             "front": "/assets/images/temp/fly-front-land.png",
             "back": "/assets/images/temp/fly-back-land.png"
