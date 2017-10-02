@@ -5,9 +5,11 @@ app-single-product {
 }
 
 .ui-single-product .ui-main-body {
-    padding: 2.778em 1.5em;
-    padding-bottom: 0;
     position: relative;
+    width: 100%;
+    height: calc(100% - 80px);
+    display: block;
+    padding: 30px;
 }
 
 .ui-dash-header {
@@ -24,12 +26,13 @@ app-single-product {
     width: 50px;
     height: 50px;
     color: #ffffff;
-   /* display: flex;*/
     align-items: center;
     justify-content: center;
     font-size: 30px;
-    margin-left: -21px;
-    z-index: 1000
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    top: 65px;
 }
 
 .ui-single-product .ui-main-body .btn-collapse .mobile-ui {
@@ -62,6 +65,7 @@ app-single-product {
 
 .ui-single-product .ui-main-body .ui-title {
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .ui-single-product .ui-main-body .canvas{
@@ -574,18 +578,25 @@ print-builder {
 #print-builder {
     height: 100%;
 }
+
 #print-builder #right-panel {
     z-index: 999;
     background: #ffffff;
 }
+
 #print-builder #right-panel .canvas {
-    padding: 15px;
-   /* max-width: 1050px;*/
-    height: 640px;
     overflow: auto;
-    display: flex;
-    align-items: center;
+    border: 1px solid #000;
+    width: 800px;
+    display: table;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
+
 #print-builder .ui-bg-light-grey {
     overflow: auto;
     -webkit-transition: .3s ease-in-out;
@@ -890,12 +901,6 @@ select:not([multiple]) {
 #print-builder .section.add-element ul li a:hover,
 #print-builder .section.add-element ul li a:focus {
     border-bottom: 3px solid #f38112;   
-}
-
-#print-builder canvas {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #444;
 }
 
 #print-builder .design-panel {

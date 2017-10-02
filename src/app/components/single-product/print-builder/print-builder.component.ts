@@ -19,8 +19,8 @@ var frontImgDirection, backImgDirection;
 
 var canvas_size = {
   large: {
-    width: 600,
-    height: 343
+    width: 800,
+    height: 480
   },
   medium: {
     width: 480,
@@ -31,7 +31,6 @@ var canvas_size = {
     height: 183
   }
 }
-
 function initCanvas() {
   var width, height;
 
@@ -69,7 +68,6 @@ function initCanvas() {
   });
 
   canvas.renderAll();    
-    
 }
 
 function updateModifications(savehistory) {
@@ -101,7 +99,7 @@ function setBackgroundImg(image) {
   });
   canvas.renderAll();
 
-  updateModifications(true);  
+  // updateModifications(true);  
 }
 
 // var imageDirection = "";
@@ -593,40 +591,40 @@ export class PrintBuilderComponent implements OnInit {
       })
 
       $(".layouts").click(function() {
-        layoutPanel = $(this).attr('id');
+        // layoutPanel = $(this).attr('id');
 
-        var canvasWidth = canvas.width;
-        var canvasHeight = canvas.height;
+        // var canvasWidth = canvas.width;
+        // var canvasHeight = canvas.height;
 
-        if(layoutPanel == 'horizontal'){
-          canvas.setWidth(canvas_size[sizePanel].width);
-          canvas.setHeight(canvas_size[sizePanel].height);
-        }else {
-          canvas.setWidth(canvas_size[sizePanel].height);
-          canvas.setHeight(canvas_size[sizePanel].width);
-        }
+        // if(layoutPanel == 'horizontal'){
+        //   canvas.setWidth(canvas_size[sizePanel].width);
+        //   canvas.setHeight(canvas_size[sizePanel].height);
+        // }else {
+        //   canvas.setWidth(canvas_size[sizePanel].height);
+        //   canvas.setHeight(canvas_size[sizePanel].width);
+        // }
 
-        if(currentBuilder == 'front-builder')
-          setCanvas(selectedFrontImgObj, frontImgDirection);
-        else
-          setCanvas(selectedBackImgObj, backImgDirection);
+        // if(currentBuilder == 'front-builder')
+        //   setCanvas(selectedFrontImgObj, frontImgDirection);
+        // else
+        //   setCanvas(selectedBackImgObj, backImgDirection);
       })
 
       $(".sizes").click(function() {
-        sizePanel = $(this).attr('id');
+        // sizePanel = $(this).attr('id');
 
-        if(layoutPanel == 'horizontal'){
-          canvas.setWidth(canvas_size[sizePanel].width);
-          canvas.setHeight(canvas_size[sizePanel].height);
-        }else {
-          canvas.setWidth(canvas_size[sizePanel].height);
-          canvas.setHeight(canvas_size[sizePanel].width);
-        }
+        // if(layoutPanel == 'horizontal'){
+        //   canvas.setWidth(canvas_size[sizePanel].width);
+        //   canvas.setHeight(canvas_size[sizePanel].height);
+        // }else {
+        //   canvas.setWidth(canvas_size[sizePanel].height);
+        //   canvas.setHeight(canvas_size[sizePanel].width);
+        // }
 
-        if(currentBuilder == 'front-builder')
-          setCanvas(selectedFrontImgObj, frontImgDirection);
-        else
-          setCanvas(selectedBackImgObj, backImgDirection);
+        // if(currentBuilder == 'front-builder')
+        //   setCanvas(selectedFrontImgObj, frontImgDirection);
+        // else
+        //   setCanvas(selectedBackImgObj, backImgDirection);
       })
 
 

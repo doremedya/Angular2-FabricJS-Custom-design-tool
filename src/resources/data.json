@@ -29,63 +29,63 @@
                 "horizontal": {
                     "large": {
                         "logo": {
-                            "left": 175,
-                            "top": 60,
-                            "width": 250,
-                            "height": 52
+                            "left": 225,
+                            "top": 90,
+                            "width": 330,
+                            "height": 69
                         },
                         "description": {
-                            "left": 165,
-                            "top": 120,
-                            "fontSize": 14,
+                            "left": 200,
+                            "top": 160,
+                            "fontSize": 20,
                             "fontColor": "#4e4e4e"
                         },
                         "name": {
-                            "left": 100,
-                            "top": 190,
-                            "fontSize": 30,
+                            "left": 120,
+                            "top": 250,
+                            "fontSize": 50,
                             "fontColor": "#4e4e4e"
                         },
                         "address1": {
-                            "left": 330,
-                            "top": 160,
-                            "fontSize": 17,
+                            "left": 420,
+                            "top": 230,
+                            "fontSize": 22,
                             "fontColor": "#4e4e4e"
                         },
                         "address2": {
-                            "left": 330,
-                            "top": 180,
-                            "fontSize": 17,
+                            "left": 420,
+                            "top": 255,
+                            "fontSize": 22,
                             "fontColor": "#4e4e4e"
                         },
                         "telphone": {
-                            "left": 330,
-                            "top": 220,
-                            "fontSize": 12,
+                            "left": 420,
+                            "top": 300,
+                            "fontSize": 20,
                             "fontColor": "#4e4e4e"
                         },
                         "cellphone": {
-                            "left": 330,
-                            "top": 235,
-                            "fontSize": 12,
+                            "left": 420,
+                            "top": 320,
+                            "fontSize": 20,
                             "fontColor": "#4e4e4e"
                         },
                         "email": {
-                            "left": 330,
-                            "top": 250,
-                            "fontSize": 12,
+                            "left": 420,
+                            "top": 340,
+                            "fontSize": 20,
                             "fontColor": "#4e4e4e"
                         },
                         "website": {
-                            "left": 330,
-                            "top": 265,
-                            "fontSize": 12,
+                            "left": 420,
+                            "top": 360,
+                            "fontSize": 20,
                             "fontColor": "#4e4e4e"
                         },
                         "serial": {
-                            "left": 70,
-                            "top": 230,
-                            "fontSize": 18,
+                            "left": 100,
+                            "top": 310,
+                            "fontSize": 22,
                             "fontColor": "#c50035"
                         }
                     },
@@ -314,27 +314,27 @@
                 "horizontal": {
                     "large": {
                         "logo": {
-                            "left": 260,
-                            "top": 100,
-                            "width": 250,
-                            "height": 52
+                            "left": 350,
+                            "top": 150,
+                            "width": 330,
+                            "height": 69
                         },
                         "image1": {
-                            "left": 29,
-                            "top": 24,
-                            "width": 210,
-                            "height": 290
+                            "left": 38,
+                            "top": 34,
+                            "width": 280,
+                            "height": 406
                         },
                         "name": {
-                            "left": 280,
-                            "top": 175,
-                            "fontSize": 32,
+                            "left": 360,
+                            "top": 243,
+                            "fontSize": 44,
                             "fontColor": "#ffffff"
                         },
                         "description": {
-                            "left": 260,
-                            "top": 230,
-                            "fontSize": 14,
+                            "left": 350,
+                            "top": 310,
+                            "fontSize": 18,
                             "fontColor": "#4e4e4e"
                         }                       
                     },
