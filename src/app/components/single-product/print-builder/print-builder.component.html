@@ -155,7 +155,7 @@
 	    	</div>	
     	</div>    	
     </div>
-    <div class="col-md-8" id="right-panel">
+    <div class="col-md-8" id="right-panel" [ngClass]="isCollapse ? 'expanded': 'collapsed'">
     	<div class="ui-main-body">
     		<div class="btn-collapse" (click)="updateCollapse()">
     			<i class="fa" [ngClass]="isCollapse? 'fa-angle-double-right':'fa-angle-double-left'" aria-hidden="true"></i>

@@ -102,9 +102,6 @@ function setBackgroundImg(image) {
   // updateModifications(true);  
 }
 
-// var imageDirection = "";
-var imagelayoutPanel = "";
-
 function setCanvas(imageObj, direction) {
   if(!imageObj)
     return;
@@ -122,130 +119,6 @@ function setCanvas(imageObj, direction) {
   setBackgroundImg(imgUrl);
   allPropertiesonCanvas(imageObj, direction);
   updateModifications(true);
-
-
-  // if(images) {
-  //   if(direction != "") {
-  //     imageDirection = direction
-  //     imagelayoutPanel = layoutPanel
-  //     selectedImageObj = images
-  //     // console.log(selectedImageObj)
-  //     if(currentBuilder == 'front-builder') {
-  //       // if(frontState.length > 0) 
-  //       //   canvas.loadFromJSON(frontState[frontState.length - 1]);
-
-  //       frontImage = images[layoutPanel][imageDirection];
-  //       setBackgroundImg(frontImage)
-  //       localStorage.setItem('frontImage', frontImage)
-  //       allPropertiesonCanvas(selectImag)
-
-  //       if(backImage){
-  //         backImage = getOppositeImg(frontImage, backImage);
-  //         localStorage.setItem('backImage', backImage)
-  //       }
-
-  //     } else {
-  //       // if(backState.length > 0) 
-  //       //   canvas.loadFromJSON(backState[backState.length - 1]);
-  //       backImage = images[layoutPanel][imageDirection];
-  //       setBackgroundImg(backImage)        
-  //       localStorage.setItem('backImage', backImage)
-  //       allPropertiesonCanvas(selectedImageObj)
-  //       if(frontImage){
-  //         frontImage = getOppositeImg(backImage, frontImage);
-  //         localStorage.setItem('frontImage', frontImage)
-  //       }
-  //     }
-  //   } else {
-  //     if(imagelayoutPanel == layoutPanel) {
-  //       if(currentBuilder == 'front-builder') {
-
-  //         // if(frontState.length > 0) 
-  //         //   canvas.loadFromJSON(frontState[frontState.length - 1]);
-
-  //         setBackgroundImg(frontImage)
-  //         localStorage.setItem('frontImage', frontImage)
-  //         allPropertiesonCanvas(selectedImageObj)
-  //         if(backImage){
-  //           backImage = getOppositeImg(frontImage, backImage);
-  //           localStorage.setItem('backImage', backImage)
-  //         }
-
-  //       } else {
-  //         // if(backState.length > 0) 
-  //         //   canvas.loadFromJSON(backState[backState.length - 1]);
-  //       setBackgroundImg(backImage)        
-  //       localStorage.setItem('backImage', backImage)
-  //       allPropertiesonCanvas(selectedImageObj)
-  //         if(frontImage){
-  //           frontImage = getOppositeImg(backImage, frontImage);
-  //           localStorage.setItem('frontImage', frontImage)
-  //         }
-
-  //       }
-  //     }else {   
-  //       imagelayoutPanel = layoutPanel
-  //       var key = Object.keys(selectedImageObj.horizontal).filter(function(key) {return selectedImageObj.horizontal[key] == images })[0];
-  //       var key1 = Object.keys(selectedImageObj.vertical).filter(function(key) {return selectedImageObj.vertical[key] == images })[0];
-
-  //       if(key) {
-  //         if(currentBuilder == 'front-builder') {
-  //           // if(frontState.length > 0) 
-  //           //   canvas.loadFromJSON(frontState[frontState.length - 1]);
-  //           frontImage = selectedImageObj.vertical[key];
-  //           setBackgroundImg(frontImage)
-  //           localStorage.setItem('frontImage', frontImage)
-  //           allPropertiesonCanvas(selectedImageObj)
-  //             if(backImage){
-  //               backImage = getOppositeImg(frontImage, backImage);
-  //               localStorage.setItem('backImage', backImage)
-  //             }
-  //           } else {
-  //             // if(backState.length > 0) 
-  //             //   canvas.loadFromJSON(backState[backState.length - 1]);
-  //             backImage = selectedImageObj.vertical[key];
-  //             setBackgroundImg(backImage)              
-  //             localStorage.setItem('backImage', backImage)
-  //             allPropertiesonCanvas(selectedImageObj)
-
-  //           if(frontImage){
-  //             frontImage = getOppositeImg(backImage, frontImage);
-  //             localStorage.setItem('frontImage', frontImage)
-  //           }
-
-  //         }
-  //       } else if(key1) {
-  //         if(currentBuilder == 'front-builder') {
-  //           // if(frontState.length > 0) 
-  //           //   canvas.loadFromJSON(frontState[frontState.length - 1]);
-  //           frontImage = selectedImageObj.horizontal[key1];
-  //           setBackgroundImg(frontImage)
-  //           localStorage.setItem('frontImage', frontImage)
-  //           allPropertiesonCanvas(selectedImageObj)
-  //             if(backImage){
-  //               backImage = getOppositeImg(frontImage, backImage);
-  //               localStorage.setItem('backImage', backImage)
-  //             }
-
-  //           } else {
-  //             // if(backState.length > 0) 
-  //             //   canvas.loadFromJSON(backState[backState.length - 1]);
-  //             backImage = selectedImageObj.horizontal[key1];
-  //             setBackgroundImg(backImage)
-              
-  //             localStorage.setItem('backImage', backImage)
-
-  //             if(frontImage){
-  //               frontImage = getOppositeImg(backImage, frontImage);
-  //               localStorage.setItem('frontImage', frontImage)
-  //             }
-
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  
 }
 
 function allPropertiesonCanvas(selectedImageObj, imageDirection) {
@@ -397,7 +270,6 @@ function addDefaultText(value, left, top, fontSize, color) {
   });
 
   canvas.add(textSample);
-  // updateModifications(true);
 }
 
 function setLogo(logo, left, top, width, height) {
@@ -460,10 +332,6 @@ export class PrintBuilderComponent implements OnInit {
     initCanvas();
     
     $(document).ready(function() {
-      // var layoutHorizontal = true;
-      // if(layoutPanel == 'horizontal') {
-      //   layoutHorizontal = false;
-      // }
 
       $("#addText").click(function() {
         var textSample = new fabric.IText('Sample Text', {
@@ -591,40 +459,40 @@ export class PrintBuilderComponent implements OnInit {
       })
 
       $(".layouts").click(function() {
-        // layoutPanel = $(this).attr('id');
+        layoutPanel = $(this).attr('id');
 
-        // var canvasWidth = canvas.width;
-        // var canvasHeight = canvas.height;
+        var canvasWidth = canvas.width;
+        var canvasHeight = canvas.height;
 
-        // if(layoutPanel == 'horizontal'){
-        //   canvas.setWidth(canvas_size[sizePanel].width);
-        //   canvas.setHeight(canvas_size[sizePanel].height);
-        // }else {
-        //   canvas.setWidth(canvas_size[sizePanel].height);
-        //   canvas.setHeight(canvas_size[sizePanel].width);
-        // }
+        if(layoutPanel == 'horizontal'){
+          canvas.setWidth(canvas_size[sizePanel].width);
+          canvas.setHeight(canvas_size[sizePanel].height);
+        }else {
+          canvas.setWidth(canvas_size[sizePanel].height);
+          canvas.setHeight(canvas_size[sizePanel].width);
+        }
 
-        // if(currentBuilder == 'front-builder')
-        //   setCanvas(selectedFrontImgObj, frontImgDirection);
-        // else
-        //   setCanvas(selectedBackImgObj, backImgDirection);
+        if(currentBuilder == 'front-builder')
+          setCanvas(selectedFrontImgObj, frontImgDirection);
+        else
+          setCanvas(selectedBackImgObj, backImgDirection);
       })
 
       $(".sizes").click(function() {
-        // sizePanel = $(this).attr('id');
+        sizePanel = $(this).attr('id');
 
-        // if(layoutPanel == 'horizontal'){
-        //   canvas.setWidth(canvas_size[sizePanel].width);
-        //   canvas.setHeight(canvas_size[sizePanel].height);
-        // }else {
-        //   canvas.setWidth(canvas_size[sizePanel].height);
-        //   canvas.setHeight(canvas_size[sizePanel].width);
-        // }
+        if(layoutPanel == 'horizontal'){
+          canvas.setWidth(canvas_size[sizePanel].width);
+          canvas.setHeight(canvas_size[sizePanel].height);
+        }else {
+          canvas.setWidth(canvas_size[sizePanel].height);
+          canvas.setHeight(canvas_size[sizePanel].width);
+        }
 
-        // if(currentBuilder == 'front-builder')
-        //   setCanvas(selectedFrontImgObj, frontImgDirection);
-        // else
-        //   setCanvas(selectedBackImgObj, backImgDirection);
+        if(currentBuilder == 'front-builder')
+          setCanvas(selectedFrontImgObj, frontImgDirection);
+        else
+          setCanvas(selectedBackImgObj, backImgDirection);
       })
 
 
@@ -724,37 +592,6 @@ export class PrintBuilderComponent implements OnInit {
     }
     
     canvas.renderAll();
-    
-    // if(this.currentBuilder == 'front-builder' || changes.ipage.previousValue == 'back-builder') {
-    //   this.currentBackState = backState;
-    //   this.spService.setValue('backImage', this.backImage)
-    //   this.spService.setValue('backState', this.currentBackState)
-    //   state = []
-      
-    //   if(this.currentFrontState.length != 0) {          
-    //     canvas.loadFromJSON(this.currentFrontState[this.currentFrontState.length - 1]);        
-    //   } 
-
-    //   if(this.currentBuilder == 'front-builder') {
-    //     $(".btn-forward").prop('disabled', false);
-    //     $(".btn-back").prop('disabled', true);
-    //   } else {
-    //     $(".btn-forward").prop('disabled', true);
-    //     $(".btn-back").prop('disabled', false);
-    //   }
-    // //  setCanvas(this.frontImage)
-    // } else {
-    //   this.currentFrontState = frontState;
-    //   this.spService.setValue('frontImage', this.frontImage)
-    //   this.spService.setValue('frontState', this.currentFrontState)
-    //   state = []
-    //   if(this.currentBackState.length != 0) {         
-    //     canvas.loadFromJSON(this.currentBackState[this.currentBackState.length - 1]);
-        
-    //   }
-    // //  setCanvas(this.backImage)
-    // }
-    // canvas.renderAll();
   }
 
   setInitCanvas(imageObj, direction) {

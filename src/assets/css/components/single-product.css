@@ -1,5 +1,5 @@
 app-single-product {
-    height: calc(100% - 65px);
+    height: calc(100vh - 65px);
     display: inline-block;
     width: 100%;
 }
@@ -10,6 +10,7 @@ app-single-product {
     height: calc(100% - 80px);
     display: block;
     padding: 30px;
+    overflow: auto;
 }
 
 .ui-dash-header {
@@ -93,7 +94,7 @@ app-single-product {
 }
 
 .ui-single-product .ui-sp-title {
-    min-height: 65px;
+    height: 68px;
 }
 
 .ui-single-product .ui-options {
@@ -570,7 +571,7 @@ review-order {
     Print Builder Style (Marek 2017-09-14)
  ---------------------------------------------- */
 print-builder {
-    height: calc(100% - 65px);
+    height: calc(100% - 68px);
     width: 100%;
     display: inline-block;
 }
@@ -584,17 +585,16 @@ print-builder {
     background: #ffffff;
 }
 
+#print-builder #right-panel.expanded {
+    max-width: 100%!important;
+    flex: 0 0 100%;
+}
+
 #print-builder #right-panel .canvas {
     overflow: auto;
     border: 1px solid #000;
-    width: 800px;
     display: table;
-    position: absolute;
-    margin: auto;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    margin: 30px auto;
 }
 
 #print-builder .ui-bg-light-grey {
