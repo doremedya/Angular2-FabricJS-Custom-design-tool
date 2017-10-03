@@ -8,9 +8,9 @@
     	<div class="panel-left">
 	    	<div class="design-panel" [hidden]="leftPanel!='designs'">
 	    		<ul>
-	    			<li *ngFor="let image of images"  class="designs">	    				
-					    <img [src]="image.horizontal.front" class="front" (click)="setInitCanvas(image, 'front', layoutPanel)">					
-					    <img [src]="image.horizontal.back" class="back" (click)="setInitCanvas(image, 'back', layoutPanel)">
+	    			<li *ngFor="let image of product_designs"  class="designs">	    				
+					    <img [src]="image.template.front" class="front" (click)="setInitCanvas(image, 'front')">					
+					    <img [src]="image.template.back" class="back" (click)="setInitCanvas(image, 'back')">
 					</li>
 	    		</ul>
 	    	</div>
@@ -93,7 +93,7 @@
                     <h3>Layout</h3>
                     <div class="row no-gutters justify-content-center align-items-center">
                         <div class="col-md-6">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox1" 
+                            <div class="form-check d-flex align-items-center justify-content-center layouts" id="horizontal" 
                             	(click)="layoutPanel='horizontal'" [ngClass]="{'active': layoutPanel==='horizontal'}">
                                 <div class="ui-h-box">
                                 	<i class="fa fa-window-maximize"></i>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="layout-checkbox2"
+                            <div class="form-check d-flex align-items-center justify-content-center layouts" id="vertical"
                             	(click)="layoutPanel='vertical'" [ngClass]="{'active': layoutPanel==='vertical'}">
                                 <div class="ui-v-box">
                                 	<i class="fa fa-window-maximize vertical-window"></i>
@@ -121,7 +121,7 @@
 
                     <div class="row no-gutters justify-content-center align-items-center">
                         <div class="col-md-4">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox1"
+                            <div class="form-check d-flex align-items-center justify-content-center sizes" id="small"
                             	(click)="sizePanel='small'" [ngClass]="{'active': sizePanel==='small'}">
                                 <div class="ui-s-box">
                                 	<i class="fa fa-square-o fa-lg"></i>
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox2"
+                            <div class="form-check d-flex align-items-center justify-content-center sizes" id="medium"
                             	(click)="sizePanel='medium'" [ngClass]="{'active': sizePanel==='medium'}">
                                 <div class="ui-m-box">
                                 	<i class="fa fa-square-o fa-2x"></i>
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-check d-flex align-items-center justify-content-center" id="size-checkbox3"
+                            <div class="form-check d-flex align-items-center justify-content-center sizes" id="large"
                             	(click)="sizePanel='large'" [ngClass]="{'active': sizePanel==='large'}">
                                 <div class="ui-l-box">
                                 	<i class="fa fa-square-o fa-3x"></i>
@@ -155,11 +155,10 @@
 	    	</div>	
     	</div>    	
     </div>
-    <div class="col" id="right-panel">
+    <div class="col-md-8" id="right-panel" [ngClass]="isCollapse ? 'expanded': 'collapsed'">
     	<div class="ui-main-body">
-    		<div class="btn-collapse" (click)="OnCollapse()">
-    			<i class="fa fa-angle-double-left" aria-hidden="true" *ngIf="!isCollapse"></i>
-    			<i class="fa fa-angle-double-right" aria-hidden="true" *ngIf="isCollapse"></i>
+    		<div class="btn-collapse" (click)="updateCollapse()">
+    			<i class="fa" [ngClass]="isCollapse? 'fa-angle-double-right':'fa-angle-double-left'" aria-hidden="true"></i>
     		</div>
 	    	<div class="canvas">
 	    		<canvas id="canvas"></canvas>

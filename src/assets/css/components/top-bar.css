@@ -1,5 +1,7 @@
 app-top-bar {
     height: 65px;
+    display: inline-block;
+    width: 100%;
 }
 app-top-bar .content-body{
     height: 65px;

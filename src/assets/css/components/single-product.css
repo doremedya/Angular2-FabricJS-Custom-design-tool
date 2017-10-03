@@ -1,10 +1,16 @@
-.ui-single-product {
-    height: calc(100vh - 65px) !important;
+app-single-product {
+    height: calc(100vh - 65px);
+    display: inline-block;
+    width: 100%;
 }
+
 .ui-single-product .ui-main-body {
-    padding: 2.778em 1.5em;
-    padding-bottom: 0;
     position: relative;
+    width: 100%;
+    height: calc(100% - 80px);
+    display: block;
+    padding: 30px;
+    overflow: auto;
 }
 
 .ui-dash-header {
@@ -21,12 +27,13 @@
     width: 50px;
     height: 50px;
     color: #ffffff;
-   /* display: flex;*/
     align-items: center;
     justify-content: center;
     font-size: 30px;
-    margin-left: -21px;
-    z-index: 1000
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    top: 65px;
 }
 
 .ui-single-product .ui-main-body .btn-collapse .mobile-ui {
@@ -59,6 +66,7 @@
 
 .ui-single-product .ui-main-body .ui-title {
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .ui-single-product .ui-main-body .canvas{
@@ -86,7 +94,7 @@
 }
 
 .ui-single-product .ui-sp-title {
-    min-height: 4.444em;
+    height: 68px;
 }
 
 .ui-single-product .ui-options {
@@ -135,7 +143,13 @@
     border-top: 1px solid #d4d4d4;
     position: absolute;
     width: 100%;
-    bottom: 67px;
+    bottom: 0;
+}
+
+review-order {
+    width: 100%;
+    height: calc(100% - 65px);
+    display: inline-block;
 }
 
 .ui-single-product .review-section {
@@ -151,11 +165,11 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 66.5%;
     height: 80px;
     display: flex !important;
     justify-content: space-between !important;
     z-index: 9999;
+    padding: 0;
 }
 
 .ui-single-product .ui-main-footer.back-forward:hover {
@@ -556,21 +570,33 @@
 /* ----------------------------------------------
     Print Builder Style (Marek 2017-09-14)
  ---------------------------------------------- */
+print-builder {
+    height: calc(100% - 68px);
+    width: 100%;
+    display: inline-block;
+}
+
 #print-builder {
     height: 100%;
 }
+
 #print-builder #right-panel {
     z-index: 999;
     background: #ffffff;
 }
-#print-builder #right-panel .canvas {
-    padding: 15px;
-   /* max-width: 1050px;*/
-    height: 640px;
-    overflow: auto;
-    display: flex;
-    align-items: center;
+
+#print-builder #right-panel.expanded {
+    max-width: 100%!important;
+    flex: 0 0 100%;
 }
+
+#print-builder #right-panel .canvas {
+    overflow: auto;
+    border: 1px solid #000;
+    display: table;
+    margin: 30px auto;
+}
+
 #print-builder .ui-bg-light-grey {
     overflow: auto;
     -webkit-transition: .3s ease-in-out;
@@ -877,12 +903,6 @@ select:not([multiple]) {
     border-bottom: 3px solid #f38112;   
 }
 
-#print-builder canvas {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #444;
-}
-
 #print-builder .design-panel {
     padding: 15px 30px;
     display: inline-block;
@@ -913,8 +933,8 @@ select:not([multiple]) {
 }
 #print-builder .design-panel ul li img {
     /*width: 100%;*/
-    width: 49%;
-    height: 130px;
+    width: 48%;
+    float: right;
 }
 
 #print-builder .design-panel ul li img:nth-child(2n+1){

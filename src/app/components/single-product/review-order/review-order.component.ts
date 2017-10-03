@@ -6,12 +6,14 @@ declare var fabric;
 
 var frontCanvas;
 var backCanvas;
-var canvasInfo;
 var allImage = {
   front: "",
   back: ""
 };
-
+var canvas_size = {
+  width: 600,
+  height: 343
+}
 function setFrontCanvas() {
   frontCanvas = new fabric.Canvas('front-canvas', {
     hoverCursor: 'pointer',
@@ -19,10 +21,12 @@ function setFrontCanvas() {
     selectionBorderColor:'blue'
   });
 
-  frontCanvas.setHeight(400);
-  frontCanvas.setWidth(600);
-  frontCanvas.loadFromJSON(canvasInfo.frontState[canvasInfo.frontState.length - 1]);
-  frontCanvas.setBackgroundImage(canvasInfo.frontImage, frontCanvas.renderAll.bind(frontCanvas), {
+  frontCanvas.setWidth(canvas_size.width);
+  frontCanvas.setHeight(canvas_size.height);
+
+  var front_image = localStorage.getItem('front');
+
+  frontCanvas.setBackgroundImage(front_image, frontCanvas.renderAll.bind(frontCanvas), {
     backgroundImageOpacity: 0.5,
     backgroundImageStrech: true,
     top: 0,
@@ -43,10 +47,12 @@ function setBackCanvas() {
     selectionBorderColor:'blue'
   });
 
-  backCanvas.setHeight(400);
-  backCanvas.setWidth(600);
-  backCanvas.loadFromJSON(canvasInfo.backState[canvasInfo.backState.length - 1]);
-  backCanvas.setBackgroundImage(canvasInfo.backImage, backCanvas.renderAll.bind(backCanvas), {
+  backCanvas.setWidth(canvas_size.width);
+  backCanvas.setHeight(canvas_size.height);
+
+  var back_image = localStorage.getItem('back');
+
+  backCanvas.setBackgroundImage(back_image, backCanvas.renderAll.bind(backCanvas), {
     backgroundImageOpacity: 0.5,
     backgroundImageStrech: true,
     top: 0,
@@ -125,7 +131,6 @@ function swipeImgRight(value) {
 
 export class ReviewOrderComponent implements OnInit {
 
-  public canvasInfo: any; 
   public borderStyle: string = 'square';
   public finishType: string = '';
   public paperType: string = 'original';
@@ -133,9 +138,6 @@ export class ReviewOrderComponent implements OnInit {
   public checkedGloss: boolean = false;
 
   constructor(public spService: SingleProductService) {
-    
-    this.canvasInfo = this.spService.getValue();
-    canvasInfo = this.spService.getValue();
 
     $(document).ready(function() {
       var checkedFinishType = true;
