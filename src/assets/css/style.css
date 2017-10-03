@@ -8,17 +8,27 @@
 
 @font-face {
     font-family: 'ProximaNovaBold';
-    src: url('../fonts/Fonts/ProximaNova-Bold.otf');
+    src: url('../fonts/Fonts/ProximaNova-Bold.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'ProximaNovaRegular';
+    src: url('../fonts/Fonts/Proxima Nova Regular_0.otf') format("opentype");
 }
 
 @font-face {
     font-family: 'RalewayBold';
-    src: url('../fonts/Fonts/Raleway-Bold_0.otf');
+    src: url('../fonts/Fonts/Raleway-Bold_0.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: 'RalewaySemiBold';
+    src: url('../fonts/Fonts/Raleway-SemiBold_0.ttf') format("truetype");
 }
 
 @font-face {
     font-family: 'RalewayRegular';
-    src: url('../fonts/Fonts/Raleway-Regular.ttf');
+    src: url('../fonts/Fonts/Raleway-Regular.ttf') format("truetype");
 }
 
 body, html {

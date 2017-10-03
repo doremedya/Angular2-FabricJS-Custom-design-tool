@@ -142,7 +142,13 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontColor 
   ){
-    addDefaultText(selectedImageObj.name, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontColor)
+    addDefaultText(
+      selectedImageObj.name,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.left, 
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.top, 
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontSize, 
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontFamily)
   }
 
   if(
@@ -153,7 +159,13 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontSize && 
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontColor
   ){
-    addDefaultText(selectedImageObj.serial, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontColor)
+    addDefaultText(
+      selectedImageObj.serial,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.left,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.top,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontSize,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontFamily)
   }
   
   if(
@@ -164,7 +176,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontColor
   ){
-    addDefaultText(selectedImageObj.address1, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontColor)
+    addDefaultText(selectedImageObj.address1, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontFamily)
   }
 
   if(
@@ -175,7 +187,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontColor
   ){
-    addDefaultText(selectedImageObj.address2, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontColor)
+    addDefaultText(selectedImageObj.address2, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontFamily)
   }
 
   if(
@@ -186,7 +198,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontColor 
   ){
-    addDefaultText(selectedImageObj.cellphone, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontColor)
+    addDefaultText(selectedImageObj.cellphone, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontFamily)
   }
 
   if(
@@ -197,7 +209,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontColor 
   ){
-    addDefaultText(selectedImageObj.telphone, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontColor)
+    addDefaultText(selectedImageObj.telphone, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontFamily)
   }
   
   if(
@@ -208,7 +220,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontColor 
   ){
-    addDefaultText(selectedImageObj.email, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontColor)
+    addDefaultText(selectedImageObj.email, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontFamily)
   }
 
   if(
@@ -219,7 +231,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontColor 
   ){
-    addDefaultText(selectedImageObj.website, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontColor)
+    addDefaultText(selectedImageObj.website, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontFamily)
   }
   
   if(
@@ -255,9 +267,9 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.top &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontColor &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontWeight
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontFamily
   ){
-    addDefaultText(selectedImageObj.title1Pre, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontWeight)
+    addDefaultText(selectedImageObj.title1Pre, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontFamily)
   }
 
   if(
@@ -272,7 +284,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.title1After, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontFamily
     )
   }
 
@@ -288,7 +301,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.title2, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontFamily
     )
   }
 
@@ -311,6 +325,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontSize,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontFamily,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.backgroundLeft,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.backgroundTop,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.backgroundWidth,
@@ -338,6 +353,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontSize,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontFamily,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.backgroundLeft,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.backgroundTop,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.backgroundWidth,
@@ -365,6 +381,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontSize,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontFamily,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.backgroundLeft,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.backgroundTop,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.backgroundWidth,
@@ -392,6 +409,7 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontSize,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontFamily,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.backgroundLeft,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.backgroundTop,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.backgroundWidth,
@@ -422,14 +440,14 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.top &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontColor &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontWeight
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontFamily
   ){
     addDefaultText(
       selectedImageObj.title3Pre, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontSize,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontWeight
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontFamily
     )
   }
 
@@ -445,7 +463,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.title3After, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontFamily
     )
   }
 
@@ -461,7 +480,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.content1, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontFamily
     )
   }
 
@@ -477,7 +497,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.content2, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontFamily
     )
   }
 
@@ -493,7 +514,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.content3, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontFamily
     )
   }
 
@@ -509,7 +531,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.content4, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontFamily
     )
   }
 
@@ -525,7 +548,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.content5, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontFamily
     )
   }
 
@@ -541,7 +565,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.content6, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontFamily
     )
   }
 
@@ -557,7 +582,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.description1, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontFamily
     )
   }
 
@@ -568,14 +594,14 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.top &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontSize &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontColor &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontWeight
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontFamily
   ){
     addDefaultText(
       selectedImageObj.title4Pre, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontSize,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontWeight
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontFamily
     )
   }
 
@@ -591,7 +617,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.title4After, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontFamily
     )
   }
 
@@ -607,7 +634,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.contactDescription, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontFamily
     )
   }
 
@@ -624,7 +652,8 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.left,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.top,
       selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontColor
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontColor,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontFamily
     )
   }
 
@@ -657,17 +686,16 @@ function getOppositeImg(img, oppositeImg) {
   return new_oppositeImg_name;
 }
 
-function addDefaultText(value, left, top, fontSize, color, fontWeight="normal") {
+function addDefaultText(value, left, top, fontSize, color, fontFamily="ProximaNovaRegular") {
   
   var textSample = new fabric.IText(value, {
     left: left,
     top: top,
     fontSize: fontSize,
-    fontWeight: fontWeight,
+    fontFamily: fontFamily,
     angle: 0,
     fill: color,
-    hasRotatingPoint: true,
-  //  fontFamily: 'RalewayRegular'
+    hasRotatingPoint: true
   });
 
   canvas.add(textSample);
@@ -690,7 +718,7 @@ function setLogo(logo, left, top, width, height) {
 
 }
 
-function addTextonImage(logo, ImageLeft, ImageTop, ImageWidth, ImageHeight, value, TextLeft, TextTop, TextFontSize, TextColor, backgroundLeft, backgroundTop, backgroundWidth, backgroundHeight, backgroundColor, fontWeight="normal") {
+function addTextonImage(logo, ImageLeft, ImageTop, ImageWidth, ImageHeight, value, TextLeft, TextTop, TextFontSize, TextColor, TextFontFamily, backgroundLeft, backgroundTop, backgroundWidth, backgroundHeight, backgroundColor, fontWeight="normal") {
   setLogo(logo, ImageLeft, ImageTop, ImageWidth, ImageHeight)
 
   setTimeout(function() {    
@@ -703,21 +731,10 @@ function addTextonImage(logo, ImageLeft, ImageTop, ImageWidth, ImageHeight, valu
         fill: backgroundColor 
       })
     );
-    addDefaultText(value, TextLeft, TextTop, TextFontSize, TextColor, fontWeight="normal")
+    addDefaultText(value, TextLeft, TextTop, TextFontSize, TextColor, TextFontFamily)
   }, 500)
 }
 
-function addAboutonRect(value, left, top, size, color) {
-  // var textSample = new fabric.IText(value, {
-  //   left: left,
-  //   top: top,
-  //   fontSize: size,
-  //   angle: 0,
-  //   fill: color,
-  //   hasRotatingPoint: true
-  // });
-
-}
 @Component({
   selector: 'print-builder',
   templateUrl: './print-builder.component.html'
