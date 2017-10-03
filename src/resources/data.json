@@ -501,5 +501,47 @@
             "width": 700,
             "height": 900
         }
+    }, {
+        "id": 1,
+        "logo": "/assets/images/temp/logo.png",
+        "template": {
+            "front": "/assets/images/temp/business-front.png",
+            "back": "/assets/images/temp/business-back.png"
+        },
+        "horizontal": {
+            "front": "/assets/images/temp/business-front-land.png",
+            "back": "/assets/images/temp/business-back-land.png"
+        },
+        "vertical": {
+            "front": "/assets/images/temp/business-front-portrait.png",
+            "back": "/assets/images/temp/business-back-portrait.png"
+        },
+        "title1Pre": "MODERN",
+        "title1After": "BEAUTY",
+        "title2": "1224 MONTANA AVE | SANTA MONICA",
+        "image1Title": "KITCHEN",
+        "image2Title": "FAMILY ROOM",
+        "image3Title": "BED ROOM",
+        "price": "OFFERING AT $2500",
+        "description1": "Keller Williams Santa Monica | BRE# 01499010",
+        "description2": "Each office is independently owned and operated",
+        "title3Pre": "OUR",
+        "title3After": "FACILITY",
+        "title4Pre": "ABOUT",
+        "title4After": "THE PROPERTY",
+        "content1": "4 Bed Rooms",
+        "content2": "Dining Room",
+        "content3": "Kitchen Room",
+        "content4": "Living Room",
+        "content5": "1 Bath Room",
+        "content6": "Swiming Pool",
+        "telphone": "(301) 555-0100",
+        "cellphone": "077 5005 3489",
+        "name": "John Smith",
+        "email": "emmanuel@email.com",
+        "website": "www.realestate.com",
+        "serial": "REALTOR | BRE# 01998060",
+        "contactDescription": "Keller Williams Realtor BRE# 01499010"
+
     }
 ]
