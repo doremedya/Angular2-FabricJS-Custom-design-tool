@@ -262,7 +262,7 @@
         "image2": "/assets/images/temp/house1.png",
         "image3": "/assets/images/temp/house2.png",
         "image4": "/assets/images/temp/house3.png",
-        "image5": "/assets/images/temp/user.png",
+        "user": "/assets/images/temp/user.png",
         "title1Pre": "MODERN",
         "title1After": "BEAUTY",
         "title2": "1224 MONTANA AVE | SANTA MONICA",
@@ -284,7 +284,7 @@
         "content6": "Swiming Pool",
         "telphone": "(301) 555-0100",
         "cellphone": "077 5005 3489",
-        "name": "John Smith",
+        "name": "JOHN SMITH",
         "email": "emmanuel@email.com",
         "website": "www.realestate.com",
         "serial": "REALTOR | BRE# 01998060",
@@ -500,131 +500,134 @@
                 "horizontal": {
                     "large": {
                         "logo": {
-                            "left": 350,
-                            "top": 150,
-                            "width": 330,
-                            "height": 69
-                        },
-                        "image1": {
-                            "left": 38,
-                            "top": 34,
-                            "width": 280,
-                            "height": 406
-                        },
-                        "title3Pre": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#404040"
-                        },
-                        "title3After": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#b8202d"
-                        },
-                        "title4Pre": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#404040"
-                        },
-                        "title4After": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#b8202d"
-                        },
-                        "content1": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content2": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content3": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content4": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content5": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content6": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
+                            "left": 540,
+                            "top": 30,
+                            "width": 200,
+                            "height": 40
                         },
                         "description1": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
+                            "left": 540,
+                            "top": 80,
+                            "fontSize": 12,
                             "fontColor": "#474647"
                         },
                         "description2": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
+                            "left": 540,
+                            "top": 100,
+                            "fontSize": 12,
                             "fontColor": "#474647"
                         },
-                        "address1": {
-                            "left": 420,
-                            "top": 230,
-                            "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                        "title3Pre": {
+                            "left": 40,
+                            "top": 90,
+                            "fontSize": 24,
+                            "fontColor": "#404040",
+                            "fontWeight": "bold"
                         },
-                        "address2": {
-                            "left": 420,
-                            "top": 255,
-                            "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                        "title3After": {
+                            "left": 110,
+                            "top": 90,
+                            "fontSize": 24,
+                            "fontColor": "#b8202d"
                         },
-                        "telphone": {
-                            "left": 420,
-                            "top": 300,
-                            "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                        "content1": {
+                            "left": 40,
+                            "top": 120,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
                         },
-                        "cellphone": {
-                            "left": 420,
-                            "top": 320,
-                            "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                        "content2": {
+                            "left": 140,
+                            "top": 120,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
                         },
-                        "email": {
-                            "left": 420,
+                        "content3": {
+                            "left": 240,
+                            "top": 120,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },
+                        "content4": {
+                            "left": 40,
+                            "top": 150,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },
+                        "content5": {
+                            "left": 140,
+                            "top": 150,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },
+                        "content6": {
+                            "left": 240,
+                            "top": 150,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },  
+                        "title4Pre": {
+                            "left": 40,
+                            "top": 190,
+                            "fontSize": 24,
+                            "fontColor": "#404040",
+                            "fontWeight": "bold"
+                        },
+                        "title4After": {
+                            "left": 140,
+                            "top": 190,
+                            "fontSize": 24,
+                            "fontColor": "#b8202d"
+                        },                        
+                        "name": {
+                            "left": 160,
                             "top": 340,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
-                        },
-                        "website": {
-                            "left": 420,
-                            "top": 360,
-                            "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#ffffff",
+                            "fontWeight": "bold"
                         },
                         "serial": {
-                            "left": 100,
-                            "top": 310,
-                            "fontSize": 22,
-                            "fontColor": "#c50035"
-                        }                     
+                            "left": 160,
+                            "top": 360,
+                            "fontSize": 16,
+                            "fontColor": "#ffffff"
+                        },
+                        "telphone": {
+                            "left": 160,
+                            "top": 400,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "cellphone": {
+                            "left": 160,
+                            "top": 420,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": 260,
+                            "top": 400,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "website": {
+                            "left": 260,
+                            "top": 420,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "contactDescription": {
+                            "left": 160,
+                            "top": 450,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "user": {
+                            "left": 40,
+                            "top": 340,
+                            "width": 100,
+                            "height": 120
+                        }                
                     },
                     "medium": {
                         
@@ -636,131 +639,134 @@
                 "vertical": {
                     "large": {
                         "logo": {
-                            "left": 42,
-                            "top": 440,
-                            "width": 250,
-                            "height": 52
-                        },
-                        "image1": {
-                            "left": 42,
-                            "top": 45,
-                            "width": 259,
-                            "height": 358
-                        },
-                        "title3Pre": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#404040"
-                        },
-                        "title3After": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#b8202d"
-                        },
-                        "title4Pre": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#404040"
-                        },
-                        "title4After": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#b8202d"
-                        },
-                        "content1": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content2": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content3": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content4": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content5": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
-                        },
-                        "content6": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#474647"
+                            "left": 540,
+                            "top": 30,
+                            "width": 200,
+                            "height": 40
                         },
                         "description1": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
+                            "left": 540,
+                            "top": 80,
+                            "fontSize": 12,
                             "fontColor": "#474647"
                         },
                         "description2": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
+                            "left": 540,
+                            "top": 100,
+                            "fontSize": 12,
                             "fontColor": "#474647"
                         },
-                        "address1": {
-                            "left": 420,
-                            "top": 230,
-                            "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                        "title3Pre": {
+                            "left": 40,
+                            "top": 90,
+                            "fontSize": 24,
+                            "fontColor": "#404040",
+                            "fontWeight": "bold"
                         },
-                        "address2": {
-                            "left": 420,
-                            "top": 255,
-                            "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                        "title3After": {
+                            "left": 110,
+                            "top": 90,
+                            "fontSize": 24,
+                            "fontColor": "#b8202d"
                         },
-                        "telphone": {
-                            "left": 420,
-                            "top": 300,
-                            "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                        "content1": {
+                            "left": 40,
+                            "top": 120,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
                         },
-                        "cellphone": {
-                            "left": 420,
-                            "top": 320,
-                            "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                        "content2": {
+                            "left": 140,
+                            "top": 120,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
                         },
-                        "email": {
-                            "left": 420,
+                        "content3": {
+                            "left": 240,
+                            "top": 120,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },
+                        "content4": {
+                            "left": 40,
+                            "top": 150,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },
+                        "content5": {
+                            "left": 140,
+                            "top": 150,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },
+                        "content6": {
+                            "left": 240,
+                            "top": 150,
+                            "fontSize": 16,
+                            "fontColor": "#474647"
+                        },  
+                        "title4Pre": {
+                            "left": 40,
+                            "top": 190,
+                            "fontSize": 24,
+                            "fontColor": "#404040",
+                            "fontWeight": "bold"
+                        },
+                        "title4After": {
+                            "left": 140,
+                            "top": 190,
+                            "fontSize": 24,
+                            "fontColor": "#b8202d"
+                        },                        
+                        "name": {
+                            "left": 160,
                             "top": 340,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
-                        },
-                        "website": {
-                            "left": 420,
-                            "top": 360,
-                            "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#ffffff",
+                            "fontWeight": "bold"
                         },
                         "serial": {
-                            "left": 100,
-                            "top": 310,
-                            "fontSize": 22,
-                            "fontColor": "#c50035"
-                        }
+                            "left": 160,
+                            "top": 360,
+                            "fontSize": 16,
+                            "fontColor": "#ffffff"
+                        },
+                        "telphone": {
+                            "left": 160,
+                            "top": 400,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "cellphone": {
+                            "left": 160,
+                            "top": 420,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "email": {
+                            "left": 260,
+                            "top": 400,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "website": {
+                            "left": 260,
+                            "top": 420,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "contactDescription": {
+                            "left": 160,
+                            "top": 450,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff"
+                        },
+                        "user": {
+                            "left": 40,
+                            "top": 340,
+                            "width": 100,
+                            "height": 120
+                        }  
                     },
                     "medium": {
                         
