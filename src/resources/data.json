@@ -15,6 +15,31 @@
                 "back": "/assets/images/temp/fly-back-portrait.png"
             }
         },
+        "size": {
+            "horizontal": {
+                "large": {
+                    "width": 800,
+                    "height": 480
+                },
+                "medium": {
+                },
+                "small": {
+
+                }
+            },
+            "vertical": {
+                "large": {
+                    "width": 480,
+                    "height": 800
+                },
+                "medium": {
+
+                },
+                "small": {
+
+                }
+            }
+        },
         "elements": [
             {
                 "type": "image",
@@ -546,6 +571,31 @@
                 "back": "/assets/images/temp/business-back-portrait.png"
             }
         },
+        "size": {
+            "horizontal": {
+                "large": {
+                    "width": 800,
+                    "height": 444
+                },
+                "medium": {
+                },
+                "small": {
+
+                }
+            },
+            "vertical": {
+                "large": {
+                    "width": 444,
+                    "height": 800
+                },
+                "medium": {
+
+                },
+                "small": {
+                    
+                }
+            }
+        },
         "elements": [
             {
                 "type": "image",
@@ -570,8 +620,8 @@
                         "large": {
                             "left": 30,
                             "top": 60,
-                            "width": 180,
-                            "height": 40
+                            "width": 150,
+                            "height": 31
                         },
                         "medium": {
 
@@ -625,10 +675,10 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 240,
-                            "top": 150,
+                            "left": 250,
+                            "top": 140,
                             "width": 490,
-                            "height": 270
+                            "height": 256
                         },
                         "medium": {
 
@@ -639,10 +689,10 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 30,
-                            "top": 130,
-                            "width": 420,
-                            "height": 300
+                            "left": 33,
+                            "top": 120,
+                            "width": 380,
+                            "height": 315
                         },
                         "medium": {
 
@@ -660,10 +710,10 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 45,
-                            "top": 35,
-                            "width": 150,
-                            "height": 120
+                            "left": 25,
+                            "top": 24,
+                            "width": 170,
+                            "height": 121
                         },
                         "medium": {
 
@@ -676,8 +726,8 @@
                         "large": {
                             "left": 30,
                             "top": 480,
-                            "width": 200,
-                            "height": 120
+                            "width": 180,
+                            "height": 129
                         },
                         "medium": {
 
@@ -695,10 +745,10 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 45,
-                            "top": 180,
-                            "width": 150,
-                            "height": 120
+                            "left": 25,
+                            "top": 160,
+                            "width": 170,
+                            "height": 121
                         },
                         "medium": {
 
@@ -709,10 +759,10 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 250,
+                            "left": 230,
                             "top": 480,
-                            "width": 200,
-                            "height": 120
+                            "width": 180,
+                            "height": 129
                         },
                         "medium": {
 
@@ -730,10 +780,10 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 45,
-                            "top": 325,
-                            "width": 150,
-                            "height": 120
+                            "left": 25,
+                            "top": 300,
+                            "width": 170,
+                            "height": 121
                         },
                         "medium": {
 
@@ -745,9 +795,9 @@
                     "vertical": {
                         "large": {
                             "left": 30,
-                            "top": 620,
-                            "width": 200,
-                            "height": 120
+                            "top": 625,
+                            "width": 180,
+                            "height": 129
                         },
                         "medium": {
 
@@ -801,8 +851,8 @@
                     "horizontal": {
                         "large": {
                             "left": 475,
-                            "top": 75,
-                            "fontSize": 26,
+                            "top": 55,
+                            "fontSize": 30,
                             "fontColor": "#b8202d",
                             "fontFamily": "RalewayBold"
                         },
@@ -815,9 +865,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 230,
-                            "top": 55,
-                            "fontSize": 22,
+                            "left": 209,
+                            "top": 47,
+                            "fontSize": 25,
                             "fontColor": "#b8202d",
                             "fontFamily": "RalewayBold"
                         },
@@ -875,8 +925,8 @@
                     "horizontal": {
                         "large": {
                            "left": 620,
-                            "top": 75,
-                            "fontSize": 26,
+                            "top": 55,
+                            "fontSize": 30,
                             "fontColor": "#b8202d",
                             "fontFamily": "RalewayRegular"
                         },
@@ -889,9 +939,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 350,
-                            "top": 55,
-                            "fontSize": 22,
+                            "left": 325,
+                            "top": 47,
+                            "fontSize": 25,
                             "fontColor": "#b8202d",
                             "fontFamily": "RalewayRegular"
                         },
@@ -949,7 +999,7 @@
                     "horizontal": {
                         "large": {
                             "left": 475,
-                            "top": 110,
+                            "top": 100,
                             "fontSize": 14,
                             "fontColor": "#b8202d",
                             "fontFamily": "RalewaySemiBold"
@@ -963,7 +1013,7 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 230,
+                            "left": 210,
                             "top": 90,
                             "fontSize": 12,
                             "fontColor": "#b8202d",
@@ -985,9 +1035,9 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 120,
-                            "top": 48,
-                            "fontSize": 10,
+                            "left": 115,
+                            "top": 35,
+                            "fontSize": 12,
                             "fontColor": "#ffffff",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1000,8 +1050,8 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 135,
-                            "top": 490,
+                            "left": 130,
+                            "top": 493,
                             "fontSize": 12,
                             "fontColor": "#ffffff",
                             "bakcgroundColor": "#b8202d"
@@ -1022,9 +1072,9 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 120,
-                            "top": 190,
-                            "fontSize": 10,
+                            "left": 105,
+                            "top": 171,
+                            "fontSize": 12,
                             "fontColor": "#ffffff",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1037,8 +1087,8 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 355,
-                            "top": 490,
+                            "left": 320,
+                            "top": 492,
                             "fontSize": 12,
                             "fontColor": "#ffffff",
                              "fontFamily": "ProximaNovaRegular"
@@ -1059,9 +1109,9 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 120,
-                            "top": 335,
-                            "fontSize": 10,
+                            "left": 115,
+                            "top": 310,
+                            "fontSize": 12,
                             "fontColor": "#ffffff",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1074,8 +1124,8 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 135,
-                            "top": 630,
+                            "left": 128,
+                            "top": 636,
                             "fontSize": 12,
                             "fontColor": "#ffffff",
                             "fontFamily": "ProximaNovaRegular"
@@ -1096,9 +1146,9 @@
                 "data": {
                     "horizontal": {
                         "large": {
-                            "left": 490,
-                            "top": 390,
-                            "fontSize": 20,
+                            "left": 505,
+                            "top": 365,
+                            "fontSize": 21,
                             "fontColor": "#b8202d",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1111,7 +1161,7 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 250,
+                            "left": 230,
                             "top": 400,
                             "fontSize": 16,
                             "fontColor": "#b8202d",
@@ -1186,8 +1236,8 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 250,
-                            "top": 640,
+                            "left": 230,
+                            "top": 630,
                             "fontSize": 24,
                             "fontColor": "#b8202d",
                             "fontFamily": "RalewayBold"
@@ -1260,8 +1310,8 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 315,
-                            "top": 640,
+                            "left": 295,
+                            "top": 630,
                             "fontSize": 24,
                             "fontColor": "#b8202d",
                             "fontFamily": "RalewayRegular"
@@ -1446,9 +1496,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 250,
+                            "left": 230,
                             "top": 670,
-                            "fontSize": 16,
+                            "fontSize": 14,
                             "fontColor": "#474647",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1520,9 +1570,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 350,
+                            "left": 330,
                             "top": 670,
-                            "fontSize": 16,
+                            "fontSize": 14,
                             "fontColor": "#474647"
                         },
                         "medium": {
@@ -1594,9 +1644,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 250,
-                            "top": 695,
-                            "fontSize": 16,
+                            "left": 230,
+                            "top": 690,
+                            "fontSize": 14,
                             "fontColor": "#474647",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1668,9 +1718,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 350,
-                            "top": 695,
-                            "fontSize": 16,
+                            "left": 330,
+                            "top": 690,
+                            "fontSize": 14,
                             "fontColor": "#474647",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1742,9 +1792,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 250,
-                            "top": 720,
-                            "fontSize": 16,
+                            "left": 230,
+                            "top": 710,
+                            "fontSize": 14,
                             "fontColor": "#474647",
                             "fontFamily": "ProximaNovaRegular"
                         },
@@ -1816,9 +1866,9 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 350,
-                            "top": 720,
-                            "fontSize": 16,
+                            "left": 330,
+                            "top": 710,
+                            "fontSize": 14,
                             "fontColor": "#474647",
                             "fontFamily": "ProximaNovaRegular"
                         },

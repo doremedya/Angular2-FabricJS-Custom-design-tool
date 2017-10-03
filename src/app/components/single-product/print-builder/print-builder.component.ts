@@ -21,7 +21,7 @@ var frontLayout, backLayout;
 var canvas_size = {
   large: {
     width: 800,
-    height: 480
+    height: 444
   },
   medium: {
     width: 480,
@@ -42,14 +42,14 @@ function initCanvas() {
   });
 
   if(sizePanel == "small") {
-    height = canvas_size.small.height;
     width = canvas_size.small.width;
+    height = canvas_size.small.height;
   } else if(sizePanel == "medium") {
-    height = canvas_size.medium.height;
     width = canvas_size.medium.width;
+    height = canvas_size.medium.height;
   } else {
-    height = canvas_size.large.height;
     width = canvas_size.large.width;    
+    height = canvas_size.large.height;
   }
   
   if(layoutPanel == "horizontal") {
@@ -115,6 +115,14 @@ function setCanvas(imageObj, direction) {
     return;
 
   canvas.clear().renderAll();
+  var canvas_width = imageObj.size[layoutPanel][sizePanel].width;
+  var canvas_height = imageObj.size[layoutPanel][sizePanel].height;
+ 
+  canvas.setWidth(canvas_width);
+  canvas.setHeight(canvas_height);
+
+  canvas.renderAll();
+
   var imgUrl = imageObj.background[layoutPanel][direction];
 
   if(currentBuilder == 'front-builder') {
