@@ -149,10 +149,15 @@ function putDataOnCanvas(selectedImageObj, imageDirection) {
             return;
 
           if(element.type == 'text'){
+              console.log(element.content)
+              console.log(element.data[layoutPanel][sizePanel].left)
+              console.log(element.data[layoutPanel][sizePanel].top)
+              console.log(element.data[layoutPanel][sizePanel].fontSize)
+              console.log(element.data[layoutPanel][sizePanel].fontFamily)
               addDefaultText(element.content, element.data[layoutPanel][sizePanel].left, element.data[layoutPanel][sizePanel].top, element.data[layoutPanel][sizePanel].fontSize, element.data[layoutPanel][sizePanel].fontColor, element.data[layoutPanel][sizePanel].fontFamily);
           }
       });
-  }, 100);
+  }, 500);
 
   canvas.renderAll();
 }
