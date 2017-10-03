@@ -26,8 +26,11 @@ function setFrontCanvas() {
 
   var front_image = localStorage.getItem('front');
 
+  if(!front_image)
+    return;
+
   frontCanvas.setBackgroundImage(front_image, frontCanvas.renderAll.bind(frontCanvas), {
-    backgroundImageOpacity: 0.5,
+    backgroundImageOpacity: 1,
     backgroundImageStrech: true,
     top: 0,
     left: 0,
@@ -52,8 +55,11 @@ function setBackCanvas() {
 
   var back_image = localStorage.getItem('back');
 
+  if(!back_image)
+    return;
+
   backCanvas.setBackgroundImage(back_image, backCanvas.renderAll.bind(backCanvas), {
-    backgroundImageOpacity: 0.5,
+    backgroundImageOpacity: 1,
     backgroundImageStrech: true,
     top: 0,
     left: 0,
@@ -144,38 +150,57 @@ export class ReviewOrderComponent implements OnInit {
       var shineFlag = true;
 
       $("#border-round").click(function() {
-        $(".canvas").css({
+        $(".ui-rotator .canvas").css({
           borderRadius: 20
         })
       })
 
       $("#border-square").on('click', function() {
-        $(".canvas").css({
+        $(".ui-rotator .canvas").css({
           borderRadius: 0
         })
       })
 
       $("#finish-matte").click(function() {
-        console.log(checkedFinishType)
-        if(checkedFinishType) {
-          $("canvas").removeClass("stripped");
-          $("canvas").addClass("dotted");
-          checkedFinishType = false;
-          shineFlag = true; 
-        } else {
-          $("canvas").removeClass("dotted");
-          checkedFinishType = true;
-        }
+        // console.log(checkedFinishType)
+        // if(checkedFinishType) {
+        //   $("canvas").removeClass("stripped");
+        //   $("canvas").addClass("dotted");
+        //   checkedFinishType = false;
+        //   shineFlag = true; 
+        // } else {
+        //   $("canvas").removeClass("dotted");
+        //   checkedFinishType = true;
+        // }
       })
 
       $("#finish-gloss").click(function() {
+        
         if(shineFlag){
-          $("canvas").addClass("stripped");
-          $("canvas").removeClass("dotted");
+          fabric.Image.fromURL('../../../../assets/images/glossy.png', function(img) {
+            var oImg = img.set({
+              left: 0,
+              top: 0,
+              width: frontCanvas.width,
+              height: frontCanvas.height,
+              quality: 1
+            });
+
+            frontCanvas.add(oImg);
+            frontCanvas.renderAll();
+
+            backCanvas.add(oImg);
+            backCanvas.renderAll();          
+          });
+         
           shineFlag = false;  
           checkedFinishType = true;
         } else {
-          $("canvas").removeClass("stripped");
+          frontCanvas.clear().renderAll();
+          backCanvas.clear().renderAll();
+
+          setFrontCanvas();
+          setBackCanvas();
           shineFlag = true;  
         }        
       })

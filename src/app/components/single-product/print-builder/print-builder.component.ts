@@ -16,6 +16,7 @@ var layoutPanel = "horizontal";
 var sizePanel = "large";
 var selectedFrontImgObj, selectedBackImgObj;
 var frontImgDirection, backImgDirection;
+var frontLayout, backLayout;
 
 var canvas_size = {
   large: {
@@ -52,11 +53,11 @@ function initCanvas() {
   }
   
   if(layoutPanel == "horizontal") {
+    canvas.setWidth(width);
     canvas.setHeight(height);
-    canvas.setWidth(width);    
   } else {
-    canvas.setHeight(width);
     canvas.setWidth(height);
+    canvas.setHeight(width);
   }
 
   canvas.on(
@@ -75,13 +76,21 @@ function updateModifications(savehistory) {
     if(currentBuilder == 'front-builder') {
         var myjson = JSON.stringify(canvas);
         frontState.push(myjson);
-        var frontDataURL = canvas.toDataURL({format: 'png', quality: 1.0});
-        localStorage.setItem('front', frontDataURL);
+        
+        // Timer since setLogo function(Marek - 2017.10.03)
+        setTimeout(function(){
+          var frontDataURL = canvas.toDataURL({format: 'png', quality: 1.0});
+          localStorage.setItem('front', frontDataURL);
+        }, 500);        
     } else {
         var myjson = JSON.stringify(canvas);
         backState.push(myjson);
-        var backDataURL = canvas.toDataURL({format: 'png', quality: 1.0});
-        localStorage.setItem('back', backDataURL);
+
+        // Timer since setLogo function(Marek - 2017.10.03)
+        setTimeout(function(){        
+          var backDataURL = canvas.toDataURL({format: 'png', quality: 1.0});
+          localStorage.setItem('back', backDataURL);
+        }, 500);        
     }
   }
 }
@@ -98,7 +107,6 @@ function setBackgroundImg(image) {
     height: canvas.height,
   });
   canvas.renderAll();
-
   // updateModifications(true);  
 }
 
@@ -108,6 +116,7 @@ function setCanvas(imageObj, direction) {
 
   canvas.clear().renderAll();
   var imgUrl = imageObj[layoutPanel][direction];
+
   if(currentBuilder == 'front-builder') {
       selectedFrontImgObj = imageObj;
       frontImgDirection = direction;
@@ -118,7 +127,7 @@ function setCanvas(imageObj, direction) {
 
   setBackgroundImg(imgUrl);
   allPropertiesonCanvas(imageObj, direction);
-  updateModifications(true);
+  // updateModifications(true);
 }
 
 function allPropertiesonCanvas(selectedImageObj, imageDirection) {
@@ -247,16 +256,16 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
   canvas.renderAll();
 }
 
-function getOppositeImg(img, oppositeImg) {
+// function getOppositeImg(img, oppositeImg) {
 
-  var img_name = img.split('-').pop(-1);
-  var mode = img_name.split('.')[0];
-  var oppositeImg_nameAry = oppositeImg.split('-');
-  var oppositeImg_name = oppositeImg_nameAry.pop(-1);
-  var new_oppositeImg_name = oppositeImg_nameAry[0]+'-'+oppositeImg_nameAry[1]+'-'+mode+'.'+oppositeImg_name.split('.')[1];
+//   var img_name = img.split('-').pop(-1);
+//   var mode = img_name.split('.')[0];
+//   var oppositeImg_nameAry = oppositeImg.split('-');
+//   var oppositeImg_name = oppositeImg_nameAry.pop(-1);
+//   var new_oppositeImg_name = oppositeImg_nameAry[0]+'-'+oppositeImg_nameAry[1]+'-'+mode+'.'+oppositeImg_name.split('.')[1];
 
-  return new_oppositeImg_name;
-}
+//   return new_oppositeImg_name;
+// }
 
 function addDefaultText(value, left, top, fontSize, color) {
   
@@ -472,10 +481,13 @@ export class PrintBuilderComponent implements OnInit {
           canvas.setHeight(canvas_size[sizePanel].width);
         }
 
-        if(currentBuilder == 'front-builder')
+        if(currentBuilder == 'front-builder'){
           setCanvas(selectedFrontImgObj, frontImgDirection);
-        else
+          frontLayout = layoutPanel;
+        }else {
           setCanvas(selectedBackImgObj, backImgDirection);
+          backLayout = layoutPanel;
+        }
       })
 
       $(".sizes").click(function() {
@@ -586,9 +598,21 @@ export class PrintBuilderComponent implements OnInit {
     this.backImage = backImage;
 
     if(this.currentBuilder == 'front-builder'){
-      canvas.loadFromJSON(frontState[frontState.length - 1]);
+      // if(frontLayout != backLayout){
+      //   setCanvas(selectedFrontImgObj, frontImgDirection);
+      // }else {
+      //   canvas.loadFromJSON(frontState[frontState.length - 1]);
+      // }
+      // frontLayout = backLayout;
+      setCanvas(selectedFrontImgObj, frontImgDirection);
     }else {
-      canvas.loadFromJSON(backState[backState.length - 1]);
+      // if(frontLayout != backLayout){
+      //   setCanvas(selectedBackImgObj, backImgDirection);
+      // }else {
+      //   canvas.loadFromJSON(backState[backState.length - 1]);
+      // }
+      // backLayout = frontLayout;
+      setCanvas(selectedBackImgObj, backImgDirection);
     }
     
     canvas.renderAll();
