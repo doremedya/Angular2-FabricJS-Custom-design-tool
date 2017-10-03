@@ -115,7 +115,7 @@ function setCanvas(imageObj, direction) {
     return;
 
   canvas.clear().renderAll();
-  var imgUrl = imageObj[layoutPanel][direction];
+  var imgUrl = imageObj.background[layoutPanel][direction];
 
   if(currentBuilder == 'front-builder') {
       selectedFrontImgObj = imageObj;
@@ -126,560 +126,33 @@ function setCanvas(imageObj, direction) {
   }
 
   setBackgroundImg(imgUrl);
-  allPropertiesonCanvas(imageObj, direction);
+  // allPropertiesonCanvas(imageObj, direction);
   // updateModifications(true);
+  putDataOnCanvas(imageObj, direction);
 }
 
-function allPropertiesonCanvas(selectedImageObj, imageDirection) {
-// console.log(imageDirection, layoutPanel, sizePanel);
-  if(
-    selectedImageObj.description && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.fontColor 
-  ){
-    addDefaultText(selectedImageObj.description, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description.fontColor)
-  }
+function putDataOnCanvas(selectedImageObj, imageDirection) {
+  selectedImageObj.elements.forEach(function(element){
+      if(element.direction != imageDirection)
+        return;
 
-  if(
-    selectedImageObj.name && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontColor 
-  ){
-    addDefaultText(
-      selectedImageObj.name,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontSize, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].name.fontFamily)
-  }
-
-  if(
-    selectedImageObj.serial && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.left && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.top && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontSize && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.serial,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].serial.fontFamily)
-  }
-  
-  if(
-    selectedImageObj.address1 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontColor
-  ){
-    addDefaultText(selectedImageObj.address1, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address1.fontFamily)
-  }
-
-  if(
-    selectedImageObj.address2 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontColor
-  ){
-    addDefaultText(selectedImageObj.address2, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].address2.fontFamily)
-  }
-
-  if(
-    selectedImageObj.cellphone && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontColor 
-  ){
-    addDefaultText(selectedImageObj.cellphone, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].cellphone.fontFamily)
-  }
-
-  if(
-    selectedImageObj.telphone && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontColor 
-  ){
-    addDefaultText(selectedImageObj.telphone, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].telphone.fontFamily)
-  }
-  
-  if(
-    selectedImageObj.email && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontColor 
-  ){
-    addDefaultText(selectedImageObj.email, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].email.fontFamily)
-  }
-
-  if(
-    selectedImageObj.website && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontColor 
-  ){
-    addDefaultText(selectedImageObj.website, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].website.fontFamily)
-  }
-  
-  if(
-    selectedImageObj.logo && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.width &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.height 
-  ){
-    setLogo(selectedImageObj.logo, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.width, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].logo.height)
-  }
-
-  if(
-    selectedImageObj.image1 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.width &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.height 
-  ){
-    setLogo(selectedImageObj.image1, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.width, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1.height)
-  }
-  
-  if(
-    selectedImageObj.title1Pre && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontColor &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontFamily
-  ){
-    addDefaultText(selectedImageObj.title1Pre, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.left, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.top, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontSize, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontColor, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1Pre.fontFamily)
-  }
-
-  if(
-    selectedImageObj.title1After && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.title1After, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title1After.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.title2 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.title2, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title2.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.price && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontColor
-  ){
-    addTextonImage(
-      selectedImageObj.mainImage, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].mainImage.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].mainImage.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].mainImage.width, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].mainImage.height,
-      selectedImageObj.price,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.fontFamily,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.backgroundLeft,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.backgroundTop,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.backgroundWidth,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.backgroundHeight,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].price.bakcgroundColor)
-  }
-
-  if(
-    selectedImageObj.image1Title && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontColor
-  ){
-
-    addTextonImage(
-      selectedImageObj.image2, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2.width, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2.height,
-      selectedImageObj.image1Title,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.fontFamily,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.backgroundLeft,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.backgroundTop,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.backgroundWidth,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.backgroundHeight,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image1Title.bakcgroundColor)
-  }
-
-  if(
-    selectedImageObj.image2Title && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontColor
-  ){
-
-    addTextonImage(
-      selectedImageObj.image3, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3.width, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3.height,
-      selectedImageObj.image2Title,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.fontFamily,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.backgroundLeft,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.backgroundTop,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.backgroundWidth,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.backgroundHeight,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image2Title.bakcgroundColor)
-  }
-
-  if(
-    selectedImageObj.image3Title && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontColor
-  ){
-
-    addTextonImage(
-      selectedImageObj.image4, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.width, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.height,
-      selectedImageObj.image3Title,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.fontFamily,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.backgroundLeft,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.backgroundTop,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.backgroundWidth,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.backgroundHeight,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image3Title.bakcgroundColor)
-  }
+      if(element.type == 'image'){
+          addDefaultImage(element.src, element.data[layoutPanel][sizePanel].left, element.data[layoutPanel][sizePanel].top, element.data[layoutPanel][sizePanel].width, element.data[layoutPanel][sizePanel].height);        
+      }
+  });
 
 
-  if(
-    selectedImageObj.image4 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.width &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.height 
-  ){
-    setLogo(selectedImageObj.image4, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.width, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].image4.height)
-  }
+  // Add Text after load all images.
+  setTimeout(function() {
+      selectedImageObj.elements.forEach(function(element){
+          if(element.direction != imageDirection)
+            return;
 
-  if(
-    selectedImageObj.title3Pre && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontColor &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontFamily
-  ){
-    addDefaultText(
-      selectedImageObj.title3Pre, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3Pre.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.title3After && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.title3After, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title3After.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.content1 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.content1, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content1.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.content2 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.content2, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content2.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.content3 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.content3, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content3.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.content4 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.content4, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content4.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.content5 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.content5, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content5.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.content6 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.content6, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].content6.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.description1 && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1 &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.description1, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].description1.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.title4Pre && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontColor &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontFamily
-  ){
-    addDefaultText(
-      selectedImageObj.title4Pre, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4Pre.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.title4After && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.title4After, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].title4After.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.contactDescription && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.contactDescription, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].contactDescription.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.about && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontSize &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontColor
-  ){
-    addDefaultText(
-      selectedImageObj.about,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.left,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.top,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontSize,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontColor,
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontFamily
-    )
-  }
-
-  if(
-    selectedImageObj.user && 
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.left &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.top &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.width &&
-    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.height 
-  ){
-    setLogo(selectedImageObj.user, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.left, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.top, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.width, 
-      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.height)
-  }
+          if(element.type == 'text'){
+              addDefaultText(element.content, element.data[layoutPanel][sizePanel].left, element.data[layoutPanel][sizePanel].top, element.data[layoutPanel][sizePanel].fontSize, element.data[layoutPanel][sizePanel].fontColor, element.data[layoutPanel][sizePanel].fontFamily);
+          }
+      });
+  }, 100);
 
   canvas.renderAll();
 }
@@ -695,24 +168,24 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
 //   return new_oppositeImg_name;
 // }
 
-function addDefaultText(value, left, top, fontSize, color, fontFamily="ProximaNovaRegular") {
+function addDefaultText(content, left, top, fontSize, fontColor, fontFamily) {
   
-  var textSample = new fabric.IText(value, {
+  var textSample = new fabric.IText(content, {
     left: left,
     top: top,
     fontSize: fontSize,
-    fontFamily: fontFamily,
+    fontFamily: "ProximaNovaRegular",
     angle: 0,
-    fill: color,
+    fill: fontColor,
     hasRotatingPoint: true
   });
 
   canvas.add(textSample);
 }
 
-function setLogo(logo, left, top, width, height) {
+function addDefaultImage(url, left, top, width, height) {
   
-  fabric.Image.fromURL(logo, function(img) {
+  fabric.Image.fromURL(url, function(img) {
     var oImg = img.set({
       left: left,
       top: top,
@@ -725,23 +198,6 @@ function setLogo(logo, left, top, width, height) {
     updateModifications(true);
   });
 
-}
-
-function addTextonImage(logo, ImageLeft, ImageTop, ImageWidth, ImageHeight, value, TextLeft, TextTop, TextFontSize, TextColor, TextFontFamily, backgroundLeft, backgroundTop, backgroundWidth, backgroundHeight, backgroundColor, fontWeight="normal") {
-  setLogo(logo, ImageLeft, ImageTop, ImageWidth, ImageHeight)
-
-  setTimeout(function() {    
-    canvas.add(
-      new fabric.Rect({ 
-        top: backgroundTop, 
-        left: backgroundLeft, 
-        width: backgroundWidth, 
-        height: backgroundHeight, 
-        fill: backgroundColor 
-      })
-    );
-    addDefaultText(value, TextLeft, TextTop, TextFontSize, TextColor, TextFontFamily)
-  }, 500)
 }
 
 @Component({

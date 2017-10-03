@@ -61,7 +61,8 @@
                             "left": 200,
                             "top": 160,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -75,7 +76,8 @@
                             "left": 70,
                             "top": 175,
                             "fontSize": 17,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -96,7 +98,8 @@
                             "left": 420,
                             "top": 230,
                             "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -110,7 +113,8 @@
                             "left": 80,
                             "top": 530,
                             "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -131,7 +135,8 @@
                             "left": 420,
                             "top": 255,
                             "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -145,7 +150,8 @@
                             "left": 80,
                             "top": 555,
                             "fontSize": 22,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -166,7 +172,8 @@
                             "left": 420,
                             "top": 300,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -180,7 +187,8 @@
                             "left": 80,
                             "top": 590,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -201,7 +209,8 @@
                             "left": 420,
                             "top": 320,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -215,7 +224,8 @@
                             "left": 80,
                             "top": 610,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -236,7 +246,8 @@
                             "left": 120,
                             "top": 250,
                             "fontSize": 50,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -250,7 +261,8 @@
                             "left": 140,
                             "top": 415,
                             "fontSize": 40,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -271,7 +283,8 @@
                             "left": 420,
                             "top": 340,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -285,7 +298,8 @@
                             "left": 80,
                             "top": 630,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -306,7 +320,8 @@
                             "left": 420,
                             "top": 360,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -320,7 +335,8 @@
                             "left": 80,
                             "top": 650,
                             "fontSize": 20,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -341,7 +357,8 @@
                             "left": 100,
                             "top": 310,
                             "fontSize": 22,
-                            "fontColor": "#c50035"
+                            "fontColor": "#c50035",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -355,7 +372,8 @@
                             "left": 100,
                             "top": 460,
                             "fontSize": 22,
-                            "fontColor": "#c50035"
+                            "fontColor": "#c50035",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -446,7 +464,8 @@
                             "left": 360,
                             "top": 243,
                             "fontSize": 44,
-                            "fontColor": "#ffffff"
+                            "fontColor": "#ffffff",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -460,7 +479,8 @@
                             "left": 80,
                             "top": 675,
                             "fontSize": 36,
-                            "fontColor": "#ffffff"
+                            "fontColor": "#ffffff",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -481,7 +501,8 @@
                             "left": 350,
                             "top": 310,
                             "fontSize": 18,
-                            "fontColor": "#4e4e4e"
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -492,10 +513,11 @@
                     },
                     "vertical": {
                         "large": {
-                            "left": 350,
-                            "top": 310,
-                            "fontSize": 18,
-                            "fontColor": "#4e4e4e"
+                            "left": 60,
+                            "top": 740,
+                            "fontSize": 16,
+                            "fontColor": "#4e4e4e",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
