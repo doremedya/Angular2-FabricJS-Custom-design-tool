@@ -783,7 +783,7 @@ export class PrintBuilderComponent implements OnInit {
         var textSample = new fabric.IText('Sample Text', {
           left: fabric.util.getRandomInt(0, canvas.width / 2),
           top: fabric.util.getRandomInt(0, canvas.height / 2),
-          fontFamily: 'helvetica',
+          fontFamily: 'ProximaNovaRegular',
           fontSize: 24,
           angle: 0,
           fill: '#000000',
@@ -1050,7 +1050,7 @@ export class PrintBuilderComponent implements OnInit {
     var textSample = new fabric.IText(this.label, {
       left: fabric.util.getRandomInt(0, canvas.width / 2),
       top: fabric.util.getRandomInt(0, canvas.height / 2),
-      fontFamily: 'helvetica',
+      fontFamily: 'ProximaNovaRegular',
       fontSize: 24,
       angle: 0,
       fill: '#000000',
