@@ -582,6 +582,22 @@ function allPropertiesonCanvas(selectedImageObj, imageDirection) {
   }
 
   if(
+    selectedImageObj.about && 
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about &&
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.left &&
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.top &&
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontSize &&
+    selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontColor
+  ){
+    addDefaultText(
+      selectedImageObj.about, selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.left,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.top,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontSize,
+      selectedImageObj.position[imageDirection][layoutPanel][sizePanel].about.fontColor
+    )
+  }
+
+  if(
     selectedImageObj.user && 
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user &&
     selectedImageObj.position[imageDirection][layoutPanel][sizePanel].user.left &&
