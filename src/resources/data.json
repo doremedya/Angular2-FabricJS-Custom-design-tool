@@ -258,7 +258,7 @@
             "front": "/assets/images/temp/business-front-portrait.png",
             "back": "/assets/images/temp/business-back-portrait.png"
         },
-        "image1": "/assets/images/temp/house.png",
+        "mainImage": "/assets/images/temp/house.png",
         "image2": "/assets/images/temp/house1.png",
         "image3": "/assets/images/temp/house2.png",
         "image4": "/assets/images/temp/house3.png",
@@ -269,14 +269,13 @@
         "image1Title": "KITCHEN",
         "image2Title": "FAMILY ROOM",
         "image3Title": "BED ROOM",
-        "price": "OFFERING AT $2500",
-        "description1": "Keller Williams Santa Monica | BRE# 01499010",
-        "description2": "Each office is independently owned and operated",
+        "price": "OFFERING AT $250.00",
+        "description1": "Keller Williams Santa Monica | BRE# 01499010 \nEach office is independently owned and operated",
         "title3Pre": "OUR",
         "title3After": "FACILITY",
         "title4Pre": "ABOUT",
         "title4After": "THE PROPERTY",
-        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \nvelit esse cillum dolore eu fugiat nulla.",
         "content1": "4 Bed Rooms",
         "content2": "Dining Room",
         "content3": "Kitchen Room",
@@ -305,13 +304,15 @@
                             "top": 75,
                             "fontSize": 26,
                             "fontColor": "#b8202d",
-                            "fontWeight": "bold"
+                            "fontWeight": "bold",
+                            "fontFamily": "RalewayBold"
                         },
                         "title1After": {
                             "left": 620,
                             "top": 75,
                             "fontSize": 26,
-                            "fontColor": "#b8202d"
+                            "fontColor": "#b8202d",
+                            "fontFamily": "RalewayRegular"
                         },
                         "title2": {
                             "left": 475,
@@ -319,7 +320,7 @@
                             "fontSize": 14,
                             "fontColor": "#b8202d"
                         },
-                        "image1": {
+                        "mainImage": {
                             "left": 240,
                             "top": 150,
                             "width": 490,
@@ -327,27 +328,47 @@
                         },
                         "price": {
                             "left": 420,
-                            "top": 400,
+                            "top": 380,
                             "fontSize": 30,
-                            "fontColor": "#b8202d"
+                            "fontColor": "#b8202d",
+                            "bakcgroundColor": "#ffffff",
+                            "backgroundWidth": 300,
+                            "backgroundHeight": 50,
+                            "backgroundLeft": 410,
+                            "backgroundTop": 370
                         },
                         "image1Title": {
                             "left": 100,
                             "top": 50,
-                            "fontSize": 20,
-                            "fontColor": "#b8202d"
+                            "fontSize": 12,
+                            "fontColor": "#ffffff",
+                            "bakcgroundColor": "#b8202d",
+                            "backgroundWidth": 105,
+                            "backgroundHeight": 25,
+                            "backgroundLeft": 90,
+                            "backgroundTop": 45
                         },
                         "image2Title": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#b8202d"
+                            "left": 100,
+                            "top": 195,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff",
+                            "backgroundWidth": 105,
+                            "backgroundHeight": 25,
+                            "backgroundLeft": 90,
+                            "backgroundTop": 190,
+                            "bakcgroundColor": "#b8202d"
                         },
                         "image3Title": {
-                            "left": 120,
-                            "top": 250,
-                            "fontSize": 50,
-                            "fontColor": "#b8202d"
+                            "left": 100,
+                            "top": 340,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff",
+                            "backgroundWidth": 105,
+                            "backgroundHeight": 25,
+                            "backgroundLeft": 90,
+                            "backgroundTop": 335,
+                            "bakcgroundColor": "#b8202d"
                         },                        
                         "image2": {
                             "left": 45,
@@ -403,24 +424,56 @@
                             "fontSize": 12,
                             "fontColor": "#b8202d"
                         },
-                        "image1": {
+                        "mainImage": {
                             "left": 30,
                             "top": 130,
                             "width": 420,
                             "height": 300
                         },
                         "price": {
-                            
+                            "left": 150,
+                            "top": 400,
+                            "fontSize": 26,
+                            "fontColor": "#b8202d",
+                            "bakcgroundColor": "#ffffff",
+                            "backgroundWidth": 290,
+                            "backgroundHeight": 60,
+                            "backgroundLeft": 130,
+                            "backgroundTop": 380
                         },
                         "image1Title": {
-                           
+                            "left": 135,
+                            "top": 490,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff",
+                            "bakcgroundColor": "#b8202d",
+                            "backgroundWidth": 105,
+                            "backgroundHeight": 25,
+                            "backgroundLeft": 125,
+                            "backgroundTop": 485
                         },
                         "image2Title": {
-                           
+                            "left": 355,
+                            "top": 490,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff",
+                            "backgroundWidth": 105,
+                            "backgroundHeight": 25,
+                            "backgroundLeft": 345,
+                            "backgroundTop": 485,
+                            "bakcgroundColor": "#b8202d"
                         },
                         "image3Title": {
-                            
-                        },                        
+                            "left": 135,
+                            "top": 630,
+                            "fontSize": 12,
+                            "fontColor": "#ffffff",
+                            "backgroundWidth": 105,
+                            "backgroundHeight": 25,
+                            "backgroundLeft": 125,
+                            "backgroundTop": 625,
+                            "bakcgroundColor": "#b8202d"
+                        },                       
                         "image2": {
                             "left": 30,
                             "top": 480,
@@ -447,7 +500,7 @@
                             "fontWeight": "bold"
                         },
                         "title3After": {
-                            "left": 330,
+                            "left": 315,
                             "top": 640,
                             "fontSize": 24,
                             "fontColor": "#b8202d"
@@ -583,7 +636,7 @@
                         "about": {
                             "left": 40,
                             "top": 230,
-                            "fontSize": 10,
+                            "fontSize": 12,
                             "fontColor": "#474647"
                         },                   
                         "name": {

@@ -5,6 +5,22 @@
 @import 'components/thank-you.css';
 @import 'components/single-product.css';
 
+
+@font-face {
+    font-family: 'ProximaNovaBold';
+    src: url('../fonts/Fonts/ProximaNova-Bold.otf');
+}
+
+@font-face {
+    font-family: 'RalewayBold';
+    src: url('../fonts/Fonts/Raleway-Bold_0.otf');
+}
+
+@font-face {
+    font-family: 'RalewayRegular';
+    src: url('../fonts/Fonts/Raleway-Regular.ttf');
+}
+
 body, html {
     font-size: 14px;
     font-family: 'Lato', sans-serif;
