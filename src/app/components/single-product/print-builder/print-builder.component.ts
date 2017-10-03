@@ -149,11 +149,6 @@ function putDataOnCanvas(selectedImageObj, imageDirection) {
             return;
 
           if(element.type == 'text'){
-              console.log(element.content)
-              console.log(element.data[layoutPanel][sizePanel].left)
-              console.log(element.data[layoutPanel][sizePanel].top)
-              console.log(element.data[layoutPanel][sizePanel].fontSize)
-              console.log(element.data[layoutPanel][sizePanel].fontFamily)
               addDefaultText(element.content, element.data[layoutPanel][sizePanel].left, element.data[layoutPanel][sizePanel].top, element.data[layoutPanel][sizePanel].fontSize, element.data[layoutPanel][sizePanel].fontColor, element.data[layoutPanel][sizePanel].fontFamily);
           }
       });
@@ -173,16 +168,17 @@ function putDataOnCanvas(selectedImageObj, imageDirection) {
 //   return new_oppositeImg_name;
 // }
 
-function addDefaultText(content, left, top, fontSize, fontColor, fontFamily) {
+function addDefaultText(content, left, top, fontSize, fontColor, fontFamily="Lato") {
   
   var textSample = new fabric.IText(content, {
     left: left,
     top: top,
     fontSize: fontSize,
-    fontFamily: "ProximaNovaRegular",
+    fontFamily: fontFamily,
     angle: 0,
     fill: fontColor,
-    hasRotatingPoint: true
+    hasRotatingPoint: true,
+    quality: 1
   });
 
   canvas.add(textSample);
@@ -420,23 +416,18 @@ export class PrintBuilderComponent implements OnInit {
         var top = 30;  
         var width = 200;
         var height = 250;
-        console.log(layoutPanel)
-        console.log(sizePanel)
         if(layoutPanel == 'horizontal') {
           if(sizePanel == "small") {
-            console.log("small")
             left = 20;
             top = 20;
             width = 100;
             height = 150;
           } else if (sizePanel == "medium") {
-            console.log("medium")
             left = 30;
             top = 30;
             width = 160;
             height = 230;
           } else {
-            console.log("large")
             left = 40;
             top = 40;
             width = 190;
@@ -444,19 +435,16 @@ export class PrintBuilderComponent implements OnInit {
           }
         } else {
           if(sizePanel == "small") {
-          //  console.log("small")
             left = 30;
             top = 30;
             width = 130;
             height = 190;
           } else if (sizePanel == "medium") {
-          //  console.log("medium")
             left = 50;
             top = 50;
             width = 210;
             height = 240;
           } else {
-          //  console.log("large")
             left = 60;
             top = 60;
             width = 250;
@@ -531,7 +519,6 @@ export class PrintBuilderComponent implements OnInit {
   }
 
   saveLabel() {
-    console.log(this.label)
     var textSample = new fabric.IText(this.label, {
       left: fabric.util.getRandomInt(0, canvas.width / 2),
       top: fabric.util.getRandomInt(0, canvas.height / 2),

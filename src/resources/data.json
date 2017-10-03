@@ -557,7 +557,7 @@
                             "left": 240,
                             "top": 60,
                             "width": 200,
-                            "height": 45
+                            "height": 42
                         },
                         "medium": {
 
@@ -592,7 +592,7 @@
                             "left": 540,
                             "top": 30,
                             "width": 200,
-                            "height": 40
+                            "height": 42
                         },
                         "medium": {
 
@@ -1597,7 +1597,8 @@
                             "left": 250,
                             "top": 695,
                             "fontSize": 16,
-                            "fontColor": "#474647"
+                            "fontColor": "#474647",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -1670,7 +1671,8 @@
                             "left": 350,
                             "top": 695,
                             "fontSize": 16,
-                            "fontColor": "#474647"
+                            "fontColor": "#474647",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -1743,7 +1745,8 @@
                             "left": 250,
                             "top": 720,
                             "fontSize": 16,
-                            "fontColor": "#474647"
+                            "fontColor": "#474647",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -1816,7 +1819,8 @@
                             "left": 350,
                             "top": 720,
                             "fontSize": 16,
-                            "fontColor": "#474647"
+                            "fontColor": "#474647",
+                            "fontFamily": "ProximaNovaRegular"
                         },
                         "medium": {
 
@@ -1940,7 +1944,7 @@
             },
             {
                 "type": "text",
-                "content": "JOHN SMITH",
+                "content": "JHON SMITH",
                 "direction": "back",
                 "data": {
                     "horizontal": {
